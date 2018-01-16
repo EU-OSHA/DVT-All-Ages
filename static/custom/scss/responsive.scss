@@ -1,0 +1,1404 @@
+/** fluid 100% to 1650 px **/
+@media only screen and (min-width : $ful1650)  {
+  .container.centered,
+  zylk-dashboard.container,
+  div#country-card-structure.container,
+  .additional-resources.container {
+      width: $ful1650;
+  }
+  zylk-dashboard zylk-country-csp-panel {
+    width:25%;
+    float: left;
+    -webkit-transition: width 1s; /* Safari */
+    transition: width 1s;
+  }
+  .radar > div[id^="zylk_radarChart"]{
+      width: 86%;
+      text-align: center;
+      margin-left:7%;
+  }
+
+}
+@media only screen and (max-width : $ful1650)  {
+
+  .container.centered,
+  zylk-dashboard.container,
+  div#country-card-structure.container,
+  .additional-resources.container {
+    padding: 0 !important;
+    width: 100%;
+    margin: 0;
+  }
+  zylk-dashboard zylk-country-csp-panel[country="Europe"] .main-country-card {
+      padding:10px 0 !important;
+  }
+  .country-card-bg .mapEU{
+    text-align:center;
+  }
+}
+
+@media only screen  and (min-width : 1280px) and (max-width : $ful1650)  {
+  zylk-dashboard zylk-country-csp-panel {
+    width:25%;
+    float: left;
+    -webkit-transition: width 1s; /* Safari */
+    transition: width 1s;
+  }
+
+}
+/** end fluid 100% to 1650 px **/
+
+
+@media screen and (min-width: 1200px) {
+  .main-indicator {
+    float: left;
+    position: relative;
+    min-height: 1px;
+  }
+  .dvt-modal .radar>div[id^=zylk_radarChart] {
+      width: 60%;
+      margin-left: 20%;
+      text-align: center;
+  }
+}
+
+@media only screen  and (min-width : 1281px) and (max-width : $ful1650)  {
+  .page-header {
+      width: 80%;
+  }
+  .carousel-caption {
+      right: 10%;
+      left: 10%;
+  }
+}
+@media only screen  and (min-width : 1200px) and (max-width : $ful1650)  {
+  .radar > div[id^="zylk_radarChart"]{
+    width: 110%;
+    text-align: center;
+    margin-left: -3%;
+  }
+}
+@media only screen  and (min-width : 1024px) and (max-width : 1200px)  {
+  .radar > div[id^="zylk_radarChart"]{
+      width: 70%;
+      text-align: center;
+      margin-left: 15%;
+  }
+  #osha-carousel {
+    margin-top:0;
+  }
+}
+
+@media only screen  and (min-width : 1024px) and (max-width : 1280px)  {
+  .carousel-caption {
+      right: 8%;
+      left: 8%;
+  }
+  #quick-access-links li {
+    width: auto;
+  }
+  .nav>li>a {
+      padding:10px 10px;
+  }
+  #indicators-content li.toggleGroup.horizontal.boxGroup {
+    min-height: 385px;
+  }
+}
+
+@media only screen  and (max-width : 1240px)  {
+  #quick-access-links li {
+    width: auto;
+    padding: 0 4px;
+  }
+  .logoOSHA > a img{
+    width: 65%;
+  }
+  .logoOSHA >  img{
+    width: 15%
+  }
+  #EUico {
+      margin: 3em 0 0 1.2em;
+  }
+  ul.navbar-nav .caret {
+    padding: 0 !important;
+    margin-left: -5px;
+  }
+  #csp-eu-panel.affix {
+      top: 119px;
+  }
+}
+@media screen and (max-width: 1143px) {
+  .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a span {
+      font-size: 17px;
+  }
+  .nav>li>a {
+    padding: 10px 8px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mainMenu{
+    float: right;
+    width:100%;
+  }
+  .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a span {
+      font-size: 17px;
+  }
+  .nav>li>a {
+    padding: 10px 8px;
+  }
+  #home-cover {
+      background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home-header-bg.png) -190px top no-repeat #529FA2;
+  }
+  #home-cover p.title-banner {
+     margin-left: 15px;
+  }
+  #referral-iniciatives {
+      padding: 2em 2em!important;
+  }
+  .blockPolicy {
+      border-bottom: 12px solid #f0f0f0;
+      border-left: 12px solid #f0f0f0;
+  }
+  .imagenPolicy {
+      padding: 0;
+      margin: 0;
+  }
+  .containerMini{
+    margin-left: 0em;
+  }
+  .grey {
+    border: 9px solid #FFF;
+    float: left;
+    width: 100%;
+  }
+  .page-header {
+      padding-bottom: .5em;
+      padding-top: 1.8em;
+      width: 100%;
+  }
+  .homepage .range-container {
+    margin-left: 0em!important;
+    padding:0;
+  }
+  input[type=range] {
+      width: 90%;
+  }
+  .itemsSlider {
+      width: 100%;
+      margin: .6em 0 1em 0;
+  }
+  #osha-carousel {
+    margin-top:0;
+  }
+  .carousel-caption {
+      width: auto !important;
+      left: 15%;
+      right: 15%;
+  }
+  .carousel-indicators {
+      margin: 0 auto!important;
+      bottom: 3em!important;
+      width: 100%;
+      left: 0;
+  }
+  .carousel.link {
+      top: 3.5em;
+      width: 100%;
+  }
+  .labelShare{
+    display:none !important;
+  }
+
+  .story-combo-compared {
+    position: absolute;
+    padding: 0;
+    margin-top: -12px;
+  }
+  .main-indicator {
+      margin-top: 5em;
+  }
+
+  /**** COUNTRY SELECTION PANEL ******/
+
+  .boxEurope .country-card-bg{
+    height: auto;
+  }
+  .firstCompared{
+    label{
+      text-align: center;
+    }
+  }
+
+  .dvt-chart.pyramid {
+      float: left;
+      width: 100%;
+      margin-bottom: 2.2em;
+      background: transparent !important;
+  }
+  .container.centered .mini-bloq {
+    width: 32.9%;
+    margin: 2px;
+    float: left;
+  }
+}
+
+
+/*responsive ipad*/
+@media only screen and (min-width : 800px) and (max-width : 1024px)  {
+  .containerMiniMaps {
+    margin-left: -2em !important;
+  }
+  .socialWidget {
+      padding:0;
+      margin-top: 8px;
+  }
+  .labelShare {
+      float: none;
+      text-align: left;
+  }
+  .page-header {
+    padding-bottom: .5em;
+    padding-top: 1.5em;
+    width: 100%;
+  }
+  .homepage .range-container {
+    margin-left: 15%!important;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding: 0;
+    width: 70%;
+  }
+  .carousel-caption {
+    width: 80%;
+  }
+  .carousel-caption p span.carrousel-number {
+    padding-bottom: 1em;
+  }
+
+  /*MENU CHALLENGES*/
+  .challengesBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li{
+    border-right: 1px solid $colorWhite;
+    display: inline-block;
+    width: auto;
+      a{
+        padding: 0.5em 1.3em;
+      }
+    }
+    li:last-child{
+    border-right: 0px solid $colorWhite;
+    }
+  }
+
+  .main-indicator .zylk-bar-chart {
+      width: 100%;
+      margin-left: 0;
+  }
+  .radar > div[id^="zylk_radarChart"]{
+      width: 70%;
+      text-align: center;
+      margin-left: 15%;
+  }
+  .dropdown {
+    text-align: right;
+  }
+  .dvt-modal .radar.backGraps div {
+    margin-left: 17% !important;
+  }
+  /*comparator*/
+  .selecter .second-comparator {
+    background-position: 0 80%;
+    margin-left: 0;
+    label{
+      width: 100%;
+      display: block;
+    }
+    zylk-select {
+      display: inline-block;
+      width: 100%;
+      margin-right: 15px;
+    }
+  }
+  .first-comparator {
+    label{
+      width: 100%;
+      display: block;
+    }
+    zylk-select{
+      display: inline-block;
+      width: 100%;
+      margin-right: 15px;
+    }
+  }
+  #formCountryInsigth.affix {
+      top: 125px;
+  }
+  #indicators-content.affix li.toggleGroup.horizontal.boxGroup {
+      margin-top: 4.5rem;
+  }
+}
+
+@media only screen and (min-width : 991px) and  (max-width:1074px){
+  .mainMenu #main-menu{
+    margin-top:0rem;
+  }
+}
+
+/********** BREAK POINT BOOTSTRAP FOR COL-MD ********/
+@media (max-width: 991px){
+  /**** POLICY APPROACHES GROUPS STICKY ******/
+  div#indicators-content.affix {
+    position: relative;
+    top: auto;
+    z-index: 100;
+
+    li.toggleGroup.horizontal.boxGroup {
+      min-height: 250px;
+    }
+
+    .boxGroup div {
+      display: block;
+    }
+  }
+  #indicators-content li.toggleGroup.horizontal.boxGroup {
+      min-height: 250px;
+  }
+}
+
+@media only screen and (min-width : 768px) and  (max-width:990px){
+  .logoOSHA {
+    width: auto !important;
+  }
+  #main-menu {
+    margin-top: 1.6rem;
+    float: left;
+    width: 100%;
+  }
+  .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a span {
+    font-size: 16.5px;
+  }
+  .nav>li>a {
+    padding: 10px 8px;
+  }
+  .firstCompared .dropdown .input-group {
+      float: left;
+      margin: .4em 1.6em 0 0em;
+  }
+  .dropdown-menu>li>a {
+      padding: 3px 15px;
+  }
+  #formCountryInsigth.affix {
+      top: 140px;
+  }
+}
+
+
+@media only screen and (max-width : 800px){
+  .containerMiniMaps {
+    margin-left: -2em !important;
+  }
+  .maximizeImage {
+    visibility: visibility;
+    display:block;
+  }
+
+  body {
+    /*padding-top: 136px;*/
+  }
+  .hidden-print{
+    clear: both;
+  }
+  #not-home-cover h1 {
+    margin-top: 20px;
+  }
+  #main-menu {
+      margin-top: 1.6rem;
+      width: 100%;
+      float:left;
+      .container-fluid{
+        padding: 0;
+      }
+  }
+
+  .socialWidget {
+      padding-top: .6em;
+  }
+  .a2a_button_print{
+    display: none;
+  }
+
+  .page-header {
+      width: 100%;
+      float: left;
+      /* margin-top: 0; */
+      padding-top: 0.5em;
+  }
+  .homepage .range-container {
+      margin-left: 0 !important;
+      margin-bottom: 0em;
+      width: 100%;
+  }
+/*MENU CHALLENGES*/
+  .challengesBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .challengesBar ul li{
+    border-right: 1px solid $colorWhite;
+    display: inline-block;
+    width: auto;
+    float: left;
+  }
+  .challengesBar ul li:last-child{
+    border-right: 0px solid $colorWhite;
+  }
+  .challengesBar ul li a{
+    padding: 0.5em 0.4em;
+  }
+
+  /*STRUCTURE*/
+  .container.centered {
+    width: 100%;
+  }
+  #issue-structure .selecter {
+    margin-top: 0em;
+  }
+  .main-indicator + div,
+  .main-indicator + div + div,
+  .contextual-indicators-left,
+  .contextual-indicators-right {
+    padding: 0;
+  }
+
+  div.contextual-indicators{
+    margin-top: 0;
+    .zylk-bar-chart {
+     margin-top: 7px;
+    }
+    & > div{
+      /*padding-right:0;*/
+    }
+
+  }
+  .main-indicator .zylk-bar-chart {
+      width: 100%;
+      margin-left: 0;
+  }
+  div.contextual-menu>div.dropdown>button {
+      float: right;
+  }
+  .dropdown-menu-right, .dropdown-menu.pull-right{
+    top:2.2em;
+  }
+
+
+  div[id^="zylk_bar_chart"] text[text-anchor="end"]{
+    font-size:12px !important;
+  }
+
+/*HOME*/
+
+  .home-spotlight {
+    article{
+      width:auto;
+      margin-right: 0;
+      margin-bottom: 15px;
+      min-height: auto;
+      h2{
+        margin: 0 !important;
+      }
+      .article-more-info {
+        top: 70% !important;
+      }
+    }
+  }
+
+
+  ul#approaches-map-tabs li {
+    display: inline-block;
+    width: 40%;
+  }
+  .boxGroup {
+    min-height:10px;
+  }
+  #footer-second-line{
+    margin-left: 1em;
+  }
+
+
+  /**country selection panel*/
+  zylk-dashboard zylk-country-csp-panel {
+    width: 50%;
+  }
+  .container.centered .mini-bloq {
+    width: 100%;
+  }
+  .all-ages-container{
+    .columns2, .columns3{
+      -moz-column-count: 1;
+      -ms-column-count: 1;
+      -webkit-column-count: 1;
+      column-count: 1;
+    }
+  }
+  .firstCompared {
+    label{
+      width:100%;
+    }
+    .dropdown{
+     .input-group {
+      width: 100%;
+      float: right;
+      margin:0em ;
+      }
+    }
+  }
+  .sepCompared{
+    background:url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/sep.png) 14px 88% no-repeat;
+
+    label{
+      width: 100%;
+      text-align: center;
+    }
+    .dropdown .input-group {
+        margin: 0em 1.6em 0 1em;
+        width: 100%;
+    }
+  }
+
+   #approaches-map-content div.grey.clearfix zylk-map div[id^="zylk_map"] {
+    overflow:hidden;
+      svg{
+        width: 110%!important;
+        left: 10%!important;
+        top: 2em;
+      }
+  }
+
+ /** options Facts and figures**/
+
+  #quick-access-links a#dropdownMenu1{
+    display: block;
+  }
+  #quick-access-links a.btn-default {
+      background-color: transparent;
+      border-color: #ccc;
+      border: none;
+  }
+  #quick-access-links .dropdown-menu{
+    position: initial;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    min-width: 100%;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-clip: padding-box;
+    display: none;
+  }
+  .open>.dropdown-menu {
+    display: block !important;
+  }
+  #quick-access-links li {
+      width: 100%;
+      text-align: center;
+      float: none;
+  }
+  #quick-access-links a:hover{
+    color:#000;
+  }
+  #formCountryInsigth.affix {
+      top: 134px;
+  }
+
+}
+
+@media only screen and (min-width : 768px) and (max-width :1023px){
+  #csp-eu-panel.affix {
+    top: 146px;
+    }
+}
+
+
+
+
+@media only screen and (max-width : 768px){
+  .containerMiniMaps {
+    margin-left: -2em !important;
+  }
+
+  #not-home-cover h1 {
+    margin-top: 10px;
+    font-size: 1.6em;
+  }
+
+  .path {
+    margin-bottom: 6px;
+    margin-top: 8px;
+    font-style: italic;
+    display: block;
+    float: none;
+    padding: 0;
+    font-size: 12px;
+  }
+  .socialWidget {
+    text-align: right;
+    width: 100%;
+    padding: 0.5em 0;
+  }
+  .main-indicator {
+    padding: 20px 0;
+  }
+  .homepage .range-container {
+    margin: 0 0 0 0!important;
+  }
+  .carousel-caption {
+    top: 3em;
+    width: 90% !important;
+    left: 10%;
+    padding-top: 0px;
+  }
+  .carousel-inner {
+    min-height: 300px
+  }
+  .carousel-indicators {
+      margin: 0 auto!important;
+      bottom: 0em!important;
+      width: 100%;
+      left: 0;
+  }
+  .carousel.link {
+      top: 2.5em;
+      width: 100%;
+  }
+  .main-indicator .zylk-bar-chart {
+    width: 96%;
+    margin: 2%;
+  }
+  .navbar-header{
+    margin-top: 1em;
+  }
+  .navbar-nav{
+    margin: 7.5px 0;
+  }
+  .navbar-collapse.in {
+    overflow-y: auto;
+    width:100%;
+    background: $colorWhite;
+    height: auto !important;
+    margin-top: 2em;
+    padding: 0;
+    display:none;
+  }
+  li{
+    &.ng-scope {
+      padding: 0;
+      -webkit-transition: all 1s;
+      transition: all 0.5s;
+    }
+    &.ng-scope.open {
+      background: #f2f2f2;
+      padding-bottom: 0em;
+      -webkit-transition: all 1s;
+      transition: all 0.5s;
+    }
+  }
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background: #00A0A4;
+    -webkit-transition: all 1s;
+    transition: all 0.5s;
+  }
+  .page-header {
+    width: 100%;
+   /* font-size: 25px;*/
+  }
+
+  .challengesBar ul li {
+    border-right: 0;
+    display: inline-block;
+    width: 50%;
+    float: left;
+    border-bottom: 1px solid $colorWhite;
+    min-height: 80px;
+  }
+  .challengesBar ul li a{
+    border-right: 0;
+  }
+  .pagination {
+      padding-left: 15px;
+  }
+  #quick-access-links {
+      margin-top: 1em;
+  }
+
+  #footer-first-line {
+    padding-left: 0;
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .panel-footer div#block-menu-block-5 {
+    float: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .panel-footer div#block-menu-block-4 ul {
+    margin: 0 0 1em 0;
+    text-align: center;
+  }
+  .panel-footer * li.menu__item {
+    display: inline-block;
+  }
+  #panel-footer ul {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .logoOSHA {
+    width: 70%;
+    position: absolute;
+    z-index: 1000;
+    margin:0 10px;
+  }
+  #EUico {
+    margin: 2em 0 0 1.5em;
+  }
+  .selecter .second-comparator {
+    background-position: 30% 17%;
+  }
+  #google_translate_element_wrapper {
+    right:0em;
+  }
+  #google_translate_element {
+    right:0em;
+  }
+  .goog-te-gadget-simple .goog-te-menu-value > span{
+    display:none;
+  }
+  .goog-te-gadget-simple .goog-te-menu-value > img + span {
+    display: inline-block;
+  }
+  .goog-te-menu-frame {
+    width: 98% !important;
+    margin-left:1% !important;
+  }
+  .country-comparison-content .dropdown .input-group {
+    width: 100% !important;
+    margin:0;
+  }
+  /**** POLICY APPROACHES GROUPS STICKY ******/
+  #indicators-content li.toggleGroup.horizontal.boxGroup,
+  #indicators-content.affix li.toggleGroup.horizontal.boxGroup{
+      min-height: auto !important;
+      padding-bottom:2rem;
+  }
+
+  #formCountryInsigth.affix {
+      top: 95px;
+  }
+  .modal-body {
+    .wrapper-contextual-menu{
+      display:none;
+    }
+  }
+  .twoColumns{
+    -webkit-column-gap: 50px;
+    -moz-column-gap: 50px;
+    column-gap: 50px;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
+
+
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+
+  .maximizeImage {
+    visibility: hidden;
+    display:none;
+  }
+  .containerMiniMaps {
+    margin-left: -2em !important;
+  }
+  .logoOSHA {
+    width: 40%;
+    position: absolute;
+    z-index: 1000;
+    margin:0 10px;
+  }
+  .contextual-menu {
+    position: relative;
+    top: 0px;
+    float: right;
+  }
+
+}
+
+
+
+@media only screen and (max-width : 667px) {
+  .maximizeImage {
+    visibility: hidden;
+    display:none;
+  }
+   body {
+     /* padding-top: 95px;*/
+  }
+  h2:empty {
+    display: none;
+  }
+  #google_translate_element_wrapper {
+    right: 0;
+    top: 0;
+    margin: 0em 1em -2em 0;
+  }
+  #google_translate_element {
+      right: 0;
+      top: 0;
+      margin: 0em 1em -2em 0;
+  }
+   #containerMenu {
+     min-height: 75px;
+      .navbar-header {
+        margin-top: 1em;
+        .navbar-toggle {
+          margin-right: 23px;
+          margin-top: -12px;
+        }
+      }
+  }
+
+  .container-header {
+      z-index: 1;
+  }
+  #home-cover {
+      background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home-header-bg.png) -179px top no-repeat #529FA2;
+  }
+  #home-cover p.title-banner {
+      margin-left: 37px;
+  }
+  p.title-banner{
+    font-size: 1.7em;
+    text-shadow: 1px 0px #000;
+  }
+
+  #zylk_pyramid_1protovis{
+    display: inline-block;
+    overflow: auto;
+    width: 100% !important;
+  }
+  .dvt-chart.pyramid{
+    margin-bottom: 0;
+  }
+
+  .carousel-inner>.item>img {
+    height: auto;
+  }
+  .homepage #zylk_pyramid_1{
+    min-height: auto !important;
+  }
+  svg:not(:root) {
+    overflow: visible;
+    width: 100% !important;
+  }
+  #csp-eu-panel  svg:not(:root) {
+    overflow: visible;
+    width: auto !important;
+  }
+  .home-spotlight article .article-more-info {
+    top: 0%!important;
+  }
+
+  div[id^=zylk_map], div[id^=zylk_bar_chart_] {
+      overflow: auto;
+      min-height: auto !important;
+  }
+  #approaches-map-content div.grey.clearfix zylk-map div[id^=zylk_map] {
+      min-height:auto !important;
+      overflow: hidden;
+
+      svg {
+        width: 140%!important;
+        /*height: 100%;*/
+        margin-left:0%;
+        left: 0!important;
+        top: 1em;
+      }
+  }
+  .dropdown {
+      text-align: right;
+  }
+  .sepCompared .dropdown .input-group{
+    width: 100%;
+  }
+  .dvt-chart, .zylk-bar-chart {
+    overflow: auto;
+  }
+  .no-padding-right {
+    padding-right: 15px !important;
+  }
+  .backGraps{
+      overflow: auto;
+  }
+  .dvt-chart.radar{
+    .col-xs-12{
+      padding: 0;
+    }
+  }
+  .main-indicator {
+      margin-top: 11em;
+      padding: 20px 0 0;
+  }
+  #approaches-map-tabs a {
+      font-size: 1em;
+      min-width: auto;
+  }
+  #indicators-content li.toggleGroup.horizontal.boxGroup {
+     border-right:0;
+  }
+  .twoColumns{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+  .searcher {
+    margin-bottom: 2em;
+  }
+
+  .boxEurope .scpPart1 {
+    margin: 0em 0 .7em 0em!important;
+  }
+  .affix{
+    position: initial !important;
+  }
+  #csp-eu-panel.affix {
+    top: 0;
+    padding: 0!important;
+    border-bottom: none;
+    position: initial !important;
+  }
+  zylk-dashboard zylk-country-csp-panel {
+    width: 100%;
+  }
+  .boxEurope .scpPart1 .col-xs-4:nth-child(4),
+  .boxEurope .scpPart1 .col-xs-4:nth-child(5),
+  .boxEurope .scpPart1 .col-xs-4:nth-child(6) {
+      padding-top: 1em;
+      border-top: 1px solid #529fa2;
+      min-height: 6em;
+  }
+
+  #approaches-map-content div.grey.clearfix zylk-map{
+    overflow:hidden;
+  }
+  #approaches-map-content div.grey.clearfix zylk-map svg {
+    width: 145% !important;
+  }
+  .modal-body {
+    .logoGraphics{
+      float: left;
+      margin-left: 25px;
+      margin-top: -71px;
+      display: block;
+      width: 120px;
+    }
+  }
+
+  .bloque {
+      margin: 0 0 1em;
+      padding: 0;
+  }
+  #section-challenges-content .bg-white,
+  #section-context-content .bg-white,
+  #section-stakeholders-content .bg-white {
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+  }
+  #section-grouping-content .grouping-bloq-countries {
+    margin: 3rem 0 2.5rem 0;
+    overflow: auto;
+  }
+  .containerMiniMaps .next, .containerMiniMaps .prev {
+    display: none;
+  }
+  .methodology div {
+      padding: 1em 1em;
+      width: 99%;
+      margin: 1em auto;
+  }
+  .glossary-term {
+    text-align: left;
+    width: 100%;
+    display: block;
+    border-radius: 5px 5px 0 0;
+  }
+  .glossary-def {
+    width: 100%;
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width : 420px) and (max-width : 667px) {
+  .maximizeImage {
+    visibility: hidden;
+    display:none;
+  }
+  zylk-dashboard zylk-country-csp-panel {
+    width: 50%;
+  }
+  .containerMiniMaps {
+    margin-left: -2em !important;
+  }
+
+  #indicators-content li.toggleGroup.horizontal.boxGroup{
+    min-height: auto;
+    padding-bottom: 1em;
+  }
+}
+
+@media only screen and (max-width : 420px) {
+  .maximizeImage {
+    visibility: hidden;
+    display:none;
+  }
+  p.title-banner {
+    font-size: 6vw !important;
+  }
+  #home-cover p.title-banner {
+    font-size: 9vw!important;
+  }
+  .homepage .containerPyramid h5 {
+    padding-left: 0;
+  }
+  #formCountryInsigth .containerPyramid h5 {
+    padding-left: 0;
+    font-size: 1.8rem;
+  }
+  .carousel-inner {
+    min-height: 250px;
+
+    .carousel-caption {
+        top: 1em;
+        width: 95%!important;
+        left: 5%;
+        padding-top: 0;
+        font-size: 1.6em;
+        min-height: 10em !important;
+
+        .carousel-caption > p {
+          margin-top: 1em;
+
+          span.carrousel-number {
+            width: 25%;
+            min-height: 4em;
+          }
+        }
+
+        .carousel.link {
+          top: 4.5em;
+          line-height: 0.4em;
+        }
+    }
+  }
+   #containerMenu {
+      .navbar-header {
+        margin-top: 2.4em;
+      }
+  }
+  .containerMiniMaps {
+    margin-left: -2em !important;
+  }
+  .main-indicator>.links>div.link.approach button.btn-default,
+  .main-indicator>.links>div.link.approach>a.btn-default{
+    margin-right: 21px;
+    margin-left: 15px;
+    margin-top: 6px;
+    padding: 6px 6px;
+    float: none;
+  }
+  .firstCompared {
+    width: 100%;
+    padding: 0;
+  }
+  .firstCompared {
+    label{
+      width:100%;
+    }
+    .dropdown .input-group {
+        width: 100%;
+        float: none;
+        margin: 0;
+    }
+  }
+  .second-comparator{
+    label{
+      width:100%;
+    }
+  }
+  .sepCompared {
+    width: 100%;
+    float: left;
+    padding: 0;
+    margin: 0;
+    background-position: 25% 18%;
+
+    .dropdown .input-group {
+        margin: 0;
+        width: 100%;
+    }
+  }
+
+  .selecter .second-comparator {
+      padding-left: 15px;
+      margin-left: 0;
+  }
+  svg:not(:root) {
+    /*width: auto !important;*/
+    height: 100% !important;
+  }
+
+  .radar svg{
+     width: 100% !important;
+     height:auto !important;
+     margin: 1em 0 1em 1em;
+  }
+  .shapeContainer {
+        display: none;
+    }
+    .graphBG {
+      .graphBG-first{
+      width: 100%;
+      }
+      .graphBG-second{
+        width: 100%;
+      }
+      .col-xs-9 {
+          width: 100%;
+          padding: 0;
+      }
+      .graphBG-bt{
+        width: 100%;
+        text-align: left;
+        margin: 7px 0;
+      }
+  }
+  #country-comparison-content .row:nth-child(2) {
+      margin: 1em 1em 0;
+  }
+  .container.centered {
+    .country-selection {
+      margin-bottom: 30px;
+      padding: 0;
+       li {
+        margin: 0 5px;
+      }
+    }
+    .mini-bloq .title{
+      min-height: auto;
+    }
+  }
+
+  div[id^="zylk_bar_chart"] text[text-anchor="end"]{
+  font-size:10px !important;
+  }
+  #approaches-map-content div.grey.clearfix zylk-map div[id^=zylk_map] {
+      svg {
+        width: 140%!important;
+        height: 290px!important;
+        left: 0!important;
+        top: 1em;
+      }
+  }
+  #approaches-map-tabs {
+    a {
+      font-size: 1.8rem;
+    }
+    li {
+        width: auto;
+    }
+  }
+
+  .nav>li>a, .nav>li>a:hover {
+    padding: 10px 5px;
+    margin: 0;
+    border: 0 !important;
+  }
+  main-country-card .title {
+    margin: 10px 0 0!important;
+  }
+  #section-challenges, #section-context, #section-facts, #section-grouping, #section-main-initiatives, #section-other-initiatives, #section-stakeholders {
+      margin: 10px 0;
+      padding: 0 0;
+  }
+
+
+}
+
+.containerMiniMaps .mapGrouping {
+  float:left !important;
+}
+
+@media only screen and (max-width : 340px) {
+  .carousel-inner {
+    min-height: 300px;
+    .carousel-caption {
+        .carousel-caption > p {
+          span.carrousel-number {
+          }
+        }
+        .carousel.link {
+          top: 6.5em;
+        }
+    }
+  }
+}
+
+
+
+/* only for IE11 */
+@media screen and (min-width :1440px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width :1440px){
+ #approaches-map-content div.grey.clearfix zylk-map svg{
+  width:80% !important;
+  left:0 !important;
+  margin-left: 0 !important;
+  height:690px !important;
+ }
+}
+@media screen and (min-width :1281px) and (max-width :1439px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width :1281px) and (max-width :1439px){
+ #approaches-map-content div.grey.clearfix zylk-map svg{
+  width:100% !important;
+  left:0 !important;
+  margin-left: 0 !important;
+  height:690px !important;
+ }
+}
+@media screen and (min-width :1121px) and (max-width :1280px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width :1121px) and (max-width :1280px){
+ #approaches-map-content div.grey.clearfix zylk-map svg{
+  width:90% !important;
+  left:0 !important;
+  margin-left: 0 !important;
+  height:500px !important;
+  }
+  .dvt-chart.radar svg{
+    padding-left:8%;
+    height:460px !important;
+  }
+  .modal-body .dvt-chart.radar svg{
+    padding-left:8%;
+    height:550px !important;
+  }
+}
+
+@media screen and (min-width :1025px) and (max-width :1120px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width :1025px) and (max-width :1120px){
+ #approaches-map-content div.grey.clearfix zylk-map svg{
+  width:90% !important;
+  left:0 !important;
+  margin-left: 0 !important;
+  height:500px !important;
+  }
+  .dvt-chart.radar svg{
+    padding-left:8%;
+    height:460px !important;
+  }
+  .modal-body .dvt-chart.radar svg{
+    padding-left:8%;
+    height:550px !important;
+  }
+}
+ @media screen and (min-width :801px) and (max-width :1024px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width :801px) and (max-width :1024px){
+  #approaches-map-content div.grey.clearfix zylk-map svg{
+    width:100% !important;
+    left:0 !important;
+    margin-left: 10% !important;
+    height:480px !important;
+  }
+  .dvt-chart.radar svg{
+    padding-left:8%;
+    height:800px !important;
+
+  }
+  .modal-body .dvt-chart.radar svg{
+    padding-left:8%;
+    height:550px !important;
+  }
+ }
+ @media screen and (min-width :768px) and (max-width :800px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width :768px) and (max-width :800px){
+    #approaches-map-content div.grey.clearfix zylk-map svg{
+    width:80% !important;
+    left:0 !important;
+    margin-left: 5% !important;
+    height:480px !important;
+  }
+  .dvt-chart.radar svg{
+    padding-left:8%;
+    height:640px !important;
+
+  }
+  .modal-body .dvt-chart.radar svg{
+    padding-left:8%;
+    height:500px !important;
+  }
+ }
+ @media screen and (min-width :420px) and (max-width :767px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width :420px) and (max-width :767px){
+    #approaches-map-content div.grey.clearfix zylk-map svg{
+    width:80% !important;
+    left:0 !important;
+    margin-left: 5% !important;
+    height:480px !important;
+  }
+  .dvt-chart.radar svg{
+    padding-left:8%;
+    height:430px !important;
+  }
+  .modal-body .dvt-chart.radar svg{
+    padding-left:8%;
+    height:450px !important;
+  }
+ }
+ @media screen and (max-width :480px) and (-ms-high-contrast: active), (-ms-high-contrast: none) and (max-width :480px){
+    #approaches-map-content div.grey.clearfix zylk-map svg{
+    width:80% !important;
+    left:0 !important;
+    margin-left: 0% !important;
+    height:370px !important;
+  }
+  .dvt-chart.radar svg{
+    padding-left:8%;
+    height:380px !important;
+  }
+  .modal-body .dvt-chart.radar svg{
+    padding-left:8%;
+    height:450px !important;
+  }
+ }
+
+/* ONLY FOR TABLETS */
+@media only screen and (max-device-width : 1024px) {
+  .a2a_button_print{
+    display: none;
+  }
+  .open>.dropdown-menu li:nth-child(2) {
+      /*display: none !important;*/
+  }
+
+}
+

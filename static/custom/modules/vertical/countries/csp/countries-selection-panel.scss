@@ -1,0 +1,635 @@
+/* countries-selection-panel.scss Start */
+
+zylk-dashboard {
+
+  display: block;
+
+  &.container {
+    padding: 0 !important;
+  }
+
+
+  //border: 10px solid red;
+
+  #country-shape {
+    padding-left: 0;
+
+    &.container {
+      padding: 0;
+    }
+
+  }
+
+  zylk-country-csp-panel {
+
+    width: 33%;
+    //border: 1px solid red;
+    float: left;
+    min-height: 300px;
+
+  }
+
+  zylk-country-csp-panel[country="Europe"] {
+
+    float: none;
+    width:100%;
+    overflow: hidden;
+
+
+    .main-country-card {
+
+    }
+
+  }
+
+
+
+}
+
+/* CONTENIDO PSD */
+
+.container.centered {
+
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+
+    ul {
+      list-style: none;
+    }
+
+
+  .intro {
+
+      margin: 20px 0 0;
+      padding: 20px 0;
+
+    .path {
+      margin-bottom: 20px;
+      font-style: italic;
+
+      span {
+
+        color: $colorA;
+
+        span {
+          font-weight: bold;
+        }
+
+      }
+
+    }
+
+  }
+
+  .layer-content {
+    background: #f7f7f7;
+    margin: 10px 0;
+    padding: 20px;
+
+    padding: 20px 0;
+    overflow: hidden;
+
+;
+
+    .bg-white {
+      background: white;
+      text-align: left;
+      padding: 20px;
+    }
+
+  }
+
+
+    .page-header {
+
+      font-size: 26px;
+      line-height: 40px;
+      color: $colorA;
+      font-family: $font-header;
+      padding:0;
+      margin:0;
+      border: 0;
+      font-weight: 400;
+      font-size: 26px;
+      line-height: 40px;
+
+    }
+
+
+    .selecter {
+      background: #fdedcc;
+      padding: 20px 20px 0;
+      display: block;
+      //border: 1px solid red;
+      overflow: hidden;
+      text-align: left;
+
+        .half {
+          //width:40%;
+          //border: 1px solid red;
+
+          display: inline-block;
+          margin-top: 15px;
+
+          &.left {
+            text-align: right;
+            padding-right: 25px;
+          }
+
+          &.right {
+            text-align: left;
+          }
+        }
+
+
+    }
+
+
+    h2 {
+      //border: 1px solid red;
+      color: $colorB;
+      font-size:21px;
+      line-height: 28px;
+
+      margin-bottom: 40px;
+      //border: 1px solid red
+
+    }
+
+    .icon {
+      background: $colorA;
+      display:block;
+      width: 90px;
+      height: 90px;
+      border-radius: 100%;
+      margin:0 auto;
+      margin-bottom: 20px;
+
+      &.facts {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-facts.png") center center no-repeat;
+      }
+
+      &.section-facts {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-facts.png") center center no-repeat;
+      }
+
+      &.section-grouping {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-grouping.png") center center no-repeat;
+      }
+
+      &.section-main-initiatives {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-main.png") center center no-repeat;
+      }
+
+      &.section-other-initiatives {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-other.png") center center no-repeat;
+      }
+
+      &.section-context {
+         background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-circunstances.png") center center no-repeat;
+      }
+
+      &.section-challenges {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-pending.png") center center no-repeat;
+      }
+
+      &.section-stakeholders {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-system.png") center center no-repeat;
+      }
+
+    }
+
+    .sep {
+      background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/sep.png") center center no-repeat;
+      display: inline-block;
+      width:25px;
+      height:25px;
+      margin-left: 15px;
+      margin-right: 5px;
+      margin-top: -5px;
+      vertical-align: middle;
+      margin-left: -15px;
+      //border: 1px solid reD;
+
+    }
+
+    label {
+      font-family:$font-header-light;
+      color: $font-black;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 45px;
+      margin-bottom: 0;
+    }
+
+    .mini-bloq {
+      width: 20%;
+      min-width: 225px;
+      display: inline-block;
+      min-height: 250px;
+      vertical-align: top;
+      padding: 3px;
+      float:left;
+
+      .title {
+        font-size: 15px;
+        line-height: 25px;
+        min-height: 5.5em;
+        color: $font-grey;
+        //background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/more.png") top right no-repeat;
+        padding-right: 45px;
+        //display: inline-block;
+
+      }
+
+    }
+
+    .country-selection {
+
+      margin-bottom: 30px;
+
+      li {
+        display: inline-block;
+        //border: 1px solid lime;
+        color: $font-grey;
+        margin:0 22px;
+      }
+
+      span.selected {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right:10px;
+        background: $color01;
+      }
+
+      span.selected2 {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right:10px;
+        background: $color03;
+      }
+
+
+      span.eu {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right:10px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 15px;
+
+        background: $plt-eu01;
+
+      }
+
+    }
+
+
+
+
+
+
+
+
+}
+
+/* Main ppollicies */
+
+.grouping-box {
+ // min-height: 300px;
+  //border: 20px solid blue;
+  //overflow: hidden;
+
+  //border: 1px solid lime;
+
+  .map-image {
+    //border: 4px solid pink;
+    margin-top: -100px;
+  }
+
+  .map-content {
+    //border: 4px solid pink;
+    text-align: left;
+
+    .title {
+
+      font-family: $font-text;
+      font-weight: 700;
+      font-size:16px;
+      margin-bottom: 40px;
+
+    }
+
+    .descriptions {
+      //border: 1px solid red;
+      margin:0;
+      padding:0;
+      margin-bottom: 100px;
+
+      li {
+        padding:0;
+        margin:0;
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/bullet.png") 0 6px no-repeat;
+        padding-left: 15px;
+      }
+    }
+
+  }
+
+  .countries {
+
+    //border: 1px solid lime;
+
+    padding: 0;
+    margin: 0px;
+    //margin-left: 4px;
+    margin-bottom: 10px;
+
+    li {
+      padding:0;
+      margin:0;
+      width:19%;
+      //border: 1px solid blue;
+
+      display: inline-block;
+
+
+      //margin-left: -1px;
+
+      a {
+        display: block;
+        margin:0;
+        padding: 0;
+        //border: 1px solid red;
+        background: white;
+        min-height: 110px;
+        text-align: center;
+
+        font-family: $font-header;
+        font-weight: 100;
+
+        color: $font-black;
+
+        &:hover {
+          background: $colorA;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+
+        span {
+            display: block;
+            min-height:80px;
+            //border: 1px solid red;
+        }
+
+      }
+    }
+
+
+  }
+
+
+
+  .links {
+    //border:1px solid red;
+
+
+    li {
+      //border:1px solid blue;
+      text-align: right;
+      padding-right: 15px;
+
+      a {
+        font-family: $font-header;
+        font-weight: bold;
+        color: $colorB;
+        font-size: 13px;
+
+        span {
+          color: $colorA;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.main-policies {
+  //border: 10px solid red;
+  overflow: hidden;
+
+  .line {
+    //border-right: 10px solid orange;
+    //background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/line.png") transparent top center repeat-y;
+
+    overflow: hidden;
+  }
+
+  .policy-bloq {
+    //border:1px solid pink;
+    background: #fff;
+    padding:30px 10px;
+    //margin:20px;
+    width: 46%;
+    margin: 2%;
+  }
+
+  .title {
+    text-align: left;
+    //border: 1px solid blue;
+    padding-left: 23px;
+
+    font-size:16px;
+    line-height: 18px;
+    color: $colorB;
+    font-family: $font-text;
+    font-weight: 500;
+    margin:0;
+    margin-top: 5px;
+
+  }
+
+  .subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 6px 0 10px;
+  }
+
+  p {
+    font-family: $font-header;
+    font-size: 14px;
+    line-height: 18px;
+    color: $font-black;
+    font-weight: 100;
+  }
+
+  .bloq {
+    display: inline-block;
+    //border:1px solid lime;
+    width: 48%;
+    vertical-align: top;
+    text-align: left;
+
+    padding: 10px 15px;
+  }
+
+
+
+
+}
+
+
+.know-more {
+  // border: 1px solid blue;
+
+  font-size: 16px;
+  padding-right: 25px;
+  color: $font-black;
+  background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/flecha.png") transparent right center no-repeat;
+  word-wrap: break-word;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.know-more.external {
+  background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/external_link.png')transparent right center no-repeat !important;
+}
+
+.know-more-external {
+  background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/external_link.png')transparent right center no-repeat !important;
+  font-family: Oswald!important;
+  font-weight: 400;
+  text-decoration: none!important;
+  margin-right: .5em;
+  padding-right: 1.3em;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color:black;
+}
+.know-more-external:hover {
+  color:$color03 !important;
+}
+
+
+/* OTHERS */
+
+.container.centered .layer-content.others {
+
+  .bg-white {
+    margin-bottom: 20px;
+    //border:1px solid red;
+  }
+
+}
+
+
+.container.centered .layer-content.circunstances,
+.container.centered .layer-content.system,
+.container.centered .layer-content.pending {
+
+  .title {
+    font-family: $font-header;
+    color: $colorA;
+    font-weight: 100;
+  }
+
+  .bloq {
+    margin-bottom: 20px;
+  }
+
+}
+
+
+.container.centered .layer-content.pending {
+
+.eye {
+  display: block;
+  background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/eye.png") transparent center center no-repeat;
+  min-height: 30px;
+  //border: 1px solid red;
+
+}
+
+}
+.select2-container{
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+    width:100%;
+}
+body .select2-container .select2-choice .select2-arrow b {
+  background-position: 0 3px;
+}
+
+
+body  zylk-select .select2-container .select2-choice,
+body  zylk-select-redirect  .select2-container .select2-choice {
+  display: block;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 0;
+}
+
+
+#quick-access-links {
+  //border: 1px solid red;
+  margin-top:0px;
+
+  span {
+    text-align: center;
+
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+    font-family:$font-header-light;
+    font-size: 18px;
+    color: $font-black;
+    font-weight: 100;
+
+    &:hover {
+      background: $colorA;
+      color:white;
+    }
+
+  }
+
+}
+
+.form-control {
+
+  margin-left: 30px;
+
+}
+
+.container.centered .selecter .half.right {
+
+  label {
+    padding-left: 10px;
+  }
+
+}
+
+#quick-access-links {
+  border-top:1px solid #333;
+  padding-top: 10px;
+}
+
+/* countries-selection-panel.scss End */

@@ -1,0 +1,513 @@
+/* INICIO country-insight.scss */
+
+#breadCrumbs {
+    a{
+    color: $font-black;
+    text-decoration: none;
+        &:hover{
+         color:$color03;
+         text-decoration: none;
+        }
+    }
+}
+
+#country-card-combo-info {
+    color:#777;
+}
+
+[id^=facts-and-figures-square-country] {
+    background-color:#70a0ff;
+    height:50px;
+    color:#fff;
+    vertical-align:middle;
+    text-align:center;
+    padding-top:15px;
+    padding-right:0;
+    padding-left:0;
+}
+
+[id^=approach-square-country] {
+    background-color:#039;
+    height:50px;
+    color:#fff;
+    text-align:center;
+    vertical-align:middle;
+    padding-top:15px;
+    padding-right:0;
+    padding-left:0;
+}
+
+[id^=main-iniciatives-square-country] {
+    background-color:#a5b8db;
+    height:50px;
+    color:#fff;
+    vertical-align:middle;
+    text-align:center;
+    padding-top:15px;
+    padding-right:0;
+    padding-left:0;
+}
+
+[id^=context-square-country] {
+    background-color:#f1accd;
+    height:50px;
+    color:#fff;
+    vertical-align:middle;
+    text-align:center;
+    padding-top:15px;
+    padding-right:0;
+    padding-left:0;
+}
+
+[id^=pending-challenges-square-country] {
+    background-color:#dc2f82;
+    height:50px;
+    color:#fff;
+    vertical-align:middle;
+    text-align:center;
+    padding-top:15px;
+    padding-right:0;
+    padding-left:0;
+}
+
+[id^=stakeholders-square-country] {
+    background-color:#721341;
+    height:50px;
+    color:#fff;
+    vertical-align:middle;
+    text-align:center;
+    padding-top:15px;
+    padding-right:0;
+    padding-left:0;
+}
+
+#facts-and-figures {
+    padding-right:0;
+    padding-left:0;
+}
+
+#approach {
+    padding-right:0;
+    padding-left:0;
+}
+
+#main-iniciatives {
+    padding-right:0;
+    padding-left:0;
+}
+
+#context {
+    padding-right:0;
+    padding-left:0;
+}
+
+#pending-challenges {
+    padding-right:0;
+    padding-left:0;
+}
+
+#stakeholders {
+    padding-right:0;
+    padding-left:0;
+}
+
+#facts-and-figures ul li {
+    list-style:none;
+}
+
+#approach ul li {
+    list-style:none;
+}
+
+#main-iniciatives ul li {
+    list-style:none;
+}
+
+#context ul li {
+    list-style:none;
+}
+
+#pending-challenges ul li {
+    list-style:none;
+}
+
+#stakeholders ul li {
+    list-style:none;
+}
+
+#country-shape {
+    padding-left:40px;
+}
+
+.border-separator-right {
+    border-right:1px solid #7383b3;
+    border-collapse:collapse;
+}
+
+.border-separator-left {
+    border-left:1px solid #7383b3;
+    border-collapse:collapse;
+}
+
+
+
+.zylk-bar-chart {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    background: white;
+    padding: 6px 5px 5px 5px;
+}
+
+#section-approaches-content-2,
+#section-approaches-content-4{
+
+    text-align: left;
+    svg {
+        display: none;
+    }
+
+}
+
+
+#Group1-list {
+
+}
+
+
+.section-content {
+
+    h2 {
+        text-align: center;
+    }
+
+    li {
+        text-align: justify;
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: $colorA;
+        text-decoration: underline;
+    }
+
+    ul {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+
+}
+.columns2,.columns3,.columns4 {
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+    -ms-column-gap: 1em;
+    column-gap: 1em;
+}
+.columns2 {
+    -moz-column-count: 2;
+    -ms-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+}
+.columns3 {
+    -moz-column-count: 3;
+    -ms-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+.columns4 {
+    -moz-column-count: 4;
+    -ms-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+}
+.bloque {
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 0 1em;
+    padding: 0 2em 1em;
+    text-align: left;
+    div {
+        background: #fff none repeat scroll 0 0;
+        padding-bottom:1em;
+        overflow: auto;
+        padding: 1em;
+        .know-more {
+            float:right;
+        }
+    }
+    div.item br:first-child(){
+    display:none;
+    }
+    h3.title {
+        color: #529fa2;
+        font-family: "Open Sans",sans-serif;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding: 0 1em;
+
+    }
+    h3.title:empty{
+        display:none;
+    }
+    h4.subtitle {
+        font-family: "Open Sans",sans-serif;
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding: 0 1em;
+    }
+    ul{
+        margin:1.5rem 0;
+    }
+    ul li{
+        list-style: none;
+        background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/bullet_aqua.png) 0 6px no-repeat;
+        background-size: 6px;
+        padding: 0 0 0 1.2em;
+        margin: 0 0 0 20px;
+    }
+    ul li + br{
+        display:none;
+    }
+}
+
+
+
+
+#section-context-content .bloque div,
+#section-challenges-content .bloque div,
+#section-stakeholders-content .bloque div{
+    background: #fff none repeat scroll 0 0;
+    padding-bottom:1em;
+    max-height: auto !important;
+    padding: 2em;
+    .know-more {
+        float:right;
+    }
+}
+
+a.know-more {
+    color: #000 !important;
+    font-family: "Oswald"!important;
+    font-weight:400;
+    font-size: 1.8rem;
+    text-decoration: none !important;
+    display:inline-block !important;
+
+    &:hover{
+        color:#3EA1A0 !important;
+    }
+}
+.bg-white .eye {
+    margin: 0 0 0.5em;
+}
+#country-card-structure .container.centered h2 {
+ margin-bottom: 0 !important;
+}
+ul.country-selection {
+    font-family: "oswald";
+    font-size: 1.1em;
+    margin-top: 3em;
+}
+#section-challenges-content .bloque {
+    /*padding-top: 1.8em;*/
+}
+#country-card-structure {
+    #section-context-content {
+        margin-top:-1em;
+    }
+
+    #section-stakeholders-content {
+        /*margin-top: -1em;*/
+
+        .bloq.bloque {
+            /*padding-top: 2em;*/
+            .bg-white:has(h3){
+
+            }
+        }
+
+    }
+
+    #section-challenges-content {
+       /* margin-top:-1.7em;*/
+    }
+}
+
+/*Propuesta social widget*/
+.titleAndWidget {
+    text-align:left;
+}
+form.selecter {
+    clear:both;
+}
+
+.socialWidget {
+    text-align: right;
+    padding: 0.5em 0 0 0;
+}
+
+.ciSection {
+    overflow: hidden;
+}
+
+.graphBG {
+    clear: both;
+    .contextual-menu{
+        text-align: right;
+        padding-right: 4%;
+    }
+}
+
+#quick-access-links li {
+    width:14%;
+    text-align:center;
+    float:left;
+}
+
+.graphBG .pyramid {
+    margin-top: -2em !important;
+}
+.seemore {
+    background:url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/caret.png") no-repeat scroll right center !important;
+    span {
+        display:inline-block;
+    }
+}
+
+.seemore.up {
+    background:url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/caretUp.png") no-repeat scroll right center !important;
+    span {
+        display:none
+    }
+}
+
+#country-card-structure .seemore.up {
+    background:url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/caretUp.png") no-repeat scroll right center !important;
+    width:17px;
+    height:10px;
+    span {
+        display:none
+    }
+}
+#section-context-content .bg-white,
+#section-challenges-content .bg-white,
+#section-stakeholders-content .bg-white{
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-gap: 5rem;
+    -moz-column-gap: 5rem;
+    column-gap: 5rem;
+}
+
+.maxHeight{
+    max-height: 16em !important;
+    overflow: hidden !important;
+}
+.mapGrouping {
+    background:#FFF;
+    padding:0em;
+    margin-right:1px;
+    cursor:pointer;
+    width: 126px;
+}
+
+.selected.mapGrouping{
+    cursor:default;
+}
+
+.actionsMaps {
+    background: #f7f7f7;
+    text-align: right;
+    padding: 0.3em 0 1em;
+    a {
+        display:block;
+        visibility: hidden;
+    }
+}
+
+.mapGrouping:hover, .mapGrouping.marked{
+    color:$color09;
+    background: $colorA;
+    div {
+
+    }
+}
+.containerMiniMap {
+    color: $color09;
+    text-align: center;
+    padding: 1em 0;
+    div {
+        color: #000;
+        font-family: oswald;
+        font-size: 1.2em;
+        font-weight: 300;
+        margin: 0.7em 0 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.selected.containerMiniMap{
+    color: $colorA;
+}
+.selected.mapGrouping:hover{
+    background:white;
+    .containerMiniMap div {
+        color: #000;
+    }
+}
+
+.containerMiniMaps {
+    width: 100%;
+    overflow: hidden;
+    .prev,.next {
+        position: absolute;
+        cursor:pointer;
+        background:#ccc;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 3em;
+        color:#fff;
+        padding: 43.5px 10px;
+    }
+    .next {
+        right:0;
+    }
+}
+.containerMiniMap:hover div,.marked .containerMiniMap div{
+    color:#FFF;
+}
+
+.controllersMove {
+    position: relative;
+    width: 100%;
+}
+.movible {
+    margin-left: 35px;
+}
+.lastCompared{
+    .shapeContainer {
+        color: $color03;
+    }
+    .mapGrouping.marked, .mapGrouping:hover {
+        background:$color03;
+    }
+    .containerMiniMap {
+        color:$color04;
+    }
+    .selected.containerMiniMap{
+        color: $color03;
+    }
+    .selected.mapGrouping:hover{
+        background:white;
+        .containerMiniMap div {
+            color: #000;
+        }
+    }
+}
+
+

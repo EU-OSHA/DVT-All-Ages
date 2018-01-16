@@ -1,0 +1,18 @@
+ ==================
+  jndi setup
+ ==================
+ 
+ 0. instalar el mysql driver en data-integration
+ 
+ 1. establecer la conexión jndi, usar como referencia
+ /all-ages/endpoints/kettle/admin/resources-ext/jdbc.properties
+ 
+ 2. configurar el jndi si es necesario
+ 
+  
+==================
+  load-olderworkers
+==================
+
+/all-ages/endpoints/kettle/admin/osha_dvt_allages/osha_dvt_allages_all.kjb
+ 

@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+
+    <!-- SELECTS-->
+    <!-- zylk-select country1-->
+    <DataAccess access="public" connection="connection" id="getCountryListWithout" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String" />
+        </Parameters>
+        <Query>SELECT DISTINCT(Id), Description FROM Country
+            WHERE Id not in (${pCountry1})
+            ORDER BY Description ASC
+        </Query>
+    </DataAccess>
+    <!--ISSUE zylk-select country 2 TEMP //TODO design new SQL for two selectors-->
+    <DataAccess access="public" connection="connection" id="getCountryListWithout2" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="AT" name="pCountry2" type="String" />
+        </Parameters>
+        <Query>SELECT DISTINCT(Id), Description FROM Country
+            WHERE Id not in (${pCountry2})
+            ORDER BY Description ASC
+        </Query>
+    </DataAccess>
+
+    <!--STORY 1-->
+    <!--MAIN: Effective retirement age-->
+    <DataAccess access="public" connection="connection" id="getIssueStory1Main" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="F" name="pGender" type="String"/>
+            <!-- default="NL" -->
+        </Parameters>
+        <Query>
+            SELECT CAST(ff.ID AS CHAR CHARACTER SET utf8) as indicator,c.Id as Country,
+            ff.Measure as Value, i.Indicator from Country c
+            LEFT JOIN FactsFigures ff
+            ON c.Id = ff.Country
+            LEFT JOIN Indicators i
+            ON ff.Id = i.Id
+            WHERE ff.ID in (1,57)
+            AND ff.YSelected = 1
+            AND ff.Criteria = ${pGender}
+            GROUP BY c.Id,c.Description,CAST(ff.ID AS CHAR CHARACTER SET utf8)
+            order by Country='EU' DESC,Country ASC
+        </Query>
+    </DataAccess>
+
+    <!--STORY 2-->
+    <!--MAIN: %older workers employement -->
+    <DataAccess access="public" connection="connection" id="getIssueStory2Main" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT Country, Measure as value, Criteria as Indicator
+            FROM FactsFigures WHERE id = 66
+            AND YSelected=true
+            AND Criteria = 'Total'
+            order by Country='EU' DESC,Country ASC
+        </Query>
+    </DataAccess>
+
+    <!--MAIN: %older workers employement, male breakdown-->
+    <DataAccess access="public" connection="connection" id="getIssueStory2MainMales" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT Country, Measure as value, 'Males' as Indicator
+            FROM FactsFigures WHERE id = 66
+            AND YSelected=true
+            AND Criteria = 'M'
+            AND Country not in ('CH','IS')
+            order by Country='EU' DESC,Country ASC
+        </Query>
+    </DataAccess>
+
+    <!--MAIN: %older workers employement, female breakdown-->
+    <DataAccess access="public" connection="connection" id="getIssueStory2MainFemales" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT Country, Measure as value, 'Females' as Indicator
+            FROM FactsFigures WHERE id = 66
+            AND YSelected=true
+            AND Criteria = 'F'
+            AND Country not in ('CH','IS')
+            order by Country='EU' DESC,Country ASC
+        </Query>
+    </DataAccess>
+
+    <!-- CONTEXTUALS -->
+    <!--Pensioners quit working because of illness/dis-->
+    <DataAccess access="public" connection="connection" id="getIllnessdisability" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=14) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD (Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+
+    <!-- SHARE-+50-HEALTH-AFFECTED-BY-WORK -->
+    <DataAccess access="public" connection="connection" id="getIssueStory3Main" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=33) AND ((FactsFigures.YSelected)=True)) AND Criteria = '50+'
+            order by Country='EU' DESC,Country ASC
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getWorkersThinkAffecstNeg" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=33) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            AND Criteria = '50+'
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!--Prevalence long standing illness -->
+    <DataAccess access="public" connection="connection" id="getPrevLongStandIllness" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Criteria,Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=37) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!--Historical Median Age-->
+    <DataAccess access="public" connection="connection" id="getHistMedianAge" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Y as year, Measure as Value
+            FROM FactsFigures
+            WHERE FactsFigures.ID=19 AND FactsFigures.Y IN (1994, 1999, 2004, 2009, 2014,2060)
+            AND Country in (${pCountry1},${pCountry2})
+            AND Measure > 0
+            ORDER BY Y,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!-- Unempleyment -->
+    <DataAccess access="public" connection="connection" id="getUnemployment" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then ShortCriteria  when 1 then Criteria end as Criteria,
+            Measure as value
+            FROM FactsFigures
+            WHERE
+            ID=67
+            AND Criteria in('From 15 to 64','From 50 to 64 years')
+            AND Country in (${pCountry1},${pCountry2})
+            AND YSelected=True
+            ORDER BY FIELD (Criteria,'From 15 to 64','From 50 to 64 years')
+            ,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!--GDP per capita historical & grouwth-->
+    <DataAccess access="public" connection="connection" id="getGDPPerCapita" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT t1.Country as Country,t1.Y as Year, t1.`GDP growth`, t2.GDP  FROM (SELECT Country, Y, Measure as 'GDP growth'
+            FROM FactsFigures ff, Indicators i
+            WHERE ff.ID=i.Id
+            AND (((ff.ID) IN (58))
+            AND (Y in(2005,2006,2007,2008,2009,2010,2011,2012,2013,2014)))
+            AND Country in (${pCountry1},${pCountry2})) t1 LEFT OUTER JOIN
+            (SELECT i.Indicator,Country, Y, Measure as 'GDP'
+            FROM FactsFigures ff, Indicators i
+            WHERE ff.ID=i.Id
+            AND (((ff.ID) IN (55))
+            AND (Y in(2005,2006,2007,2008,2009,2010,2011,2012,2013,2014)))
+            AND Country in (${pCountry1},${pCountry2})) t2
+            ON t1.Country=t2.Country
+            AND t1.Y=t2.Y
+
+            UNION
+
+            SELECT t1.Country as Country,t1.Y as Year, t1.`GDP growth`, t2.GDP as GDP FROM (SELECT Country, Y, Measure as 'GDP growth'
+            FROM FactsFigures ff, Indicators i
+            WHERE ff.ID=i.Id
+            AND (((ff.ID) IN (58))
+            AND (Y in(2005,2006,2007,2008,2009,2010,2011,2012,2013,2014)))
+            AND Country in (${pCountry1},${pCountry2})) t1 RIGHT OUTER JOIN
+            (SELECT i.Indicator,Country, Y, Measure as 'GDP'
+            FROM FactsFigures ff, Indicators i
+            WHERE ff.ID=i.Id
+            AND (((ff.ID) IN (55))
+            AND (Y in(2005,2006,2007,2008,2009,2010,2011,2012,2013,2014)))
+            AND Country in (${pCountry1},${pCountry2})) t2
+            ON t1.Country=t2.Country
+            AND t1.Y=t2.Y
+            ORDER BY YEAR,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!--Workers think work affects negatively by ocuupation-->
+    <DataAccess access="public" connection="connection" id="getWorkersAffectNeg" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then ShortCriteria  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=34) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!--Work related health problems-->
+    <DataAccess access="public" connection="connection" id="getWorkRelatedHLProblems" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=40) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+    <!-- WORK-EXPOSURES2-->
+    <DataAccess access="public" connection="connection" id="getWorkplaceExposures2" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then ShortCriteria  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=82) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!-- RISK-ENTERPRISES-->
+    <DataAccess access="public" connection="connection" id="getRiskEnterprises" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then case ShortCriteria when -1 then Criteria else ShortCriteria end  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=78) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY Criteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!--  NO -RISK-ASSESSMENT -->
+    <DataAccess access="public" connection="connection" id="getNoRiskAssessment" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=85) AND ((FactsFigures.YSelected)=True) and Criteria='No')
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+    <!-- EXPOSURES-TO-RISK-->
+    <DataAccess access="public" connection="connection" id="getExposuresToRisk" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then case ShortCriteria when -1 then Criteria else ShortCriteria end  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=79) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!--Procedure in place to support RTW (ESENER Q161)-->
+    <DataAccess access="public" connection="connection" id="getRTWEsener" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Criteria, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=69) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!-- DISSATSIFACTION-OLDERWORKING-CONDITIONS -->
+    <!-- TODO change the next two sql names -->
+    <DataAccess access="public" connection="connection" id="getIssueStory5Main35" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT Country, Measure as Value, ShortD as Indicator
+            FROM FactsFigures ff, Indicators i
+            WHERE
+            ff.ID = i.ID
+            AND (((ff.ID)=35) AND ((ff.YSelected)=True))
+            AND Criteria = 'Not satisfied'
+            AND Country not in ('CH','IS')
+            order by Country='EU' DESC,Country ASC
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getIssueStory5Main77" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT Country, Measure as Value, ShortD as Indicator
+            FROM FactsFigures ff, Indicators i
+            WHERE
+            ff.ID = i.ID
+            AND (((ff.ID)=77) AND ((ff.YSelected)=True))
+            AND Criteria = 'Not satisfied'
+            AND Country not in ('CH','IS')
+            order by Country='EU' DESC,Country ASC
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getDissatisfactionOlderWorkingConditions" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=35) AND ((FactsFigures.YSelected)=True)) AND FactsFigures.Criteria = 'Not satisfied'
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!-- SHARE-PENSIONES-CONTINUEWORKING -->
+    <DataAccess access="public" connection="connection" id="getSharePensionersContinueWorking" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=15) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+    <!-- SHARE-AGE-DISCRIMINATION -->
+    <DataAccess access="public" connection="connection" id="getShareAgeDiscrimination" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=42) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+
+    <!-- EVALUATION-WORKING-CONDITIONS -->
+    <DataAccess access="public" connection="connection" id="getWorkplaceExposures1" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then ShortCriteria  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=68) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,Criteria,FIELD(Country,${pCountry1},${pCountry2})
+
+        </Query>
+    </DataAccess>
+
+
+    <!-- SHARE-WORKERS50+-KEEPWORKING60 -->
+    <DataAccess access="public" connection="connection" id="getShareWorkers50PlusKeepWorking60" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Criteria, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=43) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!-- SELF-PERCEIVED-HEALTH-BY-EDUCATION -->
+    <DataAccess access="public" connection="connection" id="getSelfPerceivedHealthByEducation" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then case ShortCriteria when -1 then Criteria else ShortCriteria end  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=30) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!-- EXPOSURE-PHYSICAL-RISK-BY-EDUCATION  -->
+    <DataAccess access="public" connection="connection" id="getExposurePhysicalRiskByEducation" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then case ShortCriteria when -1 then Criteria else ShortCriteria end  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=86) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!-- EXPOSURE-PSYCHOSOCIAL-RISKS-BY-EDUCATION  -->
+    <DataAccess access="public" connection="connection" id="getExposurePsychosocialByEducation" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then case ShortCriteria when -1 then Criteria else ShortCriteria end  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=80) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+
+    <!-- PREVALENCE-LONG-STANDING-ILLNESS-BY-EDUCATION -->
+    <DataAccess access="public" connection="connection" id="getPrevalenceLongStandingIllnessByEducation" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then case ShortCriteria when -1 then Criteria else ShortCriteria end  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=38) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!-- SHARE-WORKERS50+-KEEPWORKING60-BY-OCCUPATION -->
+    <DataAccess access="public" connection="connection" id="getShareWorkers50PlusKeepWorking60ByOccupation" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            SELECT Country,
+            case ${pMaximized} when 0 then case ShortCriteria when -1 then Criteria else ShortCriteria end  when 1 then Criteria end as Criteria,
+            Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=44) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY ShortCriteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!-- TRAINING-OLDERWORKERS -->
+    <DataAccess access="public" connection="connection" id="getTrainingOlderWorkers" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Criteria, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=23) AND ((FactsFigures.YSelected)=True)) and Criteria != 'All ages'
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY Criteria,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!-- WORK-LIFE-BALANCE-->
+    <DataAccess access="public" connection="connection" id="getWorkLifeBalance" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=81) AND ((FactsFigures.YSelected)=True)) and Criteria = 'Do not fit well'
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+
+
+    <!-- SHARE-MEASURES-MSD -->
+    <DataAccess access="public" connection="connection" id="getShareMeasuresMsd" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=72) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+
+
+    <!-- HEALTHY-SAFETY-TOP-LEVEL -->
+    <DataAccess access="public" connection="connection" id="getHealthySafetyTopLevel" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=70) AND ((FactsFigures.YSelected)=True)) and Criteria = 'Regularly'
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+
+    <!-- SICKNESS-ABSENCE -->
+    <DataAccess access="public" connection="connection" id="getSicknessAbsence" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="75" name="pIndicator" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT ff.Country, i.Indicator, ROUND(ff.Measure) as value FROM FactsFigures ff, Indicators i
+            WHERE
+            ff.Id = i.Id AND
+            ff.id=${pIndicator} AND ff.YSelected=1
+            AND ff.Country in (${pCountry1},${pCountry2},${pCountry3}) AND ff.Measure > -1
+            )
+            UNION
+            (SELECT ff.Country, CONCAT('NO', ' ', i.indicator) as Indicator, ROUND(100-ff.Measure) as value FROM FactsFigures ff, Indicators i
+            WHERE
+            ff.Id = i.Id AND
+            ff.id=${pIndicator} AND ff.YSelected=1
+            AND ff.Country in (${pCountry1},${pCountry2},${pCountry3}) AND ff.Measure > -1
+            ) ORDER BY Indicator,FIELD(Country,${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+
+    <!-- WORKERS-PARTICIPATION-SAFETY -->
+    <DataAccess access="public" connection="connection" id="getWorkersParticipationSafety" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=76) AND ((FactsFigures.YSelected)=True)) and Criteria = 'Regularly'
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+
+    <!--MEASURE-HEALTH-PROMOTION-->
+    <DataAccess access="public" connection="connection" id="getMeasureHealthPromotion" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=83) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+            ORDER BY FIELD(Country,${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+
+
+
+    <!-- SHARE-TRAINING-OSH-TEAMLEADERS -->
+    <DataAccess access="public" connection="connection" id="getShareTrainingOSHTeamleaders" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Criteria, Measure as Value
+            FROM FactsFigures
+            WHERE (((FactsFigures.ID)=71) AND ((FactsFigures.YSelected)=True))
+            AND Country in (${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+
+    <!--OLD-AGE-DEPENDENCY-RATIO-->
+    <DataAccess access="public" connection="connection" id="getOldAgeDependencyRatio" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT t1.Y,t1.Country, ROUND(t1.Measure-t2.Measure,2)
+            as Value FROM
+            (SELECT Y, Country, Criteria, Measure
+            FROM FactsFigures
+            WHERE FactsFigures.ID=18
+            AND Y IN (2060)
+            AND Criteria='All'
+            AND Country in (${pCountry1},${pCountry2})) t1,
+            (SELECT Country, Measure
+            FROM FactsFigures
+            WHERE FactsFigures.ID=18
+            AND Y IN (2014)
+            AND Criteria='All'
+            AND Country in (${pCountry1},${pCountry2})) t2
+            WHERE t1.Country=t2.Country
+            )
+            UNION
+
+            (SELECT Y,Country, ROUND(Measure,2) as Value
+            FROM FactsFigures
+            WHERE FactsFigures.ID=18
+            AND Y IN (2014)
+            AND Criteria='All'
+            AND Country in (${pCountry1},${pCountry2}))
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2}),Y DESC
+        </Query>
+    </DataAccess>
+
+</CDADescriptor>

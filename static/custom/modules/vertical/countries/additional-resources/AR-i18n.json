@@ -1,0 +1,267 @@
+{
+  "introductory-text":"This section displays an infographic about ageing and occupational safety and health (OSH) in the European Union and one infographic for each of the 32 countries included in the data visualisation tool. The infographics are available in English and can be downloaded in pdf and image format.",
+  "pagination": {
+    "items":[
+        {
+          "id": 0,
+          "title": "European Union",
+          "image": "EU.png",
+          "alt": "European Union",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/EU.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/EUROPE.pdf"
+        },
+        {
+          "id": 1,
+          "title": "Austria",
+          "image": "Austria_thumb.png",
+          "alt": "Austria",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Austria.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Austria.pdf"
+        },
+        {
+          "id": 2,
+          "title": "Belgium",
+          "image": "Belgium_thumb.png",
+          "alt": "Belgium",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Belgium.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Belgium.pdf"
+        },
+        {
+          "id": 3,
+          "title": "Bulgaria",
+          "image": "Bulgaria_thumb.png",
+          "alt": "Bulgaria",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Bulgaria.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Bulgaria.pdf"
+        },
+        {
+          "id": 4,
+          "title": "Croatia",
+          "image": "Croatia_thumb.png",
+          "alt": "Croatia",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Croatia.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Croatia.pdf"
+        },
+        {
+          "id": 5,
+          "title": "Cyprus",
+          "image": "Cyprus_thumb.png",
+          "alt": "Cyprus",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Cyprus.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Cyprus.pdf"
+        },
+        {
+          "id": 6,
+          "title": "Czech Republic",
+          "image": "CzechRepublic_thumb.png",
+          "alt": "Czech Republic",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/CzechRepublic.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/CzechRepublic.pdf"
+        },
+        {
+          "id": 7,
+          "title": "Denmark",
+          "image": "Denmark_thumb.png",
+          "alt": "Denmark",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Denmark.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Denmark.pdf"
+        },
+        {
+          "id": 8,
+          "title": "Estonia",
+          "image": "Estonia_thumb.png",
+          "alt": "Estonia",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Estonia.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Estonia.pdf"
+        },
+        {
+          "id": 9,
+          "title": "Finland",
+          "image": "Finland_thumb.png",
+          "alt": "Finland",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Finland.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Finland.pdf"
+        },
+        {
+          "id": 10,
+          "title": "France",
+          "image": "France_thumb.png",
+          "alt": "France",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/France.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/France.pdf"
+        },
+        {
+          "id": 11,
+          "title": "Germany",
+          "image": "Germany_thumb.png",
+          "alt": "Germany",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Germany.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Germany.pdf"
+        },
+        {
+          "id": 12,
+          "title": "Greece",
+          "image": "Greece_thumb.png",
+          "alt": "Greece",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Greece.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Greece.pdf"
+        },
+        {
+          "id": 13,
+          "title": "Hungary",
+          "image": "Hungary_thumb.png",
+          "alt": "Hungary",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Hungary.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Hungary.pdf"
+        },
+        {
+          "id": 14,
+          "title": "Iceland",
+          "image": "Iceland_thumb.png",
+          "alt": "Iceland",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Iceland.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Iceland.pdf"
+        },
+        {
+          "id": 15,
+          "title": "Ireland",
+          "image": "Ireland_thumb.png",
+          "alt": "Ireland",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Ireland.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Ireland.pdf"
+        },
+        {
+          "id": 16,
+          "title": "Italy",
+          "image": "Italy_thumb.png",
+          "alt": "Italy",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Italy.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Italy.pdf"
+        },
+        {
+          "id": 17,
+          "title": "Latvia",
+          "image": "Latvia_thumb.png",
+          "alt": "Latvia",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Latvia.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Latvia.pdf"
+        },
+        {
+          "id": 18,
+          "title": "Lithuania",
+          "image": "Lithuania_thumb.png",
+          "alt": "Lithuania",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Lithuania.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Lithuania.pdf"
+        },
+        {
+          "id": 19,
+          "title": "Luxembourg",
+          "image": "Luxembourg_thumb.png",
+          "alt": "Luxembourg",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Luxembourg.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Luxembourg.pdf"
+        },
+        {
+          "id": 20,
+          "title": "Malta",
+          "image": "Malta_thumb.png",
+          "alt": "Malta",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Malta.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Malta.pdf"
+        },
+        {
+          "id": 21,
+          "title": "The Netherlands",
+          "image": "Netherlands_thumb.png",
+          "alt": "The Netherlands",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Netherlands.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Netherlands.pdf"
+        },
+        {
+          "id": 22,
+          "title": "Norway",
+          "image": "Norway_thumb.png",
+          "alt": "Norway",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Norway.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Norway.pdf"
+        },
+        {
+          "id": 23,
+          "title": "Poland",
+          "image": "Poland_thumb.png",
+          "alt": "Poland",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Poland.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Poland.pdf"
+        },
+        {
+          "id": 24,
+          "title": "Portugal",
+          "image": "Portugal_thumb.png",
+          "alt": "Portugal",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Portugal.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Portugal.pdf"
+        },
+        {
+          "id": 25,
+          "title": "Romania",
+          "image": "Romania_thumb.png",
+          "alt": "Romania",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Romania.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Romania.pdf"
+        },
+        {
+          "id": 26,
+          "title": "Slovakia",
+          "image": "Slovakia_thumb.png",
+          "alt": "Slovakia",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Slovakia.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Slovakia.pdf"
+        },
+        {
+          "id": 27,
+          "title": "Slovenia",
+          "image": "Slovenia_thumb.png",
+          "alt": "Slovenia",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Slovenia.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Slovenia.pdf"
+        },
+        {
+          "id": 28,
+          "title": "Spain",
+          "image": "Spain_thumb.png",
+          "alt": "Spain",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Spain.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Spain.pdf"
+        },
+        {
+          "id": 29,
+          "title": "Sweden",
+          "image": "Sweden_thumb.png",
+          "alt": "Sweden",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Sweden.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Sweden.pdf"
+        },
+        {
+          "id": 30,
+          "title": "Switzerland",
+          "image": "Switzerland_thumb.png",
+          "alt": "Switzerland",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/Switzerland.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/Switzerland.pdf"
+        },
+        {
+          "id": 31,
+          "title": "United Kingdom",
+          "image": "UnitedKingdom_thumb.png",
+          "alt": "United Kingdom",
+          "openLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/img/UnitedKingdom.jpg",
+          "downloadLink": "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/UnitedKingdom.pdf"
+        }
+    ],
+    "open":"Open",
+    "download": "Download"
+  }
+}
+
+

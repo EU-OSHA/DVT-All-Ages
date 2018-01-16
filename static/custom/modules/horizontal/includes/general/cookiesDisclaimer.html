@@ -1,0 +1,21 @@
+<div data-ng-controller="CookiesController">
+    <section id="cookiesConsent" ng-if="$consent.hasNotAgreedYet()">
+        <div class="text">
+            <p>The EU-OSHA website uses cookies to gather information necessary for browsing the website, in accordance with the EU-OSHA privacy notice.</p>
+            <p>By clicking on any link in the EU-OSHA web pages you are giving your consent for the use of cookies.</p>
+        </div>
+        <div class="buttons">
+            <a ui-sref="privacy-policy()"><button>No, give me more info</button></a>
+            <button id="consentCookies" ng-click="$consent.agree();">Ok, I Agree</button>
+        </div>
+    </section>
+    <section  id="widthDisclaimer" ng-if="$consent.hasAlreadyAgreed() && showwidthdisclaimer">
+        <div class="text">
+            <p>Due to the nature of this visualisation we cannot ensure a satisfactory user experience for small screens.</p>
+            <p>Therefore you might find not well aligned texts, or not well displaying graphs. We are sorry for that</p>
+        </div>
+        <div class="buttons">
+            <button id="consentWidth"  ng-click="widthAgree();">Close</button>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+
+    <!-- IS2 historical -->
+    <DataAccess access="public" connection="connection" id="getIS2Historical" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String" />
+            <Parameter default="EU" name="pCountry2" type="String" />
+        </Parameters>
+        <Query>
+            SELECT Country, Y as year, Measure as Value
+            FROM FactsFigures
+            WHERE FactsFigures.ID=66
+            AND Criteria in ('Total')
+            AND Country in ('EU',${pCountry1},${pCountry2})
+            AND Measure > 0
+            AND Y BETWEEN 2000 AND 2014
+            ORDER BY Criteria, Y, FIELD(Country,'EU',${pCountry1},${pCountry2})
+        </Query>
+    </DataAccess>
+</CDADescriptor>

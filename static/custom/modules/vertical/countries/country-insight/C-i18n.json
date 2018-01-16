@@ -1,0 +1,46 @@
+{
+    "see-more":"View detail",
+    "seeMore":"See more",
+    "see_country":"Country",
+    "compare":"Compare with",
+    "infographics": "Infographics",
+    "report": "Country report",
+    "knowmore":"Know more",
+    "esener": "See more about ESENER",
+    "glossary": "See glossary",
+    "section":{
+        "ff":"Facts and figures",
+        "grouping":"Grouping",
+        "policies":"Main Policies, Strategies and Programmes",
+        "iniciatives":"Other initiatives",
+        "context":"Context",
+        "challenges":"Pending Challenges",
+        "stakeholders":"OSH System and Stakeholders"
+    },
+    "see-policies-country": "See all for this country",
+    "facts": {
+        "title": "<span class='icon section-facts'></span>Facts and Figures",
+        "eu": "<span class='eu'></span>European Union"
+    },
+    "graphics":{
+        "pyramid_title": "Age pyramid",
+        "pyramid_long_title": "Population age structure development, by sex and five-year age groups",
+        "pyramid_functional_legend":"<b>Population age structure development, by sex and five-year age groups.</b> (Eurostat,2014)",
+        "figure1_title" :"Employment rate",
+        "figure1_long_title":"Employment rates by age (20-64; 55-64)",
+        "figure1_functional_legend":"<b>Employment rate (20-64; 55-64)</b> (Eurostat, EU LFS,2014) <br/><b>Additional comments: </b>EU average corresponds to EU15 until 1996, EU27 from 1997 to 2001 and EU28 from 2002 onwards.",
+        "figure2_title" :"Healthy life years vs. life expectancy",
+        "figure2_long_title" :"Healthy life years expectancy vs. life expectancy at the age of 65",
+        "figure2_functional_legend":"<b>Healthy life years expectancy vs. life expectancy</b> (Eurostat,2014)",
+        "figure4_title" :"Impact of work on health (1) – Job sustainability (2)",
+        "figure4_long_title" :"Workers who think (1) their health is affected by work negatively and (2) they could not do their job at 60"
+    },
+    "units":{
+        "years":"years"
+    },
+    "policyTitles": {
+        "OSH": "OSH policies",
+        "RTW": "Rehabilitation and return to work"
+    },
+    "country_list": "Country List: "
+}

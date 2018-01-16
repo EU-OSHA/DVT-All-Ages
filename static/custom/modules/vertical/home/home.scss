@@ -1,0 +1,291 @@
+.navbar-collapse.indvt {
+    overflow-y: auto;
+    width: 100%;
+    background:$colorWhite;
+    height: auto!important;
+    margin-top: 2em;
+    padding: 0;
+}
+.collapse.indvt {
+    display: block !important;
+}
+.container-header{
+  overflow:hidden;
+  position:relative;
+}
+#home-cover {
+  background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home-header-bg.png') #529FA2 no-repeat center top;
+  height: 192px;
+  clear:both;
+
+  h1 {
+    color: $colorA;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 36px;
+    width: 275px;
+    margin-top: 40px;
+  }
+}
+
+.homepage.page-content{
+  width:auto;
+  float:none;
+  margin:0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear:both;
+}
+.spotlight-carousel{
+  background:#dbeced;
+  padding:0.5em 0;
+  .pyramid-container {
+    position: relative;
+  }
+}
+.carousel-caption{
+    font-family: Oswald,sans-serif;
+    color: #c83188;
+    text-shadow: 0 0 0 transparent;
+    font-size: 2.7rem;
+    text-align: left;
+    top: 90px;
+    right: 15%;
+    left:15%;
+
+  p span.carrousel-number{
+    font-size:  7.2rem;
+    display: inline-block;
+    float: left;
+    margin-right: 0.2em;
+    margin-bottom:2em;
+    padding: 0;
+    margin-top: -6px;
+    span{
+      font-size:4.8rem;
+    }
+  }
+}
+
+.home-spotlight {
+  padding:0;
+  margin: 22px 0;
+  article{
+    text-align: left;
+    background: #F9F9F9;
+    width: 32%;
+    min-height: 425px;
+    margin-right: 2%;
+    .article-background{
+      min-height: 300px;
+      position: relative;
+      .article-more-info{
+        position: absolute;
+        top: 375px;
+        right:0;
+      }
+    }
+    h1{
+      font-size: 2.4rem;
+      font-weight: 300;
+      margin-bottom: 0;
+
+    }
+    h2{
+      margin-top: 0;
+      margin-bottom: 15px !important;
+      color:#f6a400 !important;
+      font-size:2.8rem !important;
+    }
+  }
+  article:nth-child(1){
+    background:#f3f4f4 url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home/homeBckAbout.png") no-repeat bottom left;
+  }
+  article:nth-child(2){
+    background:#f3f4f4 url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home/homeBckPolicy.png")  no-repeat bottom left;
+  }
+  article:nth-child(3) {
+    background:#f3f4f4 url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home/homeBckCountry.png")  no-repeat bottom left;
+    margin:0;
+  }
+}
+
+.seeMoreProject{
+  padding: 20px 0 0;
+  .know-more{
+    padding-right: 25px !important;
+    display:inline-block !important;
+  }
+}
+
+// TODO FIX temporal buscar workaround div[id^=zylk_pyramid_]
+.homepage {
+    #zylk_pyramid_1, #zylk_pyramid_2, #zylk_pyramid_3, #zylk_pyramid_4  {
+      min-height: 365px;
+      margin-left:0%;
+    }
+}
+
+.homepage a {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+#osha-carousel .item:nth-child(1) .carousel-caption p{
+  color:$plt-eu03;
+}
+#osha-carousel .item:nth-child(2) .carousel-caption p{
+  color:$plt-eu01;
+}
+#osha-carousel .item:nth-child(3) .carousel-caption p{
+  color:$colorA;
+}
+#osha-carousel .item:nth-child(4) .carousel-caption p{
+  color:$color03;
+}
+#osha-carousel .item:nth-child(5) .carousel-caption p{
+  color:$plt-eu01;
+
+
+}
+#osha-carousel .item .carousel-caption p.carousel.link {
+  text-align: center;
+}
+#osha-carousel {
+  cursor: auto !important;
+  margin-top: 10%;
+}
+.carousel{
+  z-index:0;
+  cursor: auto !important;
+}
+.carousel.link{
+  font-size: 1.5em;
+  position: absolute !important;
+  top: 4em;
+  width: 100%;
+
+  a,span {
+    color: #3ea1a0 !important;
+    text-decoration: underline;
+    font-size:1.4rem !important;
+    padding: 0 1.2em 0 0;
+    font-weight: 300;
+  }
+  span {
+    text-decoration: none;
+  }
+}
+
+
+.carousel-control {
+  display:none !important;
+}
+.pyramidSlider {
+  min-height: 500px;
+}
+
+//#zylk_pyramid_1 {
+//  min-height: 365px;
+//}
+
+.slider {
+  margin-left: 16px !important;
+  height: 3em;
+  .ng-scope {
+    margin-right: 2.7px !important;
+    i {
+      margin: -19px; color:$color03;
+    }
+  }
+  .ng-binding {
+    margin-left: -3px;
+    margin-right: -3px;
+    position: relative;
+    top:16px;
+    color: $color03;
+  }
+}
+.range-container {
+
+}
+
+
+
+
+
+
+.itemsSlider {
+  width: 100%;
+  margin: .6em 0 1em 0em;
+
+  td {
+    text-align: center;
+    font-family: "Oswald";
+    font-size: .9em;
+    color:$colorB;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+  }
+  td:hover {
+    //background-color: $colorA;
+    background-color: lighten( $color03, 15% );
+  }
+}
+.carousel-inner{
+  min-height: 370px;
+}
+.carousel-inner>.item>img{
+  min-height:auto;
+}
+.carousel-indicators {
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+}
+.carousel-indicators li {
+  background: white !important;
+  margin:0 8px;
+}
+.carousel-indicators .active {
+  background-color: $color03 !important;
+  margin:0 5px;
+}
+.homepage {
+  .range-container {
+    margin-left:0em!important;
+    margin-top:12px;
+    padding: 0 0 0 0;
+
+    #range-title {
+      color: $colorB;
+      padding: 0em 0em  0.5em  1.5em;
+    }
+  }
+  .pyramid{
+    min-height: 15em; /* require dto avoid slider glitch*/
+    background: transparent !important;
+  }
+  article a:hover {
+    text-decoration: none;
+  }
+}
+
+.homepage .containerPyramid div.title {
+  color:$color03;
+  font-size:2.1rem;
+  font-family: Oswald,sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.1;
+}

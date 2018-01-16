@@ -1,0 +1,433 @@
+//#approaches-map-groups {
+//
+//  svg {
+//    display: none;
+//  }
+//
+//  input {
+//    margin-right: 10px;
+//  }
+//
+//  label {
+//    padding-left: 10px;
+//    border: 1px solid green;
+//  }
+//
+//}
+
+div.grupos.col-xs-12.nopadding {
+  background-color: white;
+}
+
+#indicators-content {
+  padding: 0 0 1em;
+  text-align: left;
+  background: #fff;
+
+  label {
+    padding-left: 10px;
+    cursor:pointer;
+  }
+
+  ul {
+    padding:0 !important;
+    margin:0 !important;
+  }
+}
+
+
+#approaches-map-tabs {
+  margin-top:3em;
+  border: 0;
+  border-bottom: 5px solid $colorA;
+  li {
+    margin-bottom: 0;
+    margin-right: 5px;
+
+    a {
+      background:$lightgrey none repeat scroll 0 0;
+      border-radius: 0;
+      color:$colorA;
+      font-family: "oswald";
+      font-size: 1.4em;
+      min-width:auto;
+      padding-right:10px;
+      border-radius: 0 15px 0 0;
+      border: 0;
+    }
+
+    a:hover {
+      background:$colorA;
+      color:$colorWhite;
+    }
+  }
+  li.active {
+    a {
+      background:$colorA;
+      color:$colorWhite;
+    }
+  }
+}
+
+.mini-bloq-approaches{
+  .zylk-bar-chart{
+    overflow:visible;
+  }
+  .contextual-menu{
+    button{
+    background:$color05;
+    color:$colorWhite;
+    border: 0;
+    font-size: 14px;
+    width: 150px;
+    position: absolute;
+    font-family: Oswald-light;
+    top: -28px;
+    right: -9px;
+    border-radius: 5px 5px 0 0;
+    }
+  }
+}
+div#indicators-content.affix {
+  position: fixed;
+  top: 85px;
+  left:0;
+  z-index: 100;
+  width:100%;
+
+  li.toggleGroup.horizontal.boxGroup {
+      min-height: auto;
+  }
+
+  .boxGroup div {
+      display: none;
+  }
+}
+
+
+#indicators-content li.toggleGroup.horizontal.boxGroup {
+    min-height: 310px;
+    background: #f7f7f7;
+    margin-top: 1.5em;
+    border-right: 15px solid #FFF;
+
+    &:nth-child(4){
+      border-right: 0px;
+    }
+    &.active.boxGroup1 {
+      background:$colorGroup01;
+    }
+    &.active.boxGroup2 {
+      background:$colorGroup02;
+    }
+    &.active.boxGroup3 {
+      background:$colorGroup03;
+    }
+    &.active.boxGroup4 {
+      background:$colorGroup04;
+    }
+}
+
+
+#indicators-content ul.toggleGroup.horizontal li.toggleGroup.horizontal {
+  div.col-xs-12 ul li {
+      list-style-type: none;
+  }
+  ul li {
+      background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/bullet_black.png") no-repeat;
+      background-size: 6px;
+      background-position: 0 6px;
+      padding: 0 0 0 1.2em;
+      margin: 0;
+  }
+
+  &.active ul li {
+    background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/bullet_black.png") no-repeat;
+    background-size: 6px;
+    background-position: 0 6px;
+    padding: 0 0 0 1.2em;
+    margin: 0;
+  }
+}
+
+
+#approaches-map-content {
+    overflow:auto;
+    padding:0 !important;
+    margin-bottom: 2.5em;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+
+  .intro-text{
+    margin-bottom:15px;
+  }
+
+  div.grey.clearfix {
+    float: left;
+    width: 100%;
+
+    zylk-map {
+      div[id^="zylk_map"] {
+        min-height:auto;
+        overflow:hidden;
+
+        svg{
+          width:70%;
+          margin-left: 15%;
+          left: 9% !important;
+          height:auto;
+        }
+      }
+    }
+  }
+}
+
+.grey{
+  background: #f7f7f7;
+}
+.boxGroup {
+  /*padding: 1em 2em;
+  width:24% !important;*/
+
+}
+.boxGroup {
+  div {
+    margin-left: 25px;
+  }
+  label {
+    font-family: "Open Sans",sans-serif !important;
+    font-size: 1.6rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+  }
+}
+
+.boxGroup:hover {
+  label {
+    color:#ffa500 !important;
+  }
+}
+
+.box1,.box2,.box3 {
+  margin-right:1.33333333%;
+}
+
+/*
+.box1:hover {
+  background: #fbdb99;
+}
+.box2:hover {
+  background: #d1e3e4;
+}
+.box3:hover {
+  background: #529fa2;
+}
+.box4:hover {
+  background: #f6a400;
+}
+*/
+
+
+
+#referral-iniciatives {
+  background: #f0f0f0;
+  padding: 3em 5em !important;
+}
+#referral-iniciatives {
+  h4 {
+    font-family: "Open Sans",sans-serif !important;
+    font-size: 1.6rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    color:#0090a4;
+  }
+  u {
+    text-decoration:none !important;
+  }
+}
+.blockPolicy {
+  background: #d2d2d2 none repeat scroll 0 0;
+  padding: 1em !important;
+  border-bottom: 22px solid #f0f0f0;
+
+  .imagenPolicy h3{
+    font-size: 2.2rem;
+  }
+  ul {
+    list-style: initial !important;
+  }
+}
+.policyT {
+  margin-bottom:1em;
+}
+.miniblock {
+  margin-bottom:2.7em;
+}
+.imagenPolicy {
+  background: #fff none repeat scroll 0 0;
+  padding: 1em 1em 0;
+  margin: 0.8em 0 0 0.8em;
+
+  i.mg {
+    color: #EDA308;
+  }
+}
+.containerMini {
+  margin-left:2em;
+}
+.ligth {
+  font-weight:200 !important;
+}
+.tabsCA {
+  clear: both;
+}
+
+.indicators-approaches{
+  background: #f7f7f7 url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/fondo_indicators.png") no-repeat;
+      background-position: 100% 0;
+}
+.glossary-indicators-approaches{
+   background: #f7f7f7;
+   margin: 15px 0;
+   border-right: 1px solid #fbdb99;
+
+   .ng-scope{
+    margin-top: 2em;
+
+    a.know-more {
+    margin: 2em 0;
+    display: inline-block;
+    font-size: 16px;
+    }
+   }
+   h4{
+    margin-top: 2em;
+    font-size:1.6rem;
+    font-family: "Open Sans",sans-serif;
+     font-weight: bold !important;
+   }
+    ul {
+    text-align:left;
+    padding: 0 0 0 15px;
+      li {
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/bullet_orange.png") no-repeat;
+        background-size: 6px;
+        background-position: 0 6px;
+        padding: 0 0 0 1.2em;
+        margin: 0;
+      }
+    }
+}
+
+.wrapper-indicators-approaches{
+  background: #f7f7f7;
+}
+
+.mini-bloq-approaches {
+    min-height: 250px;
+    vertical-align: top;
+    margin: 20px 0 0.5em 0;
+    padding: 0 8px 0 8px;
+
+      .title {
+        font-size: 15px;
+        line-height: 18px;
+        min-height:4em;
+        color: #57575a;
+        //background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/more.png") top right no-repeat;
+        background-size: 22px;
+        background-position: 100% 0px;
+        padding: 0 15px;
+        width: 100%;
+        text-align: left;
+        margin-top: 0;
+        font-family: "Open Sans",sans-serif;
+        font-weight: bold !important;
+      }
+      .zylk-bar-chart {
+         padding-left:0;
+         margin: 8px 0;
+         background:$colorTrans;
+          div[id^="zylk_bar_chart_"]{
+          background: transparent;
+          }
+      }
+
+      .functionalLegend.ng-binding {
+          padding:15px;
+
+        ul li {
+          background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/bullet_orange.png") no-repeat;
+          background-size: 6px;
+          background-position: 0 6px;
+          padding: 0 0 0 1.2em;
+          margin: 0;
+        }
+      }
+}
+.mini-bloq-approaches.active {
+    background:#fdedcc;
+}
+
+#enlarged {
+  .approaches-compare{
+    .back {
+      clear: both;
+      margin-right: 2rem;
+      margin-top:0;
+      color: #000;
+      font-family: Oswald,sans-serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+    .back:after{
+      content:"";
+      clear:both;
+      float:none;
+    }
+    .title{
+      clear: both;
+    }
+    .title:empty{
+      display:none;
+    }
+    .approaches-compare-graph {
+      margin-bottom: 15px;
+    }
+  }
+  div.dvt-chart.zylk-bar-chart {
+    min-height: 30em;
+  }
+  div.backGraps {
+    min-height: 22em;
+  }
+}
+
+.functionalLegend {
+  margin:2em 0;
+}
+
+span.country-list{
+    width: 50%;
+    margin: 0 !important;
+    display: inline-block;
+
+  a {
+    color: black;
+    text-decoration: none;
+
+    &:hover{
+      color:#3EA1A0 !important;
+    }
+  }
+}
+
+.enlarge-button {
+  padding-left: 0.3em;
+  cursor: pointer;
+  img{
+   width:23px;
+   height:23px;
+  }
+}

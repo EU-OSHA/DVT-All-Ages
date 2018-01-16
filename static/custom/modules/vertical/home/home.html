@@ -1,0 +1,92 @@
+<!-- home.html -->
+<zylk-dashboard promises="promises" parameters="dashboard.parameters">
+<div class="page-content">
+	<div class="homepage container centered">
+
+		<!--IN CONSTRUCTION HOME-->
+		<section class="container-fluid spotlight-carousel">
+			<div class="col-xs-12 col-md-12 col-lg-6">
+					<zylk-range ng-model="dashboard.parameters.pYears" values="1990, 2000, 2010, 2015, 2020, 2030, 2040, 2050, 2060" default="2015"></zylk-range>
+					<zylk-pyramid-chart data-ng-cloack
+										query="getPyramidDataWhitYear" cda="{{ dashboard.cda }}"
+										width=600 height=370 orientation="horizontal"
+										listen-to="['pYears']" params="[['pYears','pYears']]"
+										css-class="pyramid" color-role="series" stacked=1
+										id="61" p-x-labels=1 p-y-labels=1 colors="pyramid.colors"
+										title="{{i18n.graphics_multiindicator.pyramid_title}}"
+										contextuals="[]"
+										main-bar-size="15"
+										home="true"
+										female-colour="3"
+										male-colour="2" type="pyramid"
+										max-functional-legend="{{i18n.graphics_multiindicator.pyramid_functional_legend}}"
+										dimensions="pyramid.dimensions"
+					>
+					</zylk-pyramid-chart>
+					<!--<div class="col-xs-12 range-container text-center">-->
+						<!--<input id="pyramid-range" type="range" ng-model="pyramid.value" data-ng-input="updatePyramid(pyramid.value)" data-ng-change="updatePyramid(pyramid.value)"  min="0" max="5" value="0">-->
+					<!--</div>-->
+
+			</div>
+
+			<div class="col-xs-12 col-md-12 col-lg-6">
+				<div carousel interval="10000" id="osha-carousel">
+					<div slide ng-repeat="slide in slides" active="slide.active">
+						<img ng-src="{{slide.image}}" alt="{{slide.alt}}" style="margin: auto;">
+						<div class="carousel-caption">
+							<p data-ng-bind-html="::slide.text"></p>
+							<p class="carousel link">
+								<!--<a class="know-more external" data-ng-href="{{slide.link}}" target="_blank" data-ng-bind-html="slide.linkText"></a>-->
+								<span ng-bind-html="::slide.linkText"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="seeMoreProject"><a class="know-more external" href="https://osha.europa.eu/en/themes/osh-management-context-ageing-workforce/ep-osh-project" target="_blank" data-ng-bind="i18n['more-information-project']"></a></section>
+		<section class="container-fluid home-spotlight">
+
+
+			<article data-ng-click="goto('issue-retirementAge')" role="button" class="col-xs-12 col-md-12 col-lg-4">
+				<a ui-sref='issue-retirementAge({})'>
+					<div class="article-background col-md-11 col-md-offset-1">
+						<h2 data-ng-bind="i18n.article1.subtitle"></h2>
+						<p data-ng-bind="i18n.article1.content"></p>
+						<p data-ng-bind="i18n.article1.link"></p>
+						<p class="article-more-info"><img src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home/homeArrow.png" title="More info"></p>
+					</div>
+				</a>
+			</article>
+
+
+
+			<article role="button" class="col-xs-12 col-md-12 col-lg-4">
+				<a ui-sref='approaches-indicators({})'>
+					<div class="article-background col-md-11 col-md-offset-1">
+						<h2 data-ng-bind="i18n.article2.subtitle"></h2>
+						<p data-ng-bind="i18n.article2.content"></p>
+						<p data-ng-bind="i18n.article2.link"></p>
+						<p class="article-more-info"><img src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home/homeArrow.png" title="More info"></p>
+					</div>
+				</a>
+			</article>
+
+
+
+			<article role="button" class="col-xs-12 col-md-12 col-lg-4">
+				<a ui-sref='country-profiles({})'>
+					<div class="article-background col-md-11 col-md-offset-1">
+						<h2 data-ng-bind="i18n.article3.subtitle"></h2>
+						<p data-ng-bind="i18n.article3.content"></p>
+						<p data-ng-bind="i18n.article3.link"></p>
+						<p class="article-more-info"><img src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/home/homeArrow.png" title="More info"></p>
+					</div>
+				</a>
+
+			</article>
+		</section>
+	</div>
+</div>
+</zylk-dashboard>

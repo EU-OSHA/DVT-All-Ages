@@ -1,0 +1,72 @@
+<div class="{{ ::backClass }} col-sm-12 main-country-card"
+     style="{{ backStyle }} margin: 0 !important; padding:20px; overflow: hidden; height: auto;">
+    <a ui-sref='country-card({pCountry1: panel.country.key})' class="{{countryKey}}">
+        <!--drop zylk-dashboard when delete ng-if -->
+        <div class="col-xs-12 col-sm-12 nopadding country-card-bg" >
+
+            <div class="col-xs-12 col-sm-8 col-md-5 title nopadding" data-ng-bind="::panel.country.name"></div>
+
+            <div class="col-xs-12 col-sm-4 col-md-7 mapSvg">
+                <i class="mg map-{{::countryKey.toLowerCase()}} mg-sm-3x mg-md-5x mg-lg-7x mg-xl-8x"></i>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 nopadding bg-data scpPart1">
+
+                <!-- fig 1 -->
+                <div class="col-xs-4 nopadding">
+                    <div class="col-xs-8 data name nopadding text-left"
+                         data-ng-bind=":: panel[&quot;official-retirement&quot;].name"></div>
+                    <div class="col-xs-12 data nopadding cspBig"
+                         ng-bind-html=":: panel[&quot;official-retirement&quot;].data"></div>
+                </div>
+                <!-- fig 2 -->
+                <div class="col-xs-4 nopadding">
+                    <div class="col-xs-8 data name nopadding text-left" data-ng-bind=":: panel[&quot;c&quot;].name"></div>
+                    <div class="col-xs-12 data nopadding cspBig" data-ng-bind=":: panel[&quot;c&quot;].data"></div>
+                </div>
+
+                <!-- fig 3 -->
+                <div class="col-xs-4 nopadding">
+                    <div class="col-xs-8 data name nopadding text-left"
+                         data-ng-bind=":: panel[&quot;gap&quot;].name"></div>
+                    <div class="col-xs-12 data nopadding cspBig">
+                        <span ng-bind-html=":: panel[&quot;gap&quot;].data"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- fig 4 -->
+            <div class="col-xs-12 col-sm-12 nopadding down-part">
+                <div class="col-xs-6 pull-left nopadding text-left">
+                    <div class="col-xs-8">&nbsp;</div>
+                    <div class="col-xs-12 down nopadding text-left down-data01 dataDown"
+                         data-ng-bind="::panel[&quot;quit-because-illness&quot;].data"></div>
+                    <div class="col-xs-12 down nopadding text-left downText"
+                         data-ng-bind="::panel[&quot;quit-because-illness&quot;].name"></div>
+
+
+                </div>
+
+                <!-- fig 5 -->
+                <div class="col-xs-6 pull-left nopadding text-left">
+                    <div class="col-xs-12 down nopadding text-left"
+                         data-ng-bind="::panel[&quot;long-standing-illness&quot;].name"></div>
+                    <div class="col-xs-6 down nopadding text-left">
+                        <div class="dataDown"
+                             ng-bind-html="::panel[&quot;long-standing-illness&quot;].data.females"></div>
+                        <div class="down downText" data-ng-bind="i18n.males"></div>
+                    </div>
+
+                    <div class="col-xs-6 down nopadding text-left">
+                        <div class="dataDown" ng-bind-html="::panel[&quot;long-standing-illness&quot;].data.males"></div>
+                        <div class="down downText" data-ng-bind="::i18n.females">Males</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </a>
+
+</div>

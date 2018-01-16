@@ -1,0 +1,6 @@
+<div class="challengesBar container-fluid text-center">
+    <span data-ng-repeat="item in itemsJsonTransformer" ng-class="isCurrentStateMenu('{{item.id}}')" data-ng-bind-html="item.html"></span>
+</div>
+<div class="bulletsItems text-center">
+    <a data-ng-repeat="item in itemsJsonTransformer" title="{{item.html}}" href="{{item.href}}" ng-class="isCurrentStateMenu('{{item.id}}')" ></a>
+</div>

@@ -1,0 +1,28 @@
+{
+    "group1" : "#fbdb99",
+    "group2": "#d1e3e4",
+    "group3": "#529fa2",
+    "group4": "#f6a400",
+    "europeMapBase": "#BFBFBF",
+    "europe": "#002f9d",
+    "europe2":"#7F97CE",
+    "country1": "#eda308",
+    "country12": "#F3C564",
+    "country2": "#529fa2",
+    "country22":"#CBE2E3",
+    "comparison-first-pyramid-overlapping":"red",
+    "comparison-second-pyramid-overlapping":"#333",
+    "baseOld": "#7c8384",
+    "base": "#444",
+    "baseOver": "#B7BCC0",
+    "EUTooltip": "#fff",
+    "EUTooltipFontColor": "cadetblue",
+    "EUTooltipStroketColor": "gray",
+    "plotsBg": "#f0f0f0",
+    "spider": {
+        "indicator0":"rgb(135,206,250, .5)",
+        "indicator1":"rgb(255,20,147, .5)",
+        "valuesColor": "gray"
+    }
+}
+

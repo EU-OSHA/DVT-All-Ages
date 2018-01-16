@@ -1,0 +1,20 @@
+.glossary-term{
+  font-weight:bold;
+  background: $backgroundGlossary1;
+  border-radius: 5px;
+  text-align:center;
+  display: table-cell;
+  width:30%;
+  padding:1em;
+  vertical-align: middle;
+}
+.glossary-def {
+  display: table-cell;
+  width:70%;
+  padding:1em;
+}
+.search-results .row {
+  background: $backgroundGlossary2;
+  border-radius: 5px;
+  margin: 10px 0;
+}

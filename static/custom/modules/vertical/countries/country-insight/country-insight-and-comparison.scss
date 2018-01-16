@@ -1,0 +1,102 @@
+#section-facts,
+#section-grouping,
+#section-main-initiatives,
+#section-other-initiatives,
+#section-context,
+#section-challenges,
+#section-stakeholders {
+    background: #f7f7f7;
+    margin: 10px 0;
+    padding: 20px;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+
+div[id^=section-facts-caption],
+div[id^=section-grouping-caption],
+div[id^=section-main-initiatives-caption],
+div[id^=section-other-initiatives-caption],
+div[id^=section-context-caption],
+div[id^=section-challenges-caption],
+div[id^=section-stakeholders-caption] {
+    font-family: "Oswald", sans-serif;
+    color: #529fa2;
+    font-size: 21px;
+    line-height: 28px;
+    margin-bottom: 40px;
+}
+
+#section-grouping-content {
+    padding-left: 0px;
+    padding-right: 20px;
+    margin-top:2em;
+
+    .grouping-bloq-name{
+        font-family: "Open Sans", sans-serif !important;
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-transform: uppercase;
+    }
+    .grouping-bloq-description ul{
+        margin:1.5rem 0;
+    }
+    .grouping-bloq-description ul li {
+        list-style: none;
+        background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/bullet_aqua.png") no-repeat;
+        background-size: 6px;
+        background-position: 0 6px;
+        padding: 0 0 0 1.2em;
+        margin: 0;
+        margin-left: 20px;
+    }
+    .grouping-bloq-countries{
+        margin: 3rem 0 0 2.5rem;
+    }
+
+}
+
+.eye {
+    display: block;
+    background: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/eye.png") transparent center center no-repeat;
+    min-height: 30px;
+    //border: 1px solid red;
+}
+.gotToTop {
+    display:none;
+}
+.affix .gotToTop {
+    display: block;
+    clear: both;
+    color: #f6a400;
+    font-size: 1.2rem;
+    top: 27.5rem;
+    left: 0.5rem;
+    position: fixed;
+    padding: 2em;
+    width: auto;
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/gototop.png) center no-repeat #fbdb99;
+    cursor: pointer;
+    z-index: 10;
+    &:hover{
+        border:1px solid #f6a400;
+    }
+}
+.minimun {
+    max-height:22em;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+.vdCircums {
+    display: block !important;
+}
+.country-comparison-content {
+    .policiesCC .hidden-print,
+    .contextContent,
+    .glossaryContent .hidden-print{
+        padding-bottom: 2em;
+    }
+    #section-other-initiatives-content .hidden-print {
+        padding: 2em 0 0;
+    }
+}

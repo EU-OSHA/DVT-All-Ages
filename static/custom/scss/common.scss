@@ -1,0 +1,619 @@
+/******
+/*
+/*  FONTS
+/*
+/******
+
+/* OSWALD */
+@import '../fonts/Oswald/Oswald-Bold/font-face.scss';
+@import '../fonts/Oswald/Oswald-Light/font-face.scss';
+@import '../fonts/Oswald/Oswald-Regular/font-face.scss';
+
+/* OPEN SANS */
+@import '../fonts/OpenSans/OpenSans-Bold/font-face.scss';
+@import '../fonts/OpenSans/OpenSans-Light/font-face.scss';
+@import '../fonts/OpenSans/OpenSans-Regular/font-face.scss';
+
+
+$font-header:  'Oswald', sans-serif;
+$font-header-light:  'Oswald-Light', sans-serif;
+$font-text:  'Open Sans', sans-serif;
+$font-body:  "Open Sans", sans-serif;
+
+//** For screen 1650px
+$ful1650: 1650px;
+
+$corporativo : #003399;
+
+/* Font color */
+$font-black: #000000;
+$font-grey: #57575a;
+
+
+/* Palete */
+$plt-eu01: #363d90; /*dark blue*/
+$plt-eu02: #9ba9d3;
+$plt-eu03: #c83188; /**/
+$plt-eu04: #eabbd4;
+
+/* Color */
+$colorWhite: #FFFFFF;
+$colorTrans: transparent;
+$colorA: #f6a400; /*orange*/
+$colorB: #00A0A4;
+
+
+$color01: #dd9444;
+$color02: #edcfa5;
+$color03: #3ea1a0; /*dark aquamarine*/
+$color04: #c1dcde;
+$color05: #56595c;
+$color06: #babdc1;
+$color07: #359f4b;
+$color08: #e1d643;
+$color09: #fbdb99;
+$lightgrey: #F0F0F0; /* light grey*/
+
+/* color groups country clusters*/
+$colorGroup01:#FBDB99;
+$colorGroup02:#D1E3E4;
+$colorGroup03:#529FA2;
+$colorGroup04:#F6A400;
+
+$backGraps:#cecece;
+
+
+$menu-item: #b1b3b4;
+$menu-select: #529fa2;
+
+$footer-bg: #b1b3b4;
+
+/* MAPs Colours */
+$map-selected: #dd9444;
+$map-content: #d2e1e1;
+$map-disabled: #bbbec2;
+$map-shape:#eda308;
+
+/*Cookies disclaimer*/
+$backgroundCookies:#cbe4e5;
+
+$backgroundGlossary1:#cfd8dc;
+$backgroundGlossary2:#eceff1;
+
+
+.nopadding {
+  padding:0!important;
+  margin:0!important;
+}
+
+.nopadding-left {
+  padding:0!important;
+  margin:0!important;
+}
+
+.nopadding-right {
+  padding:0!important;
+  margin:0!important;
+}
+.row-centered{
+  text-align:center;
+}
+body {
+  font-family: $font-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-header;
+}
+
+.page-content {
+  float: left;
+  margin: 0;
+  width: 100%;
+}
+.mainBody {
+    overflow: auto;
+    width: 100%;
+}
+#not-home-cover {
+  background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/not-home-banner.png') $colorB no-repeat center top;
+  height: 61px;
+  clear:both;
+  h1 {
+    color: $colorA;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 36px;
+    margin-top: 10px;
+  }
+
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+
+.ovh {
+  overflow:hidden;
+}
+
+div.contextual-menu > div.dropdown {
+  background:$color05;
+  padding: 4px 5px;
+  border-radius: 4px;
+  width: 30px;
+  float: right;
+  margin-right: 15px;
+
+  button {
+    background: transparent;
+    border: none;
+    padding: 1px;
+    color: $colorA;
+    font-weight: 100;
+  }
+}
+
+.modal-backdrop {
+  z-index:9998 !important;
+}
+
+
+/****** GRÃƒÂFICAS GENERALES *****/
+
+/* tooltip size */
+.tipsy-inner{
+  font-size:12px;
+}
+
+/* tooltip percentage hidden for stacked bars */
+.ccc-tt-valuePct{
+  display:none;
+}
+
+.zylk-bar-chart,
+.dvt-chart{
+  padding:.5em .7em !important;
+  background: $backGraps !important;
+  height:auto;
+
+  h3 {
+    margin:0;
+    font-family: "Open Sans",sans-serif;
+    font-weight:bold;
+    color:$font-black !important;
+    font-size: 16px !important;;
+    line-height: 1.2em !important;
+    padding: 0.2em 0 !important;
+  }
+  .row {
+    margin:0 !important;
+  }
+  .contextual-menu .fa-2x{
+    font-size:23px !important;
+    color:$colorB;
+
+  }
+}
+.graphBG{
+  .dvt-chart{
+    background:transparent !important;
+    .contextual-menu img{
+      float: right;
+    }
+  }
+}
+.dvt-chart.radar{
+  overflow:hidden;
+}
+.backGraps {
+  background:$colorWhite !important;
+  margin: 1em auto;
+  padding: 1em 0;
+  width: 100%;
+  float:left;
+  clear:both;
+}
+.dvt-modal .backGraps {
+  overflow: auto;
+  margin: 1em auto 0;
+  min-height:1em;
+}
+.radar {
+    margin-top: 1.5rem;
+    background:#FFF;
+}
+.radar .backGraps div {
+  margin: 3em 0 1em;
+  padding:0 !important;
+  /*min-height: 505px;*/
+  overflow:hidden;
+
+}
+
+.radar > div[id^="zylk_radarChart"]{
+    text-align: center;
+}
+.dvt-modal .radar>div[id^=zylk_radarChart] {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+}
+
+.pyramid {
+  padding:0 !important;
+}
+
+
+.heighth31 {
+  h3 {
+    min-height: 6em !important;
+  }
+}
+
+.heighth32 {
+  h3 {
+    min-height: 2.5em;
+  }
+}
+.heighth33 {
+  h3 {
+    min-height: 3.8em;
+  }
+}
+.heighth34 {
+  h3 {
+    min-height: 4.5em;
+  }
+}
+.heighth35 {
+  h3 {
+    min-height: 6.5em;
+  }
+}
+.heighth36 {
+   h3 {
+    min-height: 5.5em;
+  }
+}
+
+.heightAuto {
+  h3 {
+    min-height: auto !important;
+  }
+}
+
+.shapeContainer {
+  margin-top: 7em;
+}
+
+
+.modal-body {
+  padding: 1px 10px;
+  .btn {
+    padding: 0 !important;
+    font-size: 10px !important;
+    padding:0 !important;
+  }
+}
+.dvt-modal .pyramid{
+  clear: both;
+  height: auto !important;
+  margin: 2em 0;
+  .contextual-menu {
+    margin: 0.5em 1em 0 0 !important;
+  }
+
+}
+.dvt-modal .containerPyramid {
+  background: #fff none repeat scroll 0 0;
+  border-radius: 5px;
+  margin: 0.5em 0 1em;
+  padding: 1em;
+  overflow: auto;
+}
+
+
+.pyramidYears {
+  font-family:Oswald;
+  margin-left: 1.3em;
+  span {
+    color: $corporativo;
+  }
+}
+
+.dvt-modal {
+  .dvt-chart {
+    height: auto!important;
+    width: 100%;
+    overflow: hidden;
+    border-radius: .5em;
+    margin: 0;
+    position: relative;
+    left: 0%;
+    top: 0%;
+
+    h3{
+      font-size:20px !important ;
+      min-height: auto !important;
+    }
+  }
+
+
+  .pyramid{
+    clear: both;
+    height: auto !important;
+    margin: 2em 0;
+    .contextual-menu {
+      margin: 0.5em 1em 0 0 !important;
+      float:right;
+    }
+  }
+
+  .pyramidYears {
+    text-align:center;
+  }
+
+  .containerPyramid {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 5px;
+    margin: 0.5em 0 1em;
+    padding: 1em;
+  }
+
+}
+
+
+.mr {
+  margin-right:1em;
+}
+
+.labelShare {
+  display: block !important;
+}
+
+
+.dvt-modal .radar.backGraps div {
+  text-align:center;
+}
+
+.dvt-modal .functionalLegend{
+    height: auto !important;
+    margin: 2em 0;
+    overflow: auto!important;
+    float: none;
+    clear: both;
+    font-size: 16px;
+}
+
+.dvt-modal {
+    display: block;
+    background-color: #fff;
+   /* transform: translate(-50%,0)!important;*/
+    top: 50px!important;
+    width: 60%;
+    height: auto;
+    border-radius: .5em;
+    margin-bottom: 2em;
+    z-index: 9999 !important;
+    overflow: auto;
+}
+
+@media screen and (max-width: 1280px) {
+  .logoOSHA {
+    width:26.5%;
+  }
+  .dvt-modal{
+    width: 90% !important;
+    left: 5%;
+  }
+
+}
+@media screen and (min-width : 1281px) and (max-width : 1650px) {
+  .dvt-modal{
+    width: 75% !important;
+    left:12.5%;
+  }
+}
+@media screen and (min-width : 1650px) {
+  .dvt-modal{
+    width: 60% !important;
+    left:20%;
+  }
+}
+
+div.blockUI.blockOverlay {
+  opacity: 0.6 !important;
+}
+
+div.blockUI.blockMsg.blockPage.ui-draggable {
+  margin: 0px 0px 0px -28px !important;
+  top: 16.5% !important;
+}
+
+div.blockUI.blockMsg.blockPage.ui-draggable > span {
+  //Override Phantom chart issues
+  display: none !important;
+}
+
+body > span > svg[unselectable=on],
+body > span:not(.select2-hidden-accessible) {
+  /* Incorrect Graphs below the footer */
+  display: none !important;
+}
+
+div.blockUIDefaultImg {
+  //Override pentaho reloading default gif
+  background-image: none;
+
+  height: 100%;
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+  width: 1.28571429em;
+  text-align: center;
+  display: inline-block;
+  font: normal normal normal 2.7em FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $colorB;
+}
+
+div.blockUIDefaultImg:before {
+  content: "\f021";
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.tooltip-style {
+  color: #0e90d2;
+  cursor: pointer;
+  background-color: #73d2c0;
+}
+
+/*Cookies disclaimer*/
+#cookiesConsent {
+  background: $backgroundCookies;
+  width: 100%;
+  padding: 1em 2.5em 0;
+  overflow: auto;
+  z-index:9999;
+  .text {
+    float:left;
+    width:70%
+  }
+  .buttons {
+
+  }
+  button {
+    color:$colorWhite;
+    background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/buttomArrow.png') no-repeat 95% 53% $colorB;
+    font-family: "Oswald", sans-serif;
+    padding:.7em 1.5em;
+    border:0;
+    float:right;
+    margin:0 .5em;
+  }
+}
+.logoGraphics {
+  display:none;
+}
+.modal-body {
+  .logoGraphics-wrapper{
+    float: left;
+    width: 100%;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    background: #FFF;
+      .logoGraphics{
+        float: right;
+        margin-right: 5px;
+        margin-top:0px;
+        display: block;
+        width: 100px;
+        z-index: 12;
+        position: relative;
+      }
+  }
+}
+
+.legend-info{
+  background: $colorWhite;
+  padding-left: 1em;
+}
+/*Width disclaimer*/
+#widthDisclaimer {
+  background: $backgroundCookies;
+  width: 100%;
+  padding: 1em 2.5em 0;
+  overflow: auto;
+  z-index:9999;
+  .text {
+    float:left;
+    width:80%
+  }
+  .buttons {
+
+  }
+  button {
+    color:$colorWhite;
+    background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/dvt-framework/static/custom/img/buttomArrow.png') no-repeat 95% 53% $colorB;
+    font-family: "Oswald", sans-serif;
+    padding:.7em 1.5em;
+    border:0;
+    float:right;
+    margin:0 .5em;
+  }
+}
+
+
+#containerMenu.affix {
+  top:0;
+  border-bottom:1px solid $menu-item;
+}
+p {
+  clear: both;
+}
+
+.zylk-bar-chart > div.row > .header,
+.zylk-bar-chart > div.row > .header > div.col-md-9,
+.zylk-bar-chart > div.row > .header > div.col-md-3 {
+  background-color: $backGraps;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/** hover links **/
+.bulletsItems a:hover,
+.bulletsItems a:hover.selected {
+    background: #cecece;
+}
+.cursor-pointer:hover {
+    opacity: 0.6;
+}
+
+.methodology-link {
+  background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/external_link.png) center center no-repeat !important;
+  cursor: pointer;
+}
+
+.smaller-font {
+  font-size: 0.5em;
+}
+
+.fa.fa-download {
+  font-size:2em;
+}
+/*** ESTILOS PARA NOSCRIPT**/
+#noScript {
+  border: 1px solid #ccc;
+  margin: 1.3em auto 2em !important;
+  max-width: 900px !important;
+  padding: 0 50px;
+}
+
+
+.introNoScript {
+  border: 1px solid #000;
+  color: $font-grey;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 2em 0 1.5em;
+  padding: 1em;
+}
+
+span.gtranslator-info:after{
+    content: "\f059";
+    font-family: "FontAwesome";
+    float: right;
+    font-size: 1.2em;
+    vertical-align: top;
+    margin-top: 0px;
+    padding-top: 0px;
+}

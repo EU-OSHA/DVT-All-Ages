@@ -1,0 +1,11 @@
+<div id="{{ :: section.id }}" country='{{ :: section.country}}' class="{{:: section.class }}" ng-controller="CountriesController">
+    <h2><span class="icon {{ :: section.id}}"></span></h2>
+    <div class="col-lg-12" class="{{ :: section.caption.class }}" id="{{ ::section.caption.id }}" data-ng-bind="section.caption.name"></div>
+    <div id='column1' class='col-lg-12 '></div>
+
+    <div>
+        <div class="col-xs-12 section-content section-nogrouping-content {{ ::section.content.class }}" id="{{ ::section.content.id }}"></div>
+    </div>
+
+
+</div>

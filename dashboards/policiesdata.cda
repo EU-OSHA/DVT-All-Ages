@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+    <!--Policies list data access-->
+    <!--Filters-->
+    <!--Countries from getCountries, same as another selectors-->
+    <!--Classification-->
+    <DataAccess access="public" connection="connection" id="getPLClassificationFilter" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT DISTINCT Subject FROM PSP  where Subject is not null order by FIELD (Subject,'OSH','RTW','OTHERS');
+        </Query>
+    </DataAccess>
+    <!--Origins-->
+    <DataAccess access="public" connection="connection" id="getPLOrigins" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT distinct Origin FROM PSP
+        </Query>
+    </DataAccess>
+    <!--Results-->
+    <DataAccess access="public" connection="connection" id="getPLList" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default=".*" name="policy" type="String" />
+            <Parameter default=".*" name="classifications" type="String" />
+            <Parameter default=".*" name="countries" type="String" />
+        </Parameters>
+        <Query>
+            SELECT
+            Country.Description as `Country`,
+            PSP.year as `Date`,
+            PSP.PSP as `Name Policy`,
+            PSP.LongD as `Description policy`,
+            PSP.URL as `External url`,
+            PSP.CSName as `CSName`,
+            PSP.CSURL as `CSLink`,
+            /* For filters */
+            PSP.Subject as `Subject`,
+            PSP.CountryID as `Country id`,
+            PSP.OGovernment,
+            PSP.OSocialPartners,
+            PSP.OOthers
+            FROM PSP, Country
+
+            /*JOIN condition*/
+            WHERE PSP.CountryId = Country.id
+            AND ( PSP.PSP REGEXP ${policy} OR PSP.LongD REGEXP ${policy} )
+            AND PSP.Subject REGEXP ${classifications}
+            AND PSP.CountryID REGEXP ${countries}
+            order by Country.Description asc, PSP.year desc
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getPLListAll" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT Country.Description as `Country`,
+            PSP.year as `Date`,
+            PSP.PSP as `Name Policy`,
+            PSP.LongD as `Description policy`,
+            PSP.URL as `External url`,
+            PSP.CSName as `CSName`,
+            PSP.CSURL as `CSLink`, /* For filters */ PSP.Subject as `Subject`,
+            PSP.CountryID as `Country id`,
+            PSP.OGovernment,
+            PSP.OSocialPartners,
+            PSP.OOthers
+            FROM PSP,Country /*JOIN condition*/ WHERE PSP.CountryId = Country.id
+            order by Country.Description asc, PSP.year desc
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getPLDetail" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="1" name="policy" type="String" />
+        </Parameters>
+        <Query>
+            SELECT
+            Country.Description as `Country`,
+            PSP.year as `Date`,
+            PSP.PSP as `Name Policy`,
+            PSP.LongD as `Description policy`,
+            PSP.URL as `External url`,
+            PSP.CSName as `CSName`,
+            PSP.CSURL as `CSLink`,
+            /* For filters */ PSP.Subject as `Subject`,
+            PSP.CountryID as `Country id`,
+            PSP.OGovernment,
+            PSP.OSocialPartners,
+            PSP.OOthers
+            FROM PSP, Country /*JOIN condition*/
+            WHERE PSP.CountryId = Country.id AND PSP.Id = ${policy} /* 260 */
+            order by Country.Description asc, PSP.year desc
+        </Query>
+    </DataAccess>
+
+    <!--For characters validation @sara-->
+    <DataAccess access="public" connection="connection" id="getPLShortDList" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT Country.Description as `Country`, PSP.year as `Date`, PSP.PSP as `Name Policy`, PSP.ShortD as `Short Description policy` FROM PSP,Country /*JOIN condition*/ WHERE PSP.CountryId = Country.id
+        </Query>
+    </DataAccess>
+</CDADescriptor>

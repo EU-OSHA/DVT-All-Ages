@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+    <DataAccess access="public" connection="connection" id="getIndicators" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>select distinct(Id), Indicator from Indicators where Main = '1'</Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getGlossaryItems" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>select termID, Term, Description from Glossary</Query>
+    </DataAccess>
+
+
+    <DataAccess access="public" connection="connection" id="getGlossaryTerms" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default=".*" name="term" type="String" />
+        </Parameters>
+        <Query>
+            SELECT
+            termID as `termID`,
+            Term as `Term`,
+            Description as `Description`
+            FROM Glossary
+            WHERE Term REGEXP ${term} OR Description REGEXP ${term}
+            order by Term asc, Description asc
+        </Query>
+    </DataAccess>
+
+</CDADescriptor>

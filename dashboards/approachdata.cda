@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+
+    <!--Countries approaches data access-->
+    <!--CA2 Grouping information-->
+    <DataAccess access="public" connection="connection" id="getGroupingInformation" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT
+            Distinct a.Id,
+            a.Approach,
+            a.ShortD,
+            GROUP_CONCAT(c.Id SEPARATOR ', ') as country_list
+            FROM Approach a, Country c where c.ApproachID = a.Id
+            group by a.Id, a.Approach, a.ShortD
+            order BY a.Id;
+        </Query>
+    </DataAccess>
+    <!--Get country group-->
+    <DataAccess access="public" connection="connection" id="getCountryGroupId" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="RO" name="pCountry" type="String" />
+        </Parameters>
+        <Query>
+            SELECT ApproachID FROM Country WHERE Id=${pCountry}
+        </Query>
+    </DataAccess>
+    <!--Tab 1: Group description -->
+    <!--Contextual data-->
+    <!--List of countries in a group: datapilot.cda -> COMMON -> getApproachesMap-->
+    <!--Policies areas, Conceptual FWK, Implementation and comments for now-->
+    <DataAccess access="public" connection="connection" id="getAPTab1GroupFactorBlocks" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="1" name="approach" type="String" />
+        </Parameters>
+        <Query>
+            SELECT ApproachID, FactorBlock, factor from Factors where ApproachID = ${approach} ORDER BY FIELD(FactorBlock, "Specific characteristics", "Policy priorities", "Policy areas", "Concepts", "Implementation")
+        </Query>
+    </DataAccess>
+    <!-- Indicators -->
+    <!-- Median age Figure 1-->
+    <DataAccess access="public" connection="connection" id="getAPMedianAge" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="1" name="approach" type="Numeric" />
+            <Parameter default="19" name="pId" type="Numeric" />
+            <!--<Parameter default="2000;1994;2014;2060" name="pYears" type="StringArray" />-->
+        </Parameters>
+        <Query>
+            SELECT Country, Y, Measure as 'Value' FROM FactsFigures WHERE id = ${pId} AND Y in (1994,1999,2004,2009,2014,2060)
+            AND Country in (SELECT Id FROM Country WHERE ApproachId = ${approach} OR Id="EU")
+            AND Measure > -1 ORDER BY Y ASC
+        </Query>
+    </DataAccess>
+    <!-- Unemployement Figure 2-->
+    <DataAccess access="public" connection="connection" id="getAPUnemployement" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="From 15 to 74 Years" name="pCriteria" type="String" />
+            <Parameter default="1" name="approach" type="Numeric" />
+            <Parameter default="67" name="pId" type="Numeric" />
+        </Parameters>
+        <Query>
+            SELECT Country, Y, Measure as 'Value' FROM FactsFigures WHERE id = ${pId} AND Y in (2000,2008,2012,2015)
+            AND Criteria=${pCriteria} AND Country in (SELECT Id FROM Country WHERE ApproachId = ${approach} OR Id="EU")
+            AND Measure > -1 ORDER BY Y ASC
+        </Query>
+    </DataAccess>
+    <!-- Employement Olderworkers Figure 3-->
+    <DataAccess access="public" connection="connection" id="getAPEmployementOlderWorkers" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="Total" name="pCriteria" type="String" />
+            <Parameter default="1" name="approach" type="Numeric" />
+            <Parameter default="66" name="pId" type="Numeric" />
+        </Parameters>
+        <Query>
+            SELECT Country, Y, Measure as 'Value' FROM FactsFigures WHERE id = ${pId}
+            AND Y in (2000,2008,2012,2014) AND Criteria=${pCriteria}
+            AND Country in (SELECT Id FROM Country WHERE ApproachId = ${approach} OR Id="EU")
+            AND Measure > -1 ORDER BY Y ASC
+        </Query>
+    </DataAccess>
+    <!-- Opinion work health negative Figure 4-->
+    <DataAccess access="public" connection="connection" id="getAPOpinionWorkHN" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="50+" name="pCriteria" type="String" />
+            <Parameter default="1" name="approach" type="Numeric" />
+            <Parameter default="33" name="pId" type="Numeric" />
+        </Parameters>
+        <Query>
+            SELECT Y, Country, Measure as 'Value' FROM FactsFigures WHERE id = ${pId} AND Yselected = 1 AND Criteria=${pCriteria}
+            AND Country in (SELECT Id FROM Country WHERE ApproachId = ${approach} OR Id="EU")
+            AND Measure > -1 ORDER BY Measure ASC
+        </Query>
+    </DataAccess>
+ <!-- Age discrimination Figure 5-->
+    <DataAccess access="public" connection="connection" id="getAgeDiscrimination" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="1" name="approach" type="Numeric" />
+            <Parameter default="42" name="pId" type="Numeric" />
+        </Parameters>
+        <Query>
+            SELECT Y, Country, Measure as 'Value' FROM FactsFigures WHERE id = ${pId}
+            AND Yselected = 1 AND Country in (SELECT Id FROM Country WHERE ApproachId = ${approach} OR Id="EU")
+            AND Measure > -1 ORDER BY Measure ASC
+        </Query>
+    </DataAccess>
+    <!-- Training Olderworkers Figure 6-->
+    <DataAccess access="public" connection="connection" id="getTrainingOlderWorkers" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="50 +" name="pCriteria" type="String" />
+            <Parameter default="1" name="approach" type="Numeric" />
+            <Parameter default="23" name="pId" type="Numeric" />
+        </Parameters>
+        <Query>
+            SELECT Y, Country, Measure as 'Value' FROM FactsFigures WHERE id = ${pId}
+            AND Yselected = 1 AND Criteria=${pCriteria} AND Country in (SELECT Id FROM Country WHERE ApproachId = ${approach} OR Id="EU")
+            AND Measure > -1 ORDER BY Measure ASC
+        </Query>
+    </DataAccess>
+    <!-- Tab2 Main Policies contextual data-->
+    <DataAccess access="public" connection="connection" id="getAPTab2MainPolicies" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="1" name="pGroup" type="Numeric" />
+        </Parameters>
+        <Query>
+          SELECT
+              ap.Approach,
+              c.Id,
+              c.Description,
+              p.Id,
+              p.PSP,
+              p.Main,
+              p.CSNAME,
+              p.CSURL,
+              p.ShortD,
+              p.inMap
+          FROM
+              Approach as ap,
+              Country as c
+          left join PSP as p on c.Id = p.CountryId
+          WHERE
+          	ap.Id = c.ApproachID
+          	AND ap.Id = ${pGroup}
+          ORDER BY c.Description , ap.Id , c.Id
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getApproaches" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>select distinct(Id), shortD, from Approach</Query>
+    </DataAccess>
+</CDADescriptor>

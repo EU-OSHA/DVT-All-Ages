@@ -1,0 +1,291 @@
+.searcher {
+
+  text-align: center;
+  //border: 1px solid red;
+  background-color: #fdedcc;
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  .search {
+    width: 50%;
+    margin:0 auto;
+  }
+
+}
+
+div.filters-container {
+  background-color: #f7f7f7;
+  margin-top: 20px;
+
+  .title {
+    font-family: $font-header;
+    font-size: 18px;
+    color: $colorA;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 80%;
+  }
+  input[type=checkbox]{
+    background: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #000;
+    width: 13px;
+    height: 13px;
+    content: "\2714";
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+  input[type=checkbox]:checked:before{
+    content: "\f00c";
+    font-family: fontawesome;
+    font-size: 11px;
+    position: relative;
+    top: -5px;
+  }
+}
+
+#filter1,
+#filter2 {
+  padding:0 !important;
+  margin:0 !important;
+  margin-bottom:0 !important;
+}
+
+#country-card-structure label {
+  font-weight: normal;
+}
+
+#country-card-structure .input-group .form-control:first-child {
+margin-left:0;
+}
+
+#country-card-structure .input-group-btn:last-child > .btn,
+#country-card-structure .input-group-btn:last-child > .btn-group {
+  margin-left: -1px;
+  margin-top: 0px;
+}
+
+div.external-container {
+  height: 3em;
+  text-align:center;
+}
+
+.policy-maps a.know-more.external {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+#country-card-structure .policies:after {
+  background-color: #f7f7f7;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  right: 10px;
+  bottom: 0px;
+  z-index: -1;
+  margin-right: 10px;
+}
+
+#country-card-structure .policies {
+
+  margin:20px 0px 20px 0px;
+  background-color: white;
+  float: left;
+  padding: 10px;
+  border-left: 1px solid #fbdb9a;
+  position: relative;
+  z-index: 10;
+  margin-right: -20px;
+
+  .title {
+    margin:0;
+    font-style: italic;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+
+  .subtitle {
+    margin:4px 0 20px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+
+  }
+
+  .country, .date {
+    font-size: 15px;
+    font-weight: 100;
+    color: $colorA;
+  }
+
+  .image {
+    padding-top: 40px;
+    color: #EDA308;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .policy-items {
+    background-color: white;
+    margin-left: 5%;
+    margin-bottom: 30px;
+    width: 90%;
+  }
+
+  .policy-description {
+    margin-bottom: 20px !important;
+    //border: 1px solid red;
+  }
+
+  .btn-link {
+    padding: 0 !important;
+    float: none;
+    display: inline;
+
+    color: $colorB;
+    text-decoration: underline;
+  }
+
+  .more-links {
+
+    .item, .item-data {
+      font-family: Oswald;
+      text-decoration: none;
+    }
+
+    .item {
+      color: #000;
+      font-size: 1.0em;
+    }
+    .item-data {
+      color: #0033B1;
+      font-size: 1.4rem;
+    }
+
+    padding: 10px;
+    /*background: #f8f8f8;*/
+    margin-bottom: 20px;
+    a {
+      /*color: $colorB !important;*/
+      /*text-decoration: underline;*/
+      font-size: 1.1em !important;
+      float: right;
+    }
+
+    div {
+      padding: 0;
+    }
+
+  }
+
+}
+
+@media only screen and (max-device-width : 736px) {
+    #country-card-structure .policies {
+      margin: 20px 0;
+      background-color: #fff;
+      padding: 10px;
+      border-left: 0;
+
+      .policy-items {
+          background-color: #fff;
+          margin-left: 0;
+          margin-bottom: 10px;
+          width: 100%;
+      }
+      .image {
+        padding-top: 0px;
+        padding-left:0;
+        padding-right:0;
+        text-align:center;
+      }
+    .m20 {
+      margin-top:0px;
+      text-align:center;
+      width:100%;
+    }
+  }
+}
+
+
+.policy-description {
+    max-height: 77px;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+}
+
+.policy-description.expanded {
+    max-height: 500px;
+    transition: max-height 0.25s ease-in;
+}
+
+.policy-btn {
+    margin-top:-10px;
+    margin-bottom:10px;
+}
+
+#policy-clear {
+  margin: -1px 1px 1px 0;
+}
+#policy-search {
+  height: 33px !important;
+  margin-bottom: 1px !important;
+}
+
+
+#policy-input {
+
+}
+#policy-clear,#policy-search{
+  height: 34px !important;
+}
+.seeMore {
+  width:16px;
+  height:16px;
+}
+.hide {
+  display:none;
+}
+.back {
+  float:right;
+  background: transparent url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/back.png") no-repeat scroll 0 50%;
+  padding-left:1.5em;
+  color:#ffa500;
+  font-weight:bold;
+  margin-top: 1.8em;
+}
+.back:hover {
+  color:#ffa500;
+  text-decoration: none;
+}
+.m20 {
+  margin-top: 25px;
+}
+
+.pagination {
+  padding-left: 22%;
+  & > li > span.pag-numbers {
+  min-width: 50px;
+  min-height: 35px;
+  }
+}
+#referral-iniciatives a h3.ligth {
+  color:black;
+  text-decoraton: none !important;
+}
+#referral-iniciatives .imagenPolicy a:hover {
+  text-decoration: none !important;
+}
+#referral-iniciatives .imagenPolicy a:focus {
+  text-decoration: none !important;
+}
+
+.more-this-country {
+  padding-left: 1em;
+}

@@ -1,0 +1,70 @@
+/* MENU.SCSS */
+
+zylk-pyramid-chart {
+  //border: 1px solid red;
+
+  //display: none;
+
+
+
+}
+
+
+zylk-pyramid-chart {
+  //border: 1px solid green;
+
+  //width: 150px;
+  // height:150px;
+  //padding: 30px;
+  // float: left;
+}
+
+.input-group-addon.glyphicon.glyphicon-stop {
+  display: none;
+}
+
+.dropdown .input-group {
+  width:100%;
+  line-height: 46px;
+}
+
+.select2-container.btn.btn-default.dropdown-toggle {
+  padding: 0;
+  border: 0;
+  background: 0;
+ // width: 100%;
+  //float: right;
+}
+
+#formCountryInsigth.affix {
+    left: 0;
+    //top: 106px;
+    top: 90px;
+    width: 100%;
+    z-index: 1;
+  #quick-access-links {
+    ul {
+      margin-top: -10px;
+    }
+  }
+  .selecter {
+    margin-top: -10px;
+  }
+}
+
+.padded-left{
+  padding-left:74px;
+}
+.pyramid-icons .male {
+  background: rgba(0, 0, 0, 0) url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/manIcoPiramid.png") no-repeat scroll 0 center;
+  background-position:center;
+  height:28px;
+}
+
+.pyramid-icons .female{
+  background: rgba(0, 0, 0, 0) url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/womanIcoPiramid.png") no-repeat scroll 0 center;
+  background-position:right;
+  height:28px;
+}
+
+/* FIN DE MENU.SCSS */

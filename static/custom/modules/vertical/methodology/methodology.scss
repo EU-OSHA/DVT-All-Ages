@@ -1,0 +1,43 @@
+.methodology {
+  background: #f7f7f7;
+  clear: both;
+  ul {
+    list-style: disc !important;
+    li {
+      padding:.4em 0;
+    }
+    ul {
+      list-style: circle !important;
+      li {
+        padding:.2em 0;
+      }
+      ul {
+        list-style: square !important;
+        li {
+          padding:.1em 0;
+        }
+      }
+    }
+  }
+  h2 a {
+      color:$colorB !important;
+  }
+  a{
+    color:$colorB;
+  }
+  .external{
+    color:#000;
+  }
+  div {
+    background:$colorWhite;
+    padding:1em 2em;
+    width:96%;
+    margin:2em auto;
+    text-align: left;
+    overflow: auto;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 1em;
+    }
+  }
+}

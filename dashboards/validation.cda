@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+    <DataAccess access="public" connection="connection" id="getIndicators" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>SELECT ID, Criteria FROM FactsFigures WHERE YSELECTED = 1
+            AND ID in (19, 66, 42, 43, 28)</Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getLifeHealthyYears" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String" />
+            <Parameter default="EU" name="pCountry2" type="String" />
+            <Parameter default="EU" name="pCountry3" type="String" />
+        </Parameters>
+        <Query>
+            SELECT 'Difference between LE and HLY at 65' as Indicator, CASE
+            WHEN t1.Criteria ='Females' THEN 'F'
+            ELSE 'M'
+            END as Criteria, t1.Country, ROUND(t2.value - t1.value, 2) as diff, ROUND(t1.value,2) as HLY, ROUND(t2.value,2) as LE
+            FROM
+            -- HLY
+            (SELECT Criteria, country, Measure+65 as value FROM FactsFigures WHERE id=28 AND
+            YSelected=1 AND Country in (${pCountry1},${pCountry2},${pCountry3}) AND (Criteria='Females' OR Criteria='Males')) t1
+            ,
+            -- LE
+            (SELECT Criteria, country, Measure+65 as value FROM FactsFigures WHERE id=16 AND
+            YSelected=1 AND Country in (${pCountry1},${pCountry2},${pCountry3}) AND (Criteria='Females' OR Criteria='Males')) t2
+            WHERE t1.country = t2.country
+            AND t1.Criteria = t2.Criteria
+        </Query>
+    </DataAccess>
+
+</CDADescriptor>

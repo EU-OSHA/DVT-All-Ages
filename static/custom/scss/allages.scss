@@ -1,0 +1,110 @@
+@import 'common.scss';
+
+
+/******
+*
+*  Components
+*
+******/
+@import "../../system/components/font-awesome/css/font-awesome.min.css";
+@import 'inputs/range.scss';
+@import "../../system/components/angular-tooltips/dist/angular-tooltips.min.css";
+@import '../modules/horizontal/directives/search/search.scss';
+@import '../css/mapglyphs/mapglyphs.css';
+@import 'maps/maps.scss';
+
+/*****  HORIZONTAL  ****/
+
+/* Header */
+//@import '../modules/horizontal/directives/header/header.scss';
+
+/* Menu */
+@import '../modules/horizontal/directives/main-menu/menu.scss';
+
+/* Footer */
+@import '../modules/horizontal/directives/footer/footer.scss';
+
+/* Social */
+@import '../modules/horizontal/directives/social/social.scss';
+
+
+
+
+/* Advanced searchbox */
+//@import '../modules/horizontal/directives/advanced-searchbox/angular-advanced-searchbox.min.scss';
+
+/* Radio */
+@import '../modules/horizontal/directives/radio/radio.scss';
+
+
+/* Select */
+@import '../modules/horizontal/directives/select/select.scss';
+
+
+/****** GENERAL *******/
+@mixin no-padding($side) {
+  @if $side == 'all' {
+    .no-padding {
+      padding: 0 !important;
+    }
+  } @else {
+    .no-padding-#{$side} {
+      padding-#{$side}: 0 !important;
+    }
+  }
+}
+
+@include no-padding("left");
+@include no-padding("right");
+@include no-padding("top");
+@include no-padding("bottom");
+@include no-padding("all");
+
+
+/*****  VERTICAL  ****/
+
+/* Approaches */
+@import '../modules/vertical/policies/approaches/approaches-map.scss';
+
+/* Policy */
+@import '../modules/vertical/policies/policy/policy.scss';
+
+
+/* Countries */
+@import '../modules/vertical/countries/country-insight/country-insight-and-comparison.scss';
+@import '../modules/vertical/countries/additional-resources/additional-resources.scss';
+@import '../modules/vertical/countries/csp/countries-selection-panel.scss';
+@import '../modules/vertical/countries/csp/panel.scss';
+@import '../modules/vertical/countries/country-insight/country-card/country-insight.scss';
+@import '../modules/vertical/countries/country-insight/country-comparison/country-comparison.scss';
+
+
+
+/* Countries */
+@import '../modules/vertical/countries/country-insight/partials/menu.scss';
+
+
+/* Glossary */
+@import '../modules/vertical/glossary/glossary.scss';
+
+
+/* Home */
+@import '../modules/vertical/home/home.scss';
+
+
+/* Issue */
+@import '../modules/vertical/issue/issue.scss';
+@import '../modules/vertical/issue/directives/menu-issue/menu.scss';
+
+
+/* Methodology */
+@import '../modules/vertical/methodology/methodology.scss';
+
+/* Footer Pages*/
+@import '../modules/vertical/footer-pages/footer-pages.scss';
+
+/*General Responsive*/
+@import 'responsive.scss';
+
+/*General Print*/
+@import 'print.scss';

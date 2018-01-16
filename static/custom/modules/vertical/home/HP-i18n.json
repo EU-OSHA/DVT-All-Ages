@@ -1,0 +1,57 @@
+{
+  "graphics_multiindicator": {
+    "pyramid_title": "Age pyramid (EU)",
+    "pyramid_functional_legend":"<b>Population age structure development, by sex and five-year age groups.</b> (Eurostat,2014)"
+  },
+  "slider1": {
+    "text": "<span class='carrousel-number'>22<span>%</span></span> of workers 50+ think they would not be able to do their current job at the age of 60",
+    "link": "http://www.eurofound.europa.eu/surveys/data-visualisation/sixth-european-working-conditions-survey-2015",
+    "linkText": "European Working Conditions Survey 2015",
+    "alt": "22% of workers 50+ think they would not be able to do their current job at the age of 60"
+  },
+  "slider2": {
+    "text": "<span class='carrousel-number'>26<span>%</span></span> of workers think work affects their health negatively",
+    "link": "http://www.eurofound.europa.eu/surveys/data-visualisation/sixth-european-working-conditions-survey-2015",
+    "linkText": "European Working Conditions Survey 2015",
+    "alt": "26% of workers think work affects their health negatively"
+  },
+  "slider3": {
+    "text": "<span class='carrousel-number'>45<span>%</span></span> of Europeans think discrimination on the grounds of being 55+ is widespread",
+    "link": "http://ec.europa.eu/public_opinion/archives/ebs/ebs_393_en.pdf",
+    "linkText": "Eurobarometer",
+    "alt": "45% of Europeans think discrimination on the grounds of being 55+ is widespread"
+  },
+  "slider4": {
+    "text": "<span class='carrousel-number'>35<span>%</span></span> of workers 50+ have received training paid by the employer in the past year (41% for age group 35 to 49)",
+    "link": "http://www.eurofound.europa.eu/surveys/data-visualisation/sixth-european-working-conditions-survey-2015",
+    "linkText": "European Working Conditions Survey 2015",
+    "alt": "35% of workers 50+ have received training paid by the employer in the past year (41% for age group 30-49)"
+  },
+  "slider5": {
+    "text": "<span class='carrousel-number'>32<span>%</span></span> of establishments do not have a procedure to support return to work",
+    "link": "https://osha.europa.eu/en/surveys-and-statistics-osh/esener/2014",
+    "linkText": "European Survey of Enterprises on New and Emerging Risks (ESENER - 2)",
+    "alt": "32% of establishments do not have a procedure to support return to work"
+  },
+  "article1": {
+    "title": "",
+    "subtitle": "Explore the key issues",
+    "content": "European workforce is shrinking and ageing. During the last two decades, the official pension age has been rising all over Europe. However, this does not mean that all people actually work up to these higher ages. Many workers still leave the labour market well before reaching the official pension age and in many countries the employment participation of older workers is relatively low. Too many workers think that they will not be able to do their current job when they will be 60 years old.",
+    "link": "Find out more about the challenges of an ageing workforce."
+  },
+  "article2": {
+    "title": "",
+    "subtitle": "Explore country groups and policies",
+    "content": "Europe is diverse in terms of demographic developments, health, socio-economic conditions, employment participation and many other aspects that might have an impact on policy development addressing the challenges of an ageing workforce. Based on the similarities and common features in policy development four groups of countries could be identified for the purposes of comparison.",
+    "link": "Find out more about the country groups and OSH and related policies addressing the challenges of an ageing workforce."
+  },
+  "article3": {
+    "title": "",
+    "subtitle": "Explore country profiles",
+    "content": "The workforce is ageing in all European countries, but the magnitude, the speed and the timing of the ageing process varies. But not only are European countries different as regards, demographic developments: there are great economic and health disparities between the countries. Social protection systems, OSH systems differ too, and there are differences in OSH management and working conditions.",
+    "link": "Find out more about your country in comparison to the EU and other European countries."
+  },
+  "external": "<i class='know-more external'></i>",
+  "more-information-project": "More information about the project",
+  "range-text": "Select the year"
+}

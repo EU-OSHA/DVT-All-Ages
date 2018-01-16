@@ -1,0 +1,302 @@
+.challengesBar {
+  background: $colorA;
+  font-family: "oswald",sans-serif;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  clear: both;
+
+  .col-xs-12 {
+    text-align: center;
+  }
+
+  a {
+    color: $color09;
+    display: block;
+    padding: 0.5em 2.3em;
+    text-decoration: none;
+  }
+  ul li:last-child a {
+    border:0 !important;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a:focus {
+    text-decoration: none;
+  }
+
+  ul{
+  list-style-type: none;
+  margin: 0 auto;
+    li a{
+      color: #fbdb99;
+        -webkit-transition: all 1s;
+        transition: all 1s;
+
+        &:hover{
+          color: $colorB;
+          -webkit-transition: all 1s;
+          transition: all 1s;
+        }
+        &.active{
+          color: $colorB;
+          background:$color09;
+        }
+        &.active:hover{
+          color:$color09;
+          background:$colorA;
+        }
+
+    }
+  }
+}
+
+#issue-structure {
+  .selecter {
+    padding: 0px;
+    margin-top: 0rem;
+  }
+}
+
+div.contextual-indicators {
+  background-color: #F5F5F5;
+  padding: 20px 0 20px 0;
+  margin-top: 10px;
+
+  > .title {
+    color: $colorB;
+    font-size: 21px;
+    line-height: 28px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .zylk-bar-chart {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding: 6px 5px 5px 5px;
+    margin-top: 15px;
+
+    div[id^="zylk_bar_chart_"] {
+    background: transparent;
+      min-height: 255px;
+    }
+  }
+}
+
+.retirementAge {
+  .backGraps {
+    div[id^="zylk_bar_chart_"] {
+      min-height: 255px;
+    }
+  }
+}
+
+.challenges {
+  .backGraps {
+    div[id^="zylk_bar_chart_"] {
+      min-height: 335px;
+    }
+  }
+}
+
+.HLYvsLE {
+  .backGraps {
+    div[id^="zylk_bar_chart_"] {
+      min-height: 335px;
+    }
+  }
+}
+
+.main-indicator {
+  background-color: #F5F5F5;
+
+  > .title, >div>.title, >ng-include>div>.title {
+    color: $colorB;
+    font-size: 21px;
+    line-height: 28px;
+    margin-bottom: 0 !important;
+    text-align: left;
+  }
+
+  > .links {
+    margin-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+
+    > div.link {
+      margin-bottom: 10px;
+      padding-left: 0px;
+      paddin-right: 0px;
+
+      > a {
+        font-family:$font-header-light !important;
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: 0.1em;
+        text-decoration: none;
+        color: black;
+      }
+    }
+
+    > div.link.approach {
+      background: $colorA;
+      color: $colorWhite;
+      font-family:$font-header-light !important;
+      font-size: 1.8rem;
+      font-weight: 300;
+      padding: 5px 10px 5px 1px;
+      text-align: left;
+      > span{
+        float: left;
+        margin: 5px 0 0 15px;
+      }
+      > a.btn-default, button.btn-default  {
+        font-family:$font-header-light !important;
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: #fff !important;
+        background-color: #00A0A4;
+        border-color: #00A0A4;
+        margin-right: 21px;
+        padding: 6px 6px;
+        float: right;
+      }
+      > a.btn-default:hover, button.btn-default:hover  {
+        color:black;
+        opacity:0.6;
+      }
+    }
+  }
+
+  .zylk-bar-chart {
+    width: 95%;
+    display: block;
+    overflow: hidden;
+    padding: 6px 5px 5px 5px;
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+
+}
+
+.selecter {
+  .first-comparator {
+
+    .dropdown .input-group {
+      width: 50%;
+      float: right;
+      margin: 0.4em 1.6em 0 1em;
+    }
+  }
+
+  .second-comparator {
+    background: transparent url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/sep.png") no-repeat scroll 8px 82%;
+    padding-left: 3em;
+    margin-left: -1em;
+
+    .dropdown .input-group {
+      width: 50%;
+    }
+
+  }
+}
+
+
+/** COMPARE COUNTRIES **/
+.first-comparator .select2-chosen,.firstCompared .select2-chosen{
+  font-weight: bold;
+  color:$colorA;
+}
+
+.second-comparator .select2-chosen,.sepCompared .select2-chosen {
+  font-weight: bold;
+  color:$color03;
+}
+
+.second-comparator.colorEU .select2-chosen,.sepCompared.colorEU .select2-chosen {
+  color:$corporativo !important;
+}
+.second-comparator.colorEU,.sepCompared.colorEU {
+  background-image: url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/sepEU.png") !important;
+}
+
+zylk-select {
+  display: block;
+  width: 100%;
+}
+
+/* stories comparator */
+
+.first-comparator, .second-comparator {
+
+  label {
+    vertical-align: top;
+    width: 100%;
+    text-align: center;
+  }
+  zylk-select {
+    display: inline-block;
+    width: 100%;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    vertical-align: bottom;
+  }
+  .input-group {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+}
+
+div.contextual-indicators {
+  background-color: #F5F5F5;
+  padding: 0px 0 15px 0;
+  margin-top: 15px;
+  h2{
+    font-size: 18px;
+    min-height: 2.5em;
+  }
+  h3{
+  font-size: 18px;
+  }
+}
+
+.contextual-indicators-right{
+  padding: 0 0 0 7px;
+}
+.contextual-indicators-left{
+  padding: 0 7px 0 0;
+}
+
+#select2-drop,.select2-drop-mask {
+  z-index:1 !important;
+}
+
+.story_description {
+  margin-top:1.5em;
+}
+
+.back.historical {
+    margin-top: 0!important;
+    position: relative;
+    top: -1.5em;
+    right: 1em;
+    color: #000;
+    font-family: Oswald,sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+/* end stories comparator */
+

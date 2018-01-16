@@ -1,0 +1,588 @@
+/* INICIO country-comparasion.scss */
+
+#country-card-combo-info {
+    color: #777
+}
+
+[id^=facts-and-figures-square-country] {
+    background-color: #70a0ff;
+    height: 50px;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-left: 0
+}
+
+[id^=approach-square-country] {
+    background-color: #039;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-left: 0
+}
+
+[id^=main-iniciatives-square-country] {
+    background-color: #a5b8db;
+    height: 50px;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-left: 0
+}
+
+[id^=circumstances-square-country] {
+    background-color: #f1accd;
+    height: 50px;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-left: 0
+}
+
+[id^=pending-challenges-square-country] {
+    background-color: #dc2f82;
+    height: 50px;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-left: 0
+}
+
+[id^=stakeholders-square-country] {
+    background-color: #721341;
+    height: 50px;
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-left: 0
+}
+
+#facts-and-figures {
+    padding-right: 0;
+    padding-left: 0
+}
+
+#approach {
+    padding-right: 0;
+    padding-left: 0
+}
+
+#main-iniciatives {
+    padding-right: 0;
+    padding-left: 0
+}
+
+#circumstances {
+    padding-right: 0;
+    padding-left: 0
+}
+
+#pending-challenges {
+    padding-right: 0;
+    padding-left: 0
+}
+
+#stakeholders {
+    padding-right: 0;
+    padding-left: 0
+}
+
+#facts-and-figures ul li {
+    list-style: none
+}
+
+#approach ul li {
+    list-style: none
+}
+
+#main-iniciatives ul li {
+    list-style: none
+}
+
+#circumstances ul li {
+    list-style: none
+}
+
+#pending-challenges ul li {
+    list-style: none
+}
+
+#stakeholders ul li {
+    list-style: none
+}
+
+#country-shape {
+    padding-left: 40px
+}
+
+.border-separator-right {
+    border-right: 1px solid #7383b3;
+    border-collapse: collapse
+}
+
+.border-separator-left {
+    border-left: 1px solid #7383b3;
+    border-collapse: collapse
+}
+
+
+#country-comparison-content {
+   // border: 1px solid red;
+    overflow: hidden;
+    margin:0 auto !important;
+    float: none;
+}
+
+.comparison-content {
+    column-count: 2;
+    column-gap: 1em;
+}
+
+.comparison-content-item {
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+
+.section-fix {
+    background: #f7f7f7;
+    margin: 0 !important;
+    margin-top: 20px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+    .firstCompared{
+        #zylk_map1 svg{
+            width:80%;
+        }
+    }
+    .lastCompared{
+        #zylk_map2 svg{
+            width:80%;
+        }
+    }
+
+}
+
+.country-comparison-content .dropdown .input-group {
+    width: 50%;
+}
+
+
+.country-comparison-content zylk-pyramid-chart {
+ width: auto;
+ height: auto;
+
+        div {
+            padding:0;
+        }
+
+}
+
+#zylk_pyramid_2,
+#zylk_pyramid_3 {
+    padding:0;
+}
+
+.line-right {
+    border-right: 1px solid #333;
+}
+
+
+.section-content {
+    padding: 0 5%;
+}
+
+.all-ages-container.compare1{
+    background:#fbdb99;
+    .circums,.challeng,.stake {
+        padding:1em;
+    }
+}
+.all-ages-container.compare2 {
+    background:#d1e3e4;
+    .circums,.challeng,.stake {
+        padding:1em;
+    }
+}
+
+
+.compare1 #section-main-initiatives-content div,
+.compare1 #section-other-initiatives-content div{
+    background:#fbdb99;
+}
+
+.compare1 #section-other-initiatives-content div.hidden-print,
+.compare2 #section-other-initiatives-content div.hidden-print{
+    background: #f7f7f7 !important;
+}
+
+
+.compare2 #section-main-initiatives-content div,
+.compare2 #section-other-initiatives-content div{
+    background:#d1e3e4;
+}
+
+.country-comparison-content {
+    .bloque {
+        background:transparent !important;
+        padding:0 !important;
+        margin:0 !important;
+
+        .maxHeight:before{
+            content: "";
+            position: absolute;
+            top:0px;
+            width:96%;
+            border-top:1px solid #FFF;
+        }
+        &:nth-child(1){
+            .maxHeight:before{
+                content: "";
+                position: absolute;
+                top:0px;
+                width:0%;
+                border-top:none;
+            }
+        }
+    }
+    .bg-white {
+        background:transparent !important;
+        padding:0 !important;
+        margin:0 !important;
+       /* border-bottom: 1px solid #fff; Todos menos el Ãºltimo->Programar lÃ³gica*/
+       div.item{
+        background:transparent !important;
+        padding:0 !important;
+       }
+    }
+}
+.bloque {
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 0 1em;
+    padding: 0 2.5%;
+}
+.bloque a.know-more {
+    z-index: 0;
+    position: relative;
+    margin:1em 0 0 0;
+}
+
+/*********************** the texts above "View more" and "See more" ******************************/
+
+ .cover{
+    height: 100%;
+    width: 90%;
+    position: absolute;
+    left: 0;
+    margin:0 5%;
+    background: rgba(255,255,255,0);
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%) !important;
+    background: -webkit-gradient(left top, left bottom, color-stop(70%, rgba(255,255,255,0)), color-stop(100%, rgba(255,255,255,1))) !important;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%) !important;
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%) !important;
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%) !important;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#FFF', GradientType=0 ) !important;
+
+   max-height: 16em;
+   top: 0;
+ }
+.context .cover, .pending  .cover, .system .cover{
+  display: none;
+ }
+.context .bg-white, .pending  .bg-white, .system .bg-white{
+  padding: 2em !important;
+}
+.context .item, .pending  .item, .system .item{
+  padding: 0em !important;
+  overflow: initial;
+}
+.item > ul br{
+  display: none;
+}
+.item > ul {
+  margin: 0;
+}
+.bloque ul li {
+  margin: 0px 0 10px 20px;
+}
+.item p + ul, .item br + ul  {
+  margin: 1.5rem 0;
+}
+h3.item-title:empty {
+    display: none;
+}
+ .minimun .cover{
+    max-height: 22em;
+    display: block;
+    bottom: initial !important;
+    top: 0 !important;
+ }
+
+ .bg-white .cover{
+    width: 85%;
+    margin: 0 7.5%;
+    top: initial;
+    bottom: 20%;
+ }
+.compare1 .cover{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin:0;
+    background: rgba(251,219,153,0);
+    background: -moz-linear-gradient(top, rgba(251,219,153,0) 70%, rgba(251,219,153,1) 100%) !important;
+    background: -webkit-gradient(left top, left bottom, color-stop(70%, rgba(251,219,153,0)), color-stop(100%, rgba(251,219,153,1))) !important;
+    background: -webkit-linear-gradient(top, rgba(251,219,153,0) 70%, rgba(251,219,153,1) 100%) !important;
+    background: -o-linear-gradient(top, rgba(251,219,153,0) 70%, rgba(251,219,153,1) 100%) !important;
+    background: -ms-linear-gradient(top, rgba(251,219,153,0) 70%, rgba(251,219,153,1) 100%) !important;
+    background: linear-gradient(to bottom, rgba(251,219,153,0) 70%, rgba(251,219,153,1) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FBDB99', endColorstr='#FBDB99', GradientType=0 ) !important;
+ }
+.compare2 .cover{
+    width: 100%;
+    margin:0;
+    background: rgba(209,227,228,0);
+    background: -moz-linear-gradient(top, rgba(209,227,228,0) 70%, rgba(209,227,228,1) 100%) !important;
+    background: -webkit-gradient(left top, left bottom, color-stop(70%, rgba(209,227,228,0)), color-stop(100%, rgba(209,227,228,1))) !important;
+    background: -webkit-linear-gradient(top, rgba(209,227,228,0) 70%, rgba(209,227,228,1) 100%) !important;
+    background: -o-linear-gradient(top, rgba(209,227,228,0) 70%, rgba(209,227,228,1) 100%) !important;
+    background: -ms-linear-gradient(top, rgba(209,227,228,0) 70%, rgba(209,227,228,1) 100%) !important;
+    background: linear-gradient(to bottom, rgba(209,227,228,0) 70%, rgba(209,227,228,1) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D1E3E4', endColorstr='#D1E3E4', GradientType=0 ) !important;
+}
+
+
+/*********************** END the texts above "View more" and "See more" ******************************/
+
+
+.all-ages-container.compare1 .challeng,
+.all-ages-container.compare1 .circums,
+.all-ages-container.compare1 .stake,
+.all-ages-container.compare2 .challeng,
+.all-ages-container.compare2 .circums,
+.all-ages-container.compare2 .stake {
+    position: relative;
+}
+
+@media only screen and (min-width : 768px) and (max-width :1024px){
+    .cover{
+        height: 100%;
+        width: 100%;
+        bottom: 0%;
+    }
+
+}
+@media only screen and (min-width :1024px){
+    .cover{
+        width: 90%;
+        margin: 0 5%;
+    }
+}
+@media only screen and (max-width : 768px){
+    .cover{
+        width: 95%;
+        margin: 0 2.5%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.country-comparison-content {
+    #section-facts div[id^=section-facts-caption],
+    #section-grouping div[id^=section-grouping-caption],
+    #section-main-initiatives div[id^=section-main-initiatives-caption],
+    #section-other-initiatives div[id^=section-other-initiatives-caption],
+    #section-context div[id^=section-context-caption],
+    #section-challenges div[id^=section-challenges-caption],
+    #section-stakeholders div[id^=section-stakeholders-caption],
+    #section-facts h2,
+    #section-grouping h2,
+    #section-main-initiatives h2,
+    #section-other-initiatives h2,
+    #section-context h2,
+    #section-challenges h2,
+    #section-stakeholders h2 {
+        display: none;
+    }
+
+    #section-grouping .section-grouping-content div.grouping-bloq-countries > div.grouping-bloq-country img {
+
+    }
+
+    #section-challenges-content div.columns3,
+    #section-stakeholders-content div.columns1,
+    #section-stakeholders-content div.columns2 {
+        padding-top: 12px;
+    }
+
+    #section-stakeholders-content div.columns1,
+    #section-stakeholders-content div.columns2 {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .columns2, .columns3, .columns4 {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    #section-grouping-content {
+        .grouping-bloq-description ul{
+            margin:1.5rem 0;
+        }
+        .grouping-bloq-countries {
+            margin: 3rem 0 0 2.5rem;
+            .grouping-bloq-country {
+                img {
+                height: 50px !important;
+                }
+            }
+        }
+    }
+
+    #section-main-initiatives a.all-policies.know-more,
+    #section-context a.know-more,
+    #section-stakeholders a.know-more.glossary {
+        display: none;
+    }
+
+    a.pull-left.know-more {
+        margin-bottom: 10px;
+        padding-left: 15px;
+    }
+
+    a.pull-right.know-more {
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+    a.know-more {
+        margin-bottom: 10px;
+    }
+
+
+}
+
+.sepCompared{
+    background: rgba(0, 0, 0, 0) url("/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/sep.png") no-repeat scroll 14px center;
+    padding-left: 3em;
+    margin-left: -1em;
+    label {
+        float: left;
+        padding-right: 1em;
+        width:auto;
+    }
+    .dropdown {
+        .input-group{
+            margin: .4em 1.6em 0 1em;
+        }
+    }
+}
+.firstCompared {
+    .dropdown {
+        .input-group{
+            float: left;
+            margin: 0.4em 1.6em 0 1em;
+        }
+    }
+}
+.halfSize {
+    width:50%;
+    margin-top: 3em;
+}
+.graphBG {
+    background: #f7f7f7 none repeat scroll 0 0;
+   /*overflow: auto;*/
+    padding: 2.5em 1em 0 1em;
+
+}
+#country-comparison-content{
+    .affix {
+        left: 0;
+        top: 95px;
+        width: 100%;
+        z-index: 1;
+    }
+    .row:nth-child(2) {
+        margin: 1em;
+    }
+}
+.shapeContainer {
+    margin-top: 4em;
+    color: #EDA308;
+}
+
+
+
+/* FIN country-comparasion.scss */
+
+  /** options Facts and figures**/
+  #quick-access-links a#dropdownMenu1{
+    display: none;
+  }
+  #quick-access-links .dropdown-menu{
+    position: relative;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    min-width: 100%;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: transparent;
+    border: 0px solid #ccc;
+    border: 0px solid rgba(0,0,0,.15);
+    border-radius: 0px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: none;
+    background-clip: padding-box;
+    display: block;
+  }
+.policiesCC .policy-bloq {
+    width:100% !important;
+}
+
+#section-context-content .compare1 .bg-white,
+#section-context-content .compare2 .bg-white,
+#section-challenges-content .compare1 .bg-white,
+#section-challenges-content .compare2 .bg-white,
+#section-stakeholders-content .compare1 .bg-white,
+#section-stakeholders-content .compare2 .bg-white {
+    -moz-column-count: 1 !important;
+    -ms-column-count: 1 !important;
+    -webkit-column-count: 1 !important;
+    column-count: 1 !important;
+}
+
+.compare1 .esener,.compare2 .esener,.compare1 .glossary,.compare2 .glossary {
+  display:none !important;
+}

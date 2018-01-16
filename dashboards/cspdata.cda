@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+    <DataAccess access="public" connection="connection" id="getIndicators" type="sql">
+        <Cache duration="3600" enabled="true" />
+        <Columns/>
+        <Parameters/>
+        <Query>select distinct(Id), Indicator from Indicators where Main = '1'</Query>
+    </DataAccess>
+</CDADescriptor>

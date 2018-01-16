@@ -1,0 +1,46 @@
+{
+    "sections": {
+        "key-issue": "key-issue",
+        "country-groups": "policy",
+        "policies-strategies-programmes": "policy",
+        "country-profiles": "countries",
+        "country-card": "countries",
+        "country-comparison": "countries",
+        "infographics": "countries"
+    },
+    "home": "<span>Home</span>",
+
+    "_SECCTION-KEY-ISSUES": null,
+    "issue-retirementAge": "Key issues >> <span>Early exit from labour market</span>",
+    "issue-olderWorkersEmployment": "Key issues >> <span>Labour market participation</span>",
+    "issue-challenges": "Key issues >> <span>Impact of work on health</span>",
+    "issue-HLYvsLE": "Key issues >> <span>Health inequalities</span>",
+    "issue-dissatisfaction": "Key issues >> <span>Working conditions</span>",
+
+    "_SECCTION-POLICY-DEVELOPMENT": null,
+    "approaches-indicators": "Policy development >> <span>Country groups</span>",
+    "approaches-referral-iniciatives": "Policy development >> <span>Country groups</span>",
+    "approaches-enlarge": "Policy development >> <span>Country groups</span>",
+    "policy": "Policy development >> <span>Policies, strategies and programmes</span>",
+    "all-country-policies": "Policy development >> <span>Policies, strategies and programmes</span>",
+
+    "_SECCTION-COUNTRY-INSIGHTS": null,
+    "country-profiles": "Country insights  >> <span>Country profile</span>",
+    "country-card": "Country insights  >> <a href='#!/country-profiles'>Country profiles</a> >> ",
+    "country-comparison": "Country insights  >> <a href='#!/country-profiles'>Country profiles</a> >> ",
+    "infographics": "Country insights  >> <span>Infographics</span>",
+
+    "_SECCTION-ABOUT-TOOL": null,
+    "methodology": "<span>About the visualisation tool</span>",
+
+    "_SECCTION-GLOSSARY": null,
+    "glossary": "<span>Glossary</span>",
+
+    "_SECCTION-FOOTER-PAGES": null,
+    "site-map": "<span>Site map</span>",
+    "accessibility": "<span>Accessibility info</span>",
+    "privacy-policy":"<span>Privacy notice</span>",
+    "legal-notice":"<span>Legal notice</span>",
+
+    "404": "<span>Page not found</span>"
+}

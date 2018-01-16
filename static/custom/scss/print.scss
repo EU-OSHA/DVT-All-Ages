@@ -1,0 +1,881 @@
+
+@mixin scale-svg($w, $h) {
+  -ms-transform: scale($w, $h);
+  -webkit-transform: scale($w, $h);
+  -moz-transform: scale($w, $h);
+  transform: scale($w, $h);
+}
+
+@media print {
+  body{
+    padding-top: 0;
+    margin: 1em .5cm!important;
+      width:100% !important;
+  }
+  .col-xs-12{
+  width:100% !important;
+  }
+
+/******* DISPLAY NONE FOR PRINT ********/
+  #widthConsent,
+  #cookiesConsent,
+  .mainMenu,
+  #google_translate_element_wrapper,
+  #google_translate_element,
+  .socialWidget,
+  .path,
+  #footer-second-line,
+  .panel-footer div#block-menu-block-5,
+  .main-indicator>.links,
+  .bulletsItems,
+  .contextual-menu,
+  .policies a[role=button],
+  .back {
+    display: none;
+  }
+/******* END DISPLAY NONE FOR PRINT ********/
+
+  a.know-more:after {
+    content: " - " attr(href);
+    font-family: "Arial";
+    color: #AAA;
+    display: block;
+    font-size: 10px;
+    font-style: normal;
+    text-decoration: none !important;
+    word-break: break-all;
+  }
+  .know-more.external{
+    background: none !important;
+  }
+  #containerMenu {
+    border-bottom: 0px;
+    position:initial;
+    overflow: auto;
+    float: none;
+    margin-bottom:2em;
+    }
+  #containerMenu  .logoOSHA a img{
+    width: 150px;
+  }
+  #containerMenu  .logoOSHA img{
+    width: 30px;
+  }
+  .mainBody{
+    overflow: visible;
+  }
+  #not-home-cover{
+    background: none;
+  }
+  #home-cover{
+    height: auto;
+  }
+
+ p.title-banner{
+    width: 100% !important;
+    text-align: left !important;
+    font-size:36px !important;
+    font-weight: 300 !important;
+    border-bottom: 1px solid #888;
+  }
+  h1, h1.page-header.text-center{
+    width: 100% !important;
+    text-align: left !important;
+    font-size:32px !important;
+    padding-top:0;
+    padding-bottom: 9px;
+  }
+  .challengesBar {
+    text-align: left;
+    padding:0 !important;
+    margin: 0;
+    span.selected{
+      color: #888 !important;
+      padding: 0 0.5em !important;
+      font-size: 28px !important;
+    }
+  }
+  .container.centered h2 {
+      font-size: 26px !important;
+      color: #888 !important;
+      font-weight: 500 !important;
+      margin: 0;
+      padding: 0;
+  }
+
+
+
+  .functionalLegend {
+    margin: 0;
+  }
+  .containerPyramid{
+    margin: 2em 0 2em 0;
+    width: 100% !important;
+    padding: 0;
+    float:none !important;
+    svg{
+     /* zoom:0.8;
+      -moz-transform: scale(0.8);*/
+      @include scale-svg(0.8, 1);
+    }
+  }
+  .itemsSlider{
+    width: 105%;
+  }
+  .homepage .range-container {
+    margin-left: 0 !important;
+  }
+  input[type=range]{
+    width: 100%;
+  }
+  .range-selected {
+      background: #f6a400 !important;
+  }
+  #osha-carousel {
+    margin-top: 0%;
+    background:#dbeced  !important;
+  }
+  .carousel{
+    page-break-after:always;
+    margin-top: 1em;
+
+    .carousel-inner>.item>img {
+        height: auto;
+    }
+  }
+
+  .homepage #zylk_pyramid_1, .homepage #zylk_pyramid_2, .homepage #zylk_pyramid_3, .homepage #zylk_pyramid_4 {
+      min-height: auto !important;
+  }
+
+  .home-spotlight article{
+    width: 100%;
+    min-height: auto;
+    float: none;
+    page-break-before: auto;
+  }
+  .home-spotlight article  .article-background{
+    min-height: auto !important;
+  }
+  .home-spotlight article .article-more-info{
+    display: none !important;
+  }
+
+/******* STORIES COMBO COMPARED *******/
+   .main-indicator,
+   .contextual-indicators,
+   .contextual-indicators-left,
+   .contextual-indicators-right{
+    width:100%;
+   }
+  .story-combo-compared{
+    width:100%;
+    .selecter {
+    float: none;
+    background:#F5F5F5;
+    border-top:1px solid #F5F5F5;
+    border-bottom:1px solid #F5F5F5;
+    margin-top: 2em !important;
+    }
+    .second-comparator {
+        width: 50%;
+        display: inline-block;
+        background:none !important;
+        background-image:none !important;
+    }
+    .first-comparator {
+      width: 50%;
+      display: inline-block;
+    }
+    label {
+      vertical-align: top;
+      width: 35%;
+      text-align: left;
+    }
+    zylk-select{
+        width: 55%;
+    }
+    .select2-choice{
+      display: block;
+      height: auto;
+      line-height: 34px;
+      border-radius: 0;
+      border:0 !important;
+      font-size:18px;
+      font-family: "Open Sans",sans-serif;
+    }
+    .select2-container .select2-choice .select2-arrow{
+      border:0 !important;
+    }
+  }
+/******* END STROIES COMBO COMPARED *******/
+
+
+/****** STORIES 1 - 5 ***************/
+
+  .dvt-chart, .zylk-bar-chart {
+    padding:0!important;
+    background: #FFF!important;
+  }
+  .main-indicator + .col-xs-12.col-md-6.col-lg-6{
+    page-break-before: auto;
+    float: none !important;
+  }
+
+  .main-indicator .zylk-bar-chart{
+    width:100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align:left;
+
+    .backGraps {
+      margin:0;
+      padding:0 !important;
+
+      div[id^=zylk_bar_chart_]{
+        text-align:left;
+        margin-left:0em !important;
+        svg{
+          zoom:0.9;
+          -moz-transform: scale(0.9);
+        }
+      }
+    }
+  }
+
+  div.contextual-indicators{
+    h2{
+    page-break-before: auto;
+    float: none !important;
+    }
+    .heighth33, .heighth32{
+      width:50% !important;
+    }
+    .zylk-bar-chart div[id^=zylk_bar_chart_] {
+      text-align: left;
+      background:#f2f2f2;
+
+      svg{
+        zoom:0.85;
+        -moz-transform: scale(0.85);
+      }
+    }
+  }
+
+  .radar {
+    width: 100% !important;
+    height: 550px !important;
+    text-align: center;
+    svg {
+      width: 86% !important;
+    }
+  }
+
+  svg:not(:root) {
+      overflow: hidden !important;
+  }
+
+ /*********** COUNTRY CLUSTER ************/
+  #approaches-map-content {
+    overflow: visible !important;
+    text-align: left !important;
+
+      zylk-map [country=EU]{
+        text-align: center !important;
+
+        svg{
+            zoom:1 !important;
+            -moz-transform: scale(1) !important;
+        }
+      }
+    }
+
+  #approaches-map-tabs li{
+    display: none;
+  }
+  #approaches-map-tabs li.active{
+    display: block;
+  }
+  #approaches-map-tabs  li.active a {
+      color: #888 !important;
+      min-width: 100%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+  }
+  #indicators-content li.toggleGroup.horizontal.boxGroup {
+    min-height: auto !important;
+    padding-bottom: 1em;
+  }
+  .indicators-approaches{
+     p.text-justify{
+      width: 100%;
+      margin-bottom: 1em;
+      float: left;
+
+      span.ng-binding.ng-scope {
+        float: left;
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  .glossary-indicators-approaches{
+    border: 0 !important;
+      h4, h5 {
+        margin: 0;
+        font-size: 1.2em;
+    }
+  }
+.approaches-compare-graph{
+   margin-bottom:0px;
+    div.dvt-chart.zylk-bar-chart  {
+      min-height: auto !important;
+      div[id^=zylk_bar_chart_] {
+        text-align: left;
+          svg{
+            zoom:0.85;
+            -moz-transform: scale(0.85);
+          }
+      }
+    }
+  }
+
+  #referral-iniciatives{
+    padding: 0 !important;
+  }
+  .containerMini {
+    margin-left: 0;
+    width: 100%;
+  }
+  .blockPolicy {
+    padding: 0em!important;
+    border-bottom: 2px solid #888;
+  }
+
+  .wrapper-indicators-approaches{
+    .backGraps{
+      div[id^=zylk_bar_chart_]{
+        text-align:left;
+        margin-left:0em !important;
+
+        svg{
+          zoom:1.2;
+          -moz-transform: scale(01.2);
+        }
+      }
+    }
+  }
+
+ /*********** END COUNTRY CLUSTER ************/
+
+ /*********** POLICIES, STRATEGIES AND PROGRAMMES  ************/
+  .policy-items{
+    float: none !important;
+    overflow: auto;
+    padding: 0 !important;
+    width: 100%;
+    display: block;
+    page-break-before: auto;
+    border-bottom: 1px solid #EFF0F0;
+  }
+  .policy-country{
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .policy-maps{
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+#country-card-structure{
+    .policies {
+      margin: 0;
+      float: none;
+      padding: 0;
+      border-left: 0;
+        .policy-items {
+          background-color: #fff;
+          margin-left: 0;
+          margin-bottom: 10px;
+          width: 100%;
+          .policy-country {
+              float: none !important;
+              overflow: auto !important;
+              page-break-after: avoid;
+              page-break-inside: avoid;
+              width: 100% !important;
+          }
+        }
+        .image{
+          display:none;
+        }
+        .policy-description {
+          max-height: 650px !important;
+          height: auto !important;
+          overflow: auto !important;
+        }
+        .policy-description.expanded {
+          max-height: 650px !important;
+          height: auto !important;
+          overflow: auto !important;
+        }
+        .more-links {
+          width: 100%;
+          a.seemore{
+            display:none !important;
+          }
+        }
+    }
+    .filters-container{
+      .twoColumns{
+        -moz-columns: 4;
+        -webkit-columns: 4;
+        columns: 4;
+      }
+      .title {
+        font-size: 16px !important;
+      }
+    }
+}
+
+ /*********** END POLICY ************/
+
+
+ /*********** COUNTRIES SELECTION PANEL ************/
+  .affix, .affix#csp-eu-panel {
+      position: static !important;
+      border-bottom:0 !important;
+  }
+  zylk-dashboard zylk-country-csp-panel{
+    width: 100% !important;
+    min-height: auto !important;
+    float: left;
+    overflow: auto;
+  }
+  zylk-dashboard zylk-country-csp-panel[country=Europe] {
+    float: left;
+    width: 100%;
+
+  }
+  .boxEurope {
+    .title{
+      border-bottom: 1px solid #f6a400;
+    }
+    .country-card-bg{
+      height: auto;
+      overflow: initial;
+      width: 100%;
+    }
+    .scpPart1 {
+      width: 80%;
+      float: right;
+    }
+    .col-xs-12.col-sm-2.col-md-3{
+      width: 20%;
+      float: left;
+    }
+  }
+
+
+  .country-in-panel.ng-scope {
+    width: 100% !important;
+    float: left !important;
+  }
+
+  .main-country-card {
+  width: 100% !important;
+  height: 250px !important;
+    .country-card-bg {
+      overflow: auto;
+      min-height: auto;
+      padding: 8px 10px!important;
+      float: left !important;
+      width: 100% !important;
+      page-break-after: always;
+      page-break-inside: avoid;
+      .title{
+        border-bottom: 1px solid #f6a400;
+        margin:0 0 15px 0 !important;
+        width: 100% !important;
+      }
+      .mapSvg {
+        width: 20%;
+        float: left;
+        display:none;
+        i{
+          font-size: 7em;
+          color: #f6a400;
+        }
+      }
+      .scpPart1 {
+        width:100%;
+        float: right;
+        border-bottom: 0;
+        background:#f2f2f2 !important;
+        & > div{
+          width:30% !important;
+        }
+      }
+      .down-part {
+        width: 100%;
+        float: right;
+         & > div{
+          width:30% !important;
+        }
+      }
+    }
+  }
+ /*********** END COUNTRIES SELECTION PANEL ************/
+
+
+/******* COUNTRIES CARD  **********/
+#formCountryInsigth{
+    .selecter {
+    float: none;
+    background:#F5F5F5;
+    border-top:1px solid #F5F5F5;
+    border-bottom:1px solid #F5F5F5;
+    margin-top: 2em !important;
+    }
+    .sepCompared{
+      width:65% !important;
+      display: inline-block;
+      padding-left: 0;
+      margin-left: 0;
+    }
+    .firstCompared {
+      width:35% !important;
+      display: inline-block;
+      padding-left: 0;
+      margin-left: 0;
+    }
+    label {
+      vertical-align: top;
+      width: auto !important;
+      text-align: left;
+
+    }
+    zylk-select, zylk-select-redirect{
+      width: 50% !important;
+      padding-left: 0;
+      margin-left: 0;
+    }
+    .select2-choice{
+      display: block;
+      height: auto;
+      line-height: 34px;
+      border-radius: 0;
+      border:0 !important;
+      font-size:18px;
+      font-family: "Open Sans",sans-serif;
+    }
+    .select2-container .select2-choice .select2-arrow{
+      border:0 !important;
+    }
+}
+
+#quick-access-links li {
+    width:25% !important;
+    text-align: left !important;
+    padding:0 !important;
+    float:left;
+
+      a {
+        font-family: Oswald-light,sans-serif;
+      }
+}
+
+#country-analyse{
+  .graphBG .col-xs-9.col-md-6{
+    width:100% !important;
+
+      #zylk_pyramid_1protovis svg{
+        @include scale-svg(1.4, 1)
+      }
+  }
+
+  .shapeContainer{
+    margin-top: 0;
+    width: 20%;
+      .mg-8x {
+          font-size: 10em;
+      }
+  }
+  .pyramid{
+    svg{
+      zoom:0.8;
+      -moz-transform: scale(0.8);
+    }
+  }
+}
+.graphBG {
+  .col-xs-3.col-md-3{
+    display:none;
+  }
+
+  .graphBG-first {
+    width:100% !important;
+    svg{
+      zoom:1;
+      -moz-transform: scale(1);
+    }
+  }
+  .graphBG-second{
+    width:100% !important;
+    svg{
+      zoom:1;
+      -moz-transform: scale(1);
+    }
+  }
+}
+
+.controllersMove {
+  display:none;
+}
+
+#country-card-content{
+  .layer-content {
+      margin: 0;
+      padding: 0;
+  }
+  h2{
+    margin-top:15px;
+  }
+  #section-main-initiatives .container.centered {
+     text-align: left !important;
+     margin: 0 !important;
+     padding: 0 !important;
+  }
+
+  .icon.section-facts {
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-facts.png) center center no-repeat !important;
+    page-break-inside: avoid;
+  }
+  .icon.section-grouping {
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-grouping.png) center center no-repeat !important;
+    page-break-inside: avoid;
+  }
+  .icon.section-main-initiatives {
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-main.png) center center no-repeat !important;
+    page-break-inside: avoid;
+  }
+  .icon.section-other-initiatives {
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-other.png) center center no-repeat !important;
+    page-break-inside: avoid;
+  }
+  .icon.section-context {
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-circunstances.png) center center no-repeat !important;
+    page-break-inside: avoid;
+  }
+  .icon.section-challenges {
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-pending.png) center center no-repeat !important;
+    page-break-inside: avoid;
+  }
+  .icon.section-stakeholders {
+    background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/icons/icon-system.png) center center no-repeat !important;
+    page-break-inside: avoid;
+  }
+  .mini-bloq{
+    width: 45% !important;
+    min-width: 45% !important;
+    display:block !important;
+    float: left !important;
+    margin:0 !important;
+    padding: 0 !important;
+   /* page-break-after: always !important;
+    page-break-inside: avoid;*/
+
+    .title {
+      min-height: 2.5em;
+      text-align: center;
+      width: 100%;
+    }
+    .backGraps{
+      svg{
+       /* zoom:1.1;
+        -moz-transform: scale(1.1);*/
+        @include scale-svg(1, 1.1);
+      }
+    }
+  }
+  .containerMiniMaps{
+      width: 100% !important;
+      overflow: visible !important;
+      float: left;
+      padding: 0;
+      margin: 0;
+    .movible {
+        width: 100% !important;
+        float: left;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+  }
+  .ciSection{
+
+  }
+  .maxHeight {
+      max-height: initial !important;
+      overflow: visible !important;
+  }
+  .bloque a.know-more {
+      display: none !important;
+  }
+  .seeMoreDiv{
+    display:none !important;
+  }
+  .minimun {
+      max-height: auto;
+      overflow: visible;
+  }
+  .bloque ul li {
+      background: none;
+      padding: 0;
+      list-style-type: disc !important;
+  }
+  .cover{
+    display:none !important;
+  }
+}
+
+#country-card-content .container.centered .layer-content{
+    border:1px solid #FFF !important;
+    overflow:auto !important;
+    width:100% !important;
+    padding:0 !important;
+    margin: 0 !important;
+    display: block !important;
+    min-height: 950px !important;
+ }
+
+.section-fix,
+div[id^=section-grouping-caption], div[id^=section-main-initiatives-caption], div[id^=section-other-initiatives-caption], div[id^=section-context-caption], div[id^=section-challenges-caption], div[id^=section-stakeholders-caption], div[id^=section-challenges-caption]{
+  margin: 0 !important;
+   clear:both !important;
+   float:none !important;
+}
+.container.centered .country-selection span.selected {
+    background-color: #dd9444 !important;
+}
+.container.centered .country-selection span.selected2 {
+    background: #3ea1a0 !important;
+}
+.container.centered .country-selection span.eu {
+    background: #363d90 !important;
+}
+#country-comparison-content {
+  .know-more{
+    display: none;
+  }
+  .containerPyramid{
+    float: none !important;
+    margin: 2em 0 !important;
+    width: 100% !important;
+    svg{
+      zoom:1.1;
+      -moz-transform: scale(1.1);
+    }
+  }
+}
+
+#section-challenges, #section-facts-and-figures, #section-grouping, #section-main-initiatives, #section-iniciatives, #section-other-initiatives, #section-context, #section-stakeholders{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/******* GLOSSARY  **********/
+.glossary-def, .glossary-term {
+    display: block;
+    padding: 0.5em;
+    background: #FFF;
+    border-radius: 0px;
+    text-align: left;
+    width: 100%;
+}
+
+/******* ADDITIONAL RESOURCES  **********/
+
+.additional-resources {
+    padding: 0;
+    .pagination-results {
+        padding: 0 !important;
+    }
+  .ar-item {
+    width: 50% !important;
+    padding: 0;
+    page-break-inside: avoid;
+  }
+  .ar-first-item{
+    padding: 0;
+  }
+  .ar-item {
+    width: 50% !important;
+    padding: 0;
+  }
+}
+
+
+
+.columns2, .columns3, .columns3{
+  -moz-column-count: 1;
+  -ms-column-count: 1;
+  -webkit-column-count: 1;
+  column-count: 1;
+}
+#section-challenges-content .bg-white, #section-context-content .bg-white, #section-stakeholders-content .bg-white {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+
+}
+.row{margin-left:0; margin-right:0; }
+  /** footer **/
+  #footer-first-line{
+    font-weight: 500 !important
+  }
+
+
+/* END PRINT */
+}
+
+
+/** FF **/
+@media print{
+    #zylk_pyramid_1protovis svg, #zylk_pyramid_3protovis svg{
+      zoom:1 !important;
+      -moz-transform: scale(1) !important;
+      margin-left:-2cm !important;
+    }
+  .container.centered .layer-content{
+    margin: 10px 0;
+    overflow: auto !important;;
+    padding:0;
+    height:40cm;
+  }
+
+  .section-fix{
+    width: 100%;
+    page-break-inside: avoid !important;;
+    page-break-after: auto !important;;
+    display:inline-block ;
+  }
+   #section-main-initiatives,
+  #section-other-initiatives-content,
+  #section-context,
+  #section-context,
+  #section-challenges,
+  #section-stakeholders{
+    display: inline-block !important;;
+    width: 100%;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+}
+
+

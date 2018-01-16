@@ -1,0 +1,52 @@
+<div id="csp-eu-panel" bs-affix data-offset-top="100" class="{{ :: backClass }} col-sm-12 main-country-card" style="{{ :: backStyle }}">
+
+    <div class="col-md-12 nopadding country-card-bg">
+        <div class="col-xs-12 col-sm-12 col-md-1">
+            <div class="title" data-ng-bind=":: panel.country.name"></div>
+        </div>
+        <div class="col-xs-12 col-sm-2 col-md-3">
+            <zylk-map ng-cloak
+                      country="EU" country-key="EU"
+                      width="{{ :: width }}" height="{{ :: height }}"
+                      zoom-h="{{ :: zoomH }}" zoom-w="{{ :: zoomW }}"
+                      x="{{ :: cx }}" y="{{ :: cy }}"
+                      promise="promise"
+                      css-class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                      csp="true">
+
+            </zylk-map>
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-8 scpPart1">
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <div class="name" data-ng-bind=":: panel['official-retirement'].name"></div>
+                <div class="cspBig" ng-bind-html=":: panel['official-retirement'].data"></div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <div class="name" data-ng-bind=":: panel['c'].name"></div>
+                <div class="cspBig" data-ng-bind=":: panel['c'].data"></div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <div class="name" data-ng-bind=":: panel['gap'].name"></div>
+                <div class="cspBig" ng-bind-html=":: panel['gap'].data"> <span data-ng-bind="i18n.years"></span></div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <div class="name" data-ng-bind=":: panel['quit-because-illness'].name"></div>
+                <div class="cspBig" data-ng-bind=":: panel['quit-because-illness'].data"></div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <div class="name"><span data-ng-bind=":: panel['long-standing-illness'].name"></span> (<span data-ng-bind="i18n.males"></span>)</div>
+                <div class="cspBig" ng-bind-html="panel['long-standing-illness'].data.males"></div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <div class="name"><span data-ng-bind=":: panel['long-standing-illness'].name"></span> (<span data-ng-bind="i18n.females"></span>)</div>
+                <div class="cspBig" ng-bind-html=":: panel['long-standing-illness'].data.females"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

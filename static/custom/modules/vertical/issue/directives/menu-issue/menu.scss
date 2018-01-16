@@ -1,0 +1,24 @@
+.challengesBar {
+  padding: 0.4em 0;
+  span {
+    display:none;
+  }
+  span.selected {
+    color:$colorWhite;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    display:block;
+    padding:0 1em;
+  }
+}
+.bulletsItems a {
+  background: $colorA ;
+  border-radius: 100%;
+  display: inline-block;
+  height: 20px;
+  margin: 0.3em 0.3em 1.6em;
+  width: 20px;
+}
+.bulletsItems a.selected {
+  background: $colorB !important;
+}

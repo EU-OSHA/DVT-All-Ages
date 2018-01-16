@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+    <DataSources>
+        <Connection id="connection" type="sql.jndi">
+            <Jndi>jdbcEuOshaAllAges</Jndi>
+        </Connection>
+    </DataSources>
+    <DataAccess access="public" connection="connection" id="getIndicators" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>select distinct(Id), Indicator from Indicators where Main = '1'</Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getCountries" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>SELECT DISTINCT(Id), Description FROM Country ORDER BY Description ASC</Query>
+    </DataAccess>
+    <!-- //TODO UNPRUNED-->
+    <DataAccess access="public" connection="connection" id="getCountriesNotEU" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT DISTINCT(Id), Description FROM Country WHERE Id in ("NL", "RO", "DE", "LT")
+
+            -- Id not in ("EU")
+
+            ORDER BY Description ASC
+        </Query>
+    </DataAccess>
+    <!-- WHERE Id!="EU" AND Id in ("RO","NL") -->
+    <DataAccess access="public" connection="connection" id="getApproaches" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>select distinct(Id), Approach from Approach</Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getCountryCardFacts" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="RO" name="param_country" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT i.Id,i.Indicator, Measure as value FROM FactsFigures ff, Indicators i WHERE i.ID=ff.ID AND
+            i.InCountrycard=True AND ff.Y=2014 AND ff.Country = ${param_country}
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getCountryCardApproach" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="RO" name="param_country" type="String"/>
+        </Parameters>
+        <Query>SELECT Approach, Factor FROM Approach a, Country c, Factors f WHERE c.ApproachID = a.Id AND a.Id =
+            f.ApproachID AND c.Id = ${param_country}
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getCountryCardInitiatives" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="RO" name="param_country" type="String"/>
+        </Parameters>
+        <Query>Select p.PSP, p.Id, p.ShortD FROM Country c,PSP p WHERE c.Id = p.CountryID AND p.Main = true AND c.Id =
+            ${param_country}
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getCountryCardCirumstances" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="RO" name="param_country" type="String"/>
+        </Parameters>
+        <Query>SELECT Country.Ci1, Country.Ci2, Country.Ci3, Country.Ci4, Country.Ci5 FROM Country where Country.Id =
+            ${param_country}
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getCountryCardChallenges" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="RO" name="param_country" type="String"/>
+        </Parameters>
+        <Query>SELECT Country.Ch1, Country.Ch2, Country.Ch3, Country.Ch4, Country.Ch5 FROM Country where Country.Id =
+            ${param_country}
+        </Query>
+    </DataAccess>
+
+    <!--Country Comparation-->
+    <DataAccess access="public" connection="connection" id="getCountryCardFacts1" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter name="param_country1" type="String"/>
+            <!-- default="NL" -->
+        </Parameters>
+        <Query>
+            SELECT i.Indicator, ff.Criteria FROM FactsFigures ff, Indicators i WHERE i.ID=ff.ID AND i.InCountrycard=True
+            AND ff.Y=2014 AND ff.Country = ${param_country1}
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getCountryCardApproach1" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="NL" name="param_country1" type="String"/>
+        </Parameters>
+        <Query>SELECT Approach, Factor FROM Approach a, Country c, Factors f WHERE c.ApproachID = a.Id AND a.Id =
+            f.ApproachID AND c.Id = ${param_country1}
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getCountryCardCirumstances1" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="NL" name="param_country1" type="String"/>
+        </Parameters>
+        <Query>SELECT Country.Ci1, Country.Ci2, Country.Ci3, Country.Ci4, Country.Ci5 FROM Country where Country.Id =
+            ${param_country1}
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getCountryCardChallenges1" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="NL" name="param_country1" type="String"/>
+        </Parameters>
+        <Query>SELECT Country.Ch1, Country.Ch2, Country.Ch3, Country.Ch4, Country.Ch5 FROM Country where Country.Id =
+            ${param_country1}
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getApproachesMapGroup" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>SELECT Approach, Factor FROM Approach a, Country c, Factors f WHERE c.ApproachID = a.Id AND a.Id =
+            f.ApproachID AND a.Id = 4
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getApproachesReferralInitiatives" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT Country.Id, Approach.Approach, Country.Description, PSP.PSP, PSP.CSName FROM Approach INNER JOIN
+            (Country INNER JOIN PSP ON Country.Id = PSP.CountryID) ON Approach.Id = Country.ApproachID WHERE
+            (((PSP.InMap)=True)) and Approach='Group 4'
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getApproachesMapCountrySituation" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters/>
+        <Query>
+            SELECT ff.Country, f.IndicatorID, avg(Measure) as value FROM Factors f, FactsFigures ff WHERE f.IndicatorID
+            Is Not Null AND f.IndicatorID = ff.ID AND ff.Y = 2012 GROUP BY ff.Y,ff.Country,f.ApproachID, f.IndicatorID
+            ORDER BY ff.Country ASC
+        </Query>
+    </DataAccess>
+
+    <!--CSP data access -->
+    <DataAccess access="public" connection="connection" id="getCSPSingleCriteriaIndicators" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="param_country" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT t11.country, t11.id19 as indicator19, t11.id66 as indicator66, t12.id42 as indicator42, t12.id43
+            as indicator43 FROM(SELECT t1.Country,t1.Measure as id19,
+            t2.Measure as id66 FROM (SELECT Measure, Country FROM FactsFigures
+            WHERE YSELECTED = 1 AND Criteria = -1 AND ID=19) t1,
+            (SELECT Measure, Country FROM FactsFigures WHERE YSELECTED = 1 AND Criteria = 'Total' AND ID=66) t2 WHERE
+            t1.Country= t2.Country) t11, (SELECT t1.Country,t1.Measure as id42, t2.Measure as id43 FROM (SELECT
+            Measure,Country FROM FactsFigures WHERE YSELECTED = 1 AND Criteria = 'Total Widespread' AND ID=42) t1,
+            (SELECT Measure, Country FROM FactsFigures WHERE YSELECTED = 1 AND Criteria = 'Yes' AND ID=43)
+            t2 WHERE t1.Country= t2.Country) t12 WHERE t11.Country=t12.Country AND t11.Country = ${param_country}
+        </Query>
+    </DataAccess>
+    <DataAccess access="public" connection="connection" id="getCSPDoubleCriteriaIndicators" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="param_country" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Criteria, Measure as indicator28 FROM FactsFigures WHERE YSELECTED = 1 AND ID=28 AND
+            Country= ${param_country} GROUP BY Criteria
+        </Query>
+    </DataAccess>
+
+    <!-- 5 charts data access -->
+    <!-- Figure 1 -->
+    <DataAccess access="public" connection="connection" id="getEmploymentsByage" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="EU" name="pCountry3" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT Country, '20-64' AS Indicator, Measure as value FROM FactsFigures WHERE id=63 AND
+            YSelected=1 AND Country in
+            (${pCountry1},${pCountry2},${pCountry3}) AND Criteria='Total') UNION
+            (SELECT Country, '55-64' AS Indicator, Measure as value FROM FactsFigures WHERE id=66 AND
+            YSelected=1 AND Country in
+            (${pCountry1}, ${pCountry2}, ${pCountry3}) AND Criteria='Total')
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2},${pCountry3})
+        </Query>
+    </DataAccess>
+
+    <!-- HLY-VS-LE-65
+    Figure 2 -->
+    <DataAccess access="public" connection="connection" id="getIssueStory4Main" type="sql">
+            <Cache duration="3600" enabled="true"/>
+            <Columns/>
+            <Parameters>
+                <Parameter name="pGender" type="String"/>
+            </Parameters>
+            <Query>
+               (
+               	SELECT 'Difference between HLY and LE at 65' as Indicator, t1.Country, ROUND(t2.value - t1.value, 2) as value
+               	FROM
+               	(
+               		SELECT Criteria, country, Measure+65 as value FROM FactsFigures
+               		WHERE id=28
+               		AND YSelected=1
+               		AND Criteria=${pGender}
+               	) t1
+               	,
+               	(
+               		SELECT Criteria, country, Measure+65 as value FROM FactsFigures
+               		WHERE id=16
+               		AND YSelected=1
+               		AND Criteria=${pGender}
+               	) t2
+               	WHERE t1.country = t2.country
+               	AND t1.Criteria = t2.Criteria
+               )
+               UNION
+               (
+               	SELECT 'HLY at age 65' as Indicator, Country, ROUND(Measure+65,2) as value
+               	FROM FactsFigures
+               	WHERE id=28
+               	AND YSelected=1
+               	AND Criteria=${pGender}
+               )
+               order by Country='EU' DESC,Country ASC, Indicator ASC
+            </Query>
+        </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getLifeHealthyYears" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="EU" name="pCountry3" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT 'HLY' as Indicator, Criteria, Country, ROUND(Measure+65,2) as value
+            FROM FactsFigures WHERE id=28 AND YSelected=1 AND Country
+            in (${pCountry1},${pCountry2},${pCountry3}) AND (Criteria='F' OR Criteria='M'))
+            UNION
+            (SELECT 'LE' as Indicator,t1.Criteria as Criteria, t1.Country, ROUND(t2.value - t1.value, 2) as value
+            FROM
+            (SELECT Criteria, country, Measure+65 as value FROM FactsFigures WHERE id=28 AND
+            YSelected=1 AND Country in (${pCountry1},${pCountry2},${pCountry3}) AND (Criteria='F' OR
+            Criteria='M')) t1
+            ,
+            (SELECT Criteria, country, Measure+65 as value FROM FactsFigures WHERE id=16 AND
+            YSelected=1 AND Country in (${pCountry1},${pCountry2},${pCountry3}) AND (Criteria='F' OR
+            Criteria='M')) t2
+            WHERE t1.country = t2.country
+            AND t1.Criteria = t2.Criteria
+            )
+            ORDER BY Indicator DESC, Criteria, FIELD(Country,${pCountry1},${pCountry2},${pCountry3})
+        </Query>
+    </DataAccess>
+
+
+
+
+
+    <!--Figure 3-->
+    <DataAccess access="public" connection="connection" id="getDiscriminationAge" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="EU" name="pCountry3" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT Country, Measure as 'Discrimination-Age 55'
+            FROM FactsFigures
+            WHERE id=42 AND YSelected=1 AND Measure > -1
+            AND Country in (${pCountry1},${pCountry2},${pCountry3}))
+            ORDER BY FIELD(Country,${pCountry3},${pCountry2},${pCountry1})
+        </Query>
+    </DataAccess>
+    <!--CC Figure 3 donoughts-->
+    <DataAccess access="public" connection="connection" id="getDiscriminationAgeD" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="EU" name="pCountry3" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT ff.Country, i.Indicator, ff.Measure as value FROM FactsFigures ff, Indicators i
+            WHERE
+            ff.Id = i.Id AND
+            ff.id=42 AND ff.YSelected=1
+            AND ff.Country in (${pCountry1},${pCountry2},${pCountry3}) AND ff.Measure > -1
+            )
+            UNION
+            (SELECT ff.Country, "Non discrimination" as Indicator, 100-ff.Measure as value FROM FactsFigures ff, Indicators i
+            WHERE
+            ff.Id = i.Id AND
+            ff.id=42 AND ff.YSelected=1
+            AND ff.Country in (${pCountry1},${pCountry2},${pCountry3}) AND ff.Measure > -1
+            )  ORDER BY FIELD(Country,${pCountry1},${pCountry2},${pCountry3})
+        </Query>
+    </DataAccess>
+    <!--Figure 4-->
+    <DataAccess access="public" connection="connection" id="getOldersKeepWorking" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="EU" name="pCountry3" type="String"/>
+            <Parameter name="pMaximized" type="Integer" default="0"/>
+        </Parameters>
+        <Query>
+            (SELECT Country, case ${pMaximized} when 0 then '1'  when 1 then '(1) Negative impact of work on health' end as Indicator, Measure as value FROM FactsFigures
+            WHERE id=33 AND YSelected=1 AND Criteria='50+'
+            AND Country  in(${pCountry1},${pCountry2},${pCountry3})
+            )
+            UNION
+            (SELECT Country, case ${pMaximized} when 0 then '2'  when 1 then '(2) Job sustainability' end as Indicator, Measure as value FROM FactsFigures WHERE id=43 AND
+            YSelected=1 and Criteria='No'
+            AND Country in (${pCountry1},${pCountry2},${pCountry3})
+            )
+            ORDER BY Indicator,FIELD(Country,${pCountry1},${pCountry2},${pCountry3})
+        </Query>
+    </DataAccess>
+    <!--Figure 5-->
+    <DataAccess access="public" connection="connection" id="getWorkplaceRiskAssessment" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="EU" name="pCountry3" type="String"/>
+            <Parameter default="Yes" name="pCriteria" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT 'Workplace Risk Assessment' as Indicator, Country, Measure as value FROM FactsFigures
+            WHERE id=59 AND YSelected=1 AND Criteria=${pCriteria} AND Country
+            in(${pCountry1},${pCountry2},${pCountry3}))
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2},${pCountry3})
+        </Query>
+    </DataAccess>
+    <!--CC Figure 5 donoughts-->
+    <DataAccess access="public" connection="connection" id="getWorkplaceRiskAssessmentD" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+            <Parameter default="EU" name="pCountry3" type="String"/>
+            <Parameter default="Yes" name="pCriteria" type="String"/>
+        </Parameters>
+        <Query>
+            (SELECT  ff.Country, i.Indicator, ff.Measure as value FROM FactsFigures ff, Indicators i
+            WHERE ff.id = i.id
+            AND ff.id=59
+            AND ff.YSelected=1
+            AND ff.Criteria=${pCriteria}
+            AND ff.Country in(${pCountry1},${pCountry2},${pCountry3})
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2},${pCountry3})
+            )
+            UNION
+            (SELECT  ff.Country, "No Assesments" as Indicator, 100-ff.Measure as value FROM FactsFigures ff, Indicators i
+            WHERE ff.id = i.id
+            AND ff.id=59
+            AND ff.YSelected=1
+            AND ff.Criteria=${pCriteria}
+            AND ff.Country in(${pCountry1},${pCountry2},${pCountry3})
+            ORDER BY FIELD(Country,${pCountry1},${pCountry2},${pCountry3})
+            )
+
+        </Query>
+    </DataAccess>
+
+    <!--Policies list data access-->
+    <!--Filters-->
+    <!--Countries from getCountries, same as another selectors-->
+    <!--Classification-->
+    <DataAccess access="public" connection="connection" id="getPLClassificationFilter" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT DISTINCT Subject FROM PSP
+        </Query>
+    </DataAccess>
+    <!--Origins-->
+    <DataAccess access="public" connection="connection" id="getPLOrigins" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT distinct Origin FROM PSP
+        </Query>
+    </DataAccess>
+    <!--Results-->
+    <DataAccess access="public" connection="connection" id="getPLList" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default=".*" name="policy" type="String"/>
+            <Parameter default=".*" name="classifications" type="String"/>
+            <Parameter default=".*" name="countries" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT
+            Country.Description as `Country`,
+            PSP.year as `Date`,
+            PSP.PSP as `Name Policy`,
+            PSP.LongD as `Description policy`,
+            PSP.URL as `External url`,
+            PSP.CSName as `CSName`,
+            PSP.CSURL as `CSLink`,
+            /* For filters */
+            PSP.Subject as `Subject`,
+            PSP.Origin as `Origin`,
+            PSP.CountryID as `Country id`
+            FROM PSP, Country
+
+            /*JOIN condition*/
+            WHERE PSP.CountryId = Country.id
+            AND ( PSP.PSP REGEXP ${policy} OR PSP.LongD REGEXP ${policy} )
+            AND PSP.Subject REGEXP ${classifications}
+            AND PSP.CountryID REGEXP ${countries}
+            order by Country.Description asc, PSP.year desc
+        </Query>
+    </DataAccess>
+
+    <DataAccess access="public" connection="connection" id="getPLListAll" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT Country.Description as `Country`, PSP.year as `Date`, PSP.PSP as `Name Policy`,
+            PSP.LongD as `Description policy`, PSP.URL as `External url`, PSP.CSName as `CSName`,
+            PSP.CSURL as `CSLink`, /* For filters */ PSP.Subject as `Subject`, PSP.Origin as `Origin`,
+            PSP.CountryID as `Country id` FROM PSP,Country /*JOIN condition*/ WHERE PSP.CountryId = Country.id
+            order by Country.Description asc, PSP.year desc
+        </Query>
+    </DataAccess>
+
+    <!--For characters validation @sara-->
+    <DataAccess access="public" connection="connection" id="getPLShortDList" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+        </Parameters>
+        <Query>
+            SELECT Country.Description as `Country`, PSP.year as `Date`, PSP.PSP as `Name Policy`, PSP.ShortD as `Short
+            Description policy` FROM PSP,Country /*JOIN condition*/ WHERE PSP.CountryId = Country.id
+        </Query>
+    </DataAccess>
+
+    <!--Age pyramid data acces with year-->
+    <DataAccess access="public" connection="connection" id="getPyramidDataWhitYear" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry" type="String"/>
+            <Parameter default="2014" name="pYears" type="StringArray"/>
+            <Parameter default="2" name="pTrunc" type="Numeric"/>
+        </Parameters>
+        <Query>
+            (SELECT 'Male' as Gender, Criteria, ROUND(Measure*(-1),${pTrunc}) as value, CAST(Y AS CHAR(5)) AS Year, Country FROM `FactsFigures`
+            WHERE id IN (60) AND Y IN (${pYears}) AND Country in (${pCountry}))
+            UNION (SELECT 'Female' as Gender,
+            Criteria, ROUND(Measure,${pTrunc}) as value,CAST(Y AS CHAR(5)) AS Year, Country
+            FROM `FactsFigures` WHERE id IN (61) AND Y IN (${pYears})
+            AND Country in (${pCountry}))
+            ORDER BY FIELD(Criteria, '&lt;5','5-9','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','75 +','80 +', '80-84','85+','85 +','+85'), Year, FIELD(Gender,'Male','Female')
+        </Query>
+    </DataAccess>
+    <!--Countries approaches data access-->
+    <!--Tab 1 -->
+    <!-- Indicators -->
+    <!-- Median age -->
+    <DataAccess access="public" connection="connection" id="getAPMedianAge" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="4" name="pGroup" type="Numeric"/>
+        </Parameters>
+        <Query>
+            SELECT Y, Country, Measure as `Meadian age` FROM FactsFigures WHERE id = 19 AND Y in (1994,2004,2014,2060)
+            AND Country in (SELECT Id FROM Country WHERE ApproachId = ${pGroup} )
+        </Query>
+    </DataAccess>
+    <!-- Unemployement -->
+    <DataAccess access="public" connection="connection" id="getAPUnemployement" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="From 15 to 74 Years" name="pCriteria" type="String"/>
+            <Parameter default="4" name="pGroup" type="Numeric"/>
+        </Parameters>
+        <Query>
+            SELECT Y, Country, Measure as `Unemployement` FROM FactsFigures WHERE id = 67 AND Y between 2000 AND 2014
+            AND Criteria=${pCriteria} AND Country in (SELECT Id FROM Country WHERE ApproachId = ${pGroup} )
+        </Query>
+    </DataAccess>
+
+    <!--TEMP-->
+    <DataAccess access="public" connection="connection" id="getContextualExport" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="EU" name="pCountry1" type="String"/>
+            <Parameter default="EU" name="pCountry2" type="String"/>
+        </Parameters>
+        <Query>
+            SELECT Country, Measure as Value FROM FactsFigures WHERE (((FactsFigures.ID)=14) AND
+            ((FactsFigures.YSelected)=True)) AND Country in ("RO","EU")
+        </Query>
+    </DataAccess>
+
+    <!--COMMON-->
+    <!--Graphic title and contextual leyend-->
+    <DataAccess access="public" connection="connection" id="getIndicatorMetadata" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="19" name="pIndicator" type="Numeric"/>
+        </Parameters>
+        <Query>
+            SELECT IFNULL(ShortD,Indicator) as Indicator, LongD, OfName, Source, LeyendYear, Note, EUComment as ShortD FROM Indicators WHERE ID = ${pIndicator}
+        </Query>
+    </DataAccess>
+
+    <!-- story leyends -->
+    <DataAccess access="public" connection="connection" id="getStoryAndIndicatorMetadata" type="sql">
+       <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter name="pIndicator" type="Numeric"/>
+        </Parameters>
+        <Query>
+            SELECT ShortD, StoryD FROM Indicators WHERE ID = ${pIndicator}
+        </Query>
+    </DataAccess>
+
+
+
+    <!--Get countries for given group-->
+    <!--using in shapes directive, CA->Group description-->
+    <!--//TODO rename with common name-->
+    <DataAccess access="public" connection="connection" id="getApproachesMap" type="sql">
+        <Cache duration="3600" enabled="true"/>
+        <Columns/>
+        <Parameters>
+            <Parameter default="1" name="pGroup" type="Numeric"/>
+        </Parameters>
+        <Query>SELECT c.Description, c.Id FROM Approach a, Country c WHERE a.Id = c.ApproachID AND a.Id =${pGroup} ORDER BY c.Description
+        </Query>
+    </DataAccess>
+</CDADescriptor>

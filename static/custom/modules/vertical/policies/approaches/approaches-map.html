@@ -1,0 +1,359 @@
+<div class="country-card row page-content">
+    <div class="container centered">
+        <zylk-dashboard promises="dashboard.promises" parameters="dashboard.parameters">
+            <!-- agrupaciones -->
+
+
+            <!--<h2><span class="icon facts"></span>Approaches Map</h2> -->
+            <div id="approaches-map-content" class="col-lg-12 row clearfix">
+                <div class="col-xs-12 text-left intro-text" data-ng-bind-html="i18n.intro"></div>
+                <div class="text-center">
+                    <a ui-sref="methodology({'anchor':'country-groups'})"  class="know-more" data-ng-bind="i18n['see-methodology']"></a>
+                </div>
+                <div class="grupos col-xs-12 nopadding">
+                    <zylk-radio ng-model="dashboard.parameters.approach" parameter="approach" extension="approaches"
+                                query="getApproaches" cda="all-ages/dashboards/datapilot.cda"
+                                ng-change="refreshHash()"></zylk-radio>
+                </div>
+
+                <div class="grey clearfix">
+                    <zylk-map ng-cloak
+                              group-key="dashboard.parameters.approach"
+                              promise="dashboard.promises.promiseShape"
+                              country="EU" country-key="EU" group-color="dashboard.parameters.pGroupColor"
+                              zoom-w="600" zoom-h="1000" x="280" y="50"
+                              height="250" width="600"
+                              css-class="col-xs-12 col-sm-12 col-md-12 col-lg-12" is-colored="1" hover="true"
+                              group-list="groupList"
+                              load-countries="true"
+                              clickable="1"
+                              click-action="map.clickAction"
+                    ></zylk-map>
+                </div>
+            </div>
+
+            <!-- Nav tabs -->
+            <nav class="tabsCA">
+                <ul id="approaches-map-tabs" class="nav nav-tabs clearfix" role="tablist">
+
+                    <li role="presentation" class="{{::indicatorsTabActive }}">
+                        <a ui-sref="approaches-indicators({pGroup: 'group' + dashboard.parameters.approach})" ui-sref-opts="{notify : {{notifiable}} }" data-target="#indicators" aria-controls="indicators" role="tab" data-toggle="tab"
+                           data-ng-bind="i18n.tab1_name"></a>
+                        <!-- ui-sref="approaches-indicators({pGroup: dashboard.parameters.approach})" ui-sref-opts="{notify :false}" -->
+                    </li>
+                    <li role="presentation" class="{{::referralTabActive }}">
+                        <a ui-sref="approaches-referral-iniciatives({pGroup: 'group' + dashboard.parameters.approach})" ui-sref-opts="{notify : {{notifiable}} }" data-target="#referral-iniciatives" aria-controls="referral-iniciatives" role="tab" data-toggle="tab"
+                            data-ng-bind="i18n.tab2_name" data-ng-click="gotoTab2()"></a>
+                        <!-- ui-sref="approaches-referral-iniciatives({pGroup: dashboard.parameters.approach, '#': 'referral-iniciatives'})" ui-sref-opts="{notify :false}" -->
+                    </li>
+                    <li ng-hide=false role="presentation" class="{{::enlargeTabActive }}">
+                        <a ui-sref="approaches-enlarged({pGroup: 'group' + dashboard.parameters.approach, indicator: indicatorIndex})"
+                            aria-controls="enlarged" role="tab" data-toggle="tab" style="display: none;">Enlarge Mode</a>
+
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!-- Tab panes -->
+
+            <div class="tab-content">
+            <!--=====================================-->
+            <!--Tab1: Group Detail + Indicators-->
+            <!--=====================================-->
+
+                <section role="tabpanel" class="tab-pane {{ ::indicatorsActive }}" id="indicators">
+                    <div class="col-xs-12 nopadding indicators-approaches">
+                        <h2 class="hidden">Group Descriptions wrapper</h2>
+                        <h3 class="hidden">Group Descriptions titles</h3>
+                        <!-- col1: group detail -->
+                        <div class="col-xs-12 col-md-3 col-lg-3 pull-left glossary-indicators-approaches">
+                            <pre ng-hide=true>{{ groups | json }}</pre>
+                            <div data-ng-if="groups" data-ng-repeat="group in groups track by $index">
+                                <div data-ng-if="group">
+                                    <h4 class="text-left" data-ng-bind="i18n.countries_list_title"></h4>
+                                    <p class="text-justify">
+                                        <span ng-repeat="country in countries" class="country-list">
+                                            <a ui-sref="country-card({pCountry1:country.countryId})" data-ng-bind="country.name"></a>
+                                            <span ng-if="!$last"><br/></span>
+                                        </span>
+                                    </p>
+                                </div>
+                                <div data-ng-if="group.factors" data-ng-repeat="factor in group.factors">
+                                    <div data-ng-if="group">
+                                        <h4 class="text-left" data-ng-bind-html="factor.factor"></h4>
+                                        <p class="text-justify" data-ng-bind-html="factor.block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- col2: indicators -->
+                        <div class="col-xs-12 col-md-9 col-lg-9 pull-right wrapper-indicators-approaches">
+                            <div class="col-xs-12 col-md-12 col-lg-12 no-padding">
+
+                                <!-- figure 1 -->
+                                <div class="mini-bloq-approaches  col-xs-12 col-md-12 col-lg-4">
+                                    <zylk-bar-chart ng-cloak
+                                                    query="{{ indicators[0].id }}"
+                                                    cda="{{ dashboard.cda }}" width=325 height=300
+                                                    listen-to="['approach']" params="[['approach', 'approach']]"
+                                                    contextuals="[['Compare', 'enlarge']]"
+                                                    id="19" colors="[]" color-role="s" type="lines"
+                                                    post-fetch="fixColorMap"
+                                                    axis-fixed-min="25" axis-fixed-max="55" step=5 ortho-axis-title="{{::i18n.units.years}}"
+                                                    enlarge-action="indicators[0].clickAction"
+                                    ></zylk-bar-chart>
+                                </div>
+
+                                <!-- figure 2 -->
+                                <div class="mini-bloq-approaches  col-xs-12 col-md-6 col-lg-4">
+                                    <zylk-bar-chart ng-cloak
+                                                    query="{{::indicators[1].id }}"
+                                                    cda="{{::dashboard.cda }}" width=325 height=300
+                                                    listen-to="['approach']" params="[['approach', 'approach']]"
+                                                    contextuals="[['Compare', 'enlarge']]"
+                                                    id="67" colors="[]" color-role="s" type="lines"
+                                                    post-fetch="fixColorMap"
+                                                    enlarge-action="indicators[1].clickAction"
+                                                    axis-fixed-max="30" axis-percent="1"
+                                                    long-title="{{::i18n.figures.fig2_long_title}}"
+                                                    max-functional-legend="{{::i18n.figures.fig2_functional_legend}}"
+                                    ></zylk-bar-chart>
+                                </div>
+
+                                <!-- figure 3 -->
+                                <div class="mini-bloq-approaches  col-xs-12 col-md-6 col-lg-4">
+                                    <zylk-bar-chart ng-cloak
+                                                    query="{{::indicators[2].id }}" cda="{{::dashboard.cda }}"
+                                                    width=325 height=300
+                                                    listen-to="['approach']" params="[['approach', 'approach']]"
+                                                    contextuals="[['Compare', 'enlarge']]"
+                                                    id="66" colors="[]" color-role="s" type="lines"
+                                                    post-fetch="fixColorMap"
+                                                    enlarge-action="indicators[2].clickAction"
+                                                    axis-fixed-min="15" axis-fixed-max="100" axis-percent="1"
+                                                    long-title="{{::i18n.figures.fig3_long_title}}"
+                                                    max-functional-legend="{{::i18n.figures.fig3_functional_legend}}"
+                                    ></zylk-bar-chart>
+                                </div>
+                            </div>
+
+                            <!-- figure 4 -->
+                            <div class="col-xs-12 col-md-12 col-lg-12 no-padding">
+                                <div class="mini-bloq-approaches  col-xs-12 col-md-12 col-lg-4">
+                                    <zylk-bar-chart ng-cloak query="{{::indicators[3].id }}"
+                                                    cda="{{::dashboard.cda }}"
+                                                    width=325 height=300
+                                                    listen-to="['approach']" params="[['approach', 'approach']]"
+                                                    contextuals="[['Compare', 'enlarge']]"
+                                                    id="33" post-fetch="fixColorMap"
+                                                    enlarge-action="indicators[3].clickAction"
+                                                    axis-fixed-max="100"  axis-percent="1" angle="1"
+                                    ></zylk-bar-chart>
+                                </div>
+
+                                <!-- figure 5 -->
+                                <div class="mini-bloq-approaches  col-xs-12 col-md-6 col-lg-4">
+                                    <zylk-bar-chart ng-cloak query="{{::indicators[4].id }}"
+                                                    cda="{{::dashboard.cda }}"
+                                                    width=325 height=300
+                                                    orientation="vertical"
+                                                    listen-to="['approach']" params="[['approach', 'approach']]"
+                                                    contextuals="[['Compare', 'enlarge']]"
+                                                    axis-fixed-min="10" axis-fixed-max="80" angle=1  axis-percent="1"
+                                                    id="42" post-fetch="fixColorMap"
+                                                    enlarge-action="indicators[4].clickAction"></zylk-bar-chart>
+                                </div>
+
+                                <!-- figure 6 -->
+                                <div class="mini-bloq-approaches  col-xs-12 col-md-6 col-lg-4">
+                                    <zylk-bar-chart ng-cloak query="{{::indicators[5].id }}"
+                                                    cda="{{::dashboard.cda }}"
+                                                    width=325 height=300
+                                                    angle=1 listen-to="['approach']" params="[['approach', 'approach']]"
+                                                    contextuals="[['Compare', 'enlarge']]"
+                                                    id="23" post-fetch="fixColorMap"
+                                                    enlarge-action="indicators[5].clickAction"
+                                                    axis-fixed-max="70" axis-percent="1"
+                                                    long-title="{{::i18n.figures.fig6_long_title}}"
+                                    ></zylk-bar-chart>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!--=====================================-->
+                <!--Tab2: Policies-->
+                <!--=====================================-->
+
+                <section id="referral-iniciatives" role="tabpanel"
+                     class="tab-pane col-xs-12 col-sm-12 col-lg-12 nopadding {{::referralActive }}">
+                    <div class="col-xs-12 col-lg-12 nopadding blockPolicy" ng-repeat="country in countries">
+                        <div class="col-xs-12 col-md-3 col-lg-3 imagenPolicy">
+                            <a ui-sref="country-card({pCountry1:country.countryId})">
+                                <i class="mg map-{{::country.countryId.toLowerCase()}} mg-8x"></i>
+                                <h3 class="ligth" data-ng-bind="country.name"></h3>
+                            </a>
+
+                        </div>
+
+                        <div class='col-xs-12 col-md-9 col-lg-8 text-left containerMini'>
+
+                            <!--
+                                note: main policies and other policies are dynamic + optional and don't share same template (x2)
+                            -->
+                            <div ng-if="country.policies.main" class="miniblock">
+                                <h4 data-ng-bind-html="i18n.policies_main"></h4>
+                                <div ng-repeat="policy in country.policies.main" class="policyT">
+                                    <h5 data-ng-bind-html="policy.policy"></h5>
+                                    <p class="text-justify" data-ng-bind-html="policy.shortd"></p>
+                                    <div class="text-left">
+                                        <a ui-sref="policy({policy: policy.policyId})" class="know-more" data-ng-bind-html="i18n.see_more"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div ng-if="country.policies.other" class="miniblock">
+                                <h4 data-ng-bind-html="i18n.policies_others"></h4>
+                                <div ng-repeat="policy in country.policies.other" class="policyT">
+                                    <h5 data-ng-bind-html="policy.policy"></h5>
+                                    <p class="text-justify" data-ng-bind-html="policy.shortd"></p>
+                                    <div class="text-left">
+                                        <a ui-sref="policy({policy: policy.policyId})" class="know-more"  data-ng-bind-html="i18n.see_more"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!--=====================================-->
+                <!--Tab: Enlarge mode static purposal-->
+                <!--=====================================-->
+
+                <section id="enlarged" role="tabpanel" class="tab-pane col-lg-12 nopadding {{::enlargeActive }}">
+
+                    <div data-ng-if="indicatorIndex=='median-age-time-series'">
+
+                        <!-- fig 1 -->
+                        <zk-approach-enlarge
+                                query="indicators[0].id" cda="dashboard.cda" type="indicators[0].type"
+                                containerTitle="indicators[0].title"
+                                color-role="indicators[0].colorRole"
+                                post-fetch1="fixEnlargeColorMap1"
+                                post-fetch2="fixEnlargeColorMap2"
+                                post-fetch3="fixEnlargeColorMap3"
+                                post-fetch4="fixEnlargeColorMap4"
+                                axis-fixed-min="indicators[0].axisMin"
+                                axis-fixed-max= "indicators[0].axisMax"
+                                ortho-axis-title="indicators[0].orthoAxisTitle"
+                                step= "indicators[0].step"
+                                values-visible="true"
+                                label-visible="enlarge.labelVisible"
+                                label-text-align="enlarge.labelTextAlign"
+                                id="19"
+                        ></zk-approach-enlarge>
+                    </div>
+
+                    <!-- fig 2 -->
+                    <div data-ng-if="indicatorIndex=='unemployment'">
+                        <zk-approach-enlarge
+                                query="indicators[1].id" cda="dashboard.cda" type="indicators[1].type"
+                                containerTitle="indicators[1].title"
+                                color-role="indicators[1].colorRole"
+                                post-fetch1="fixEnlargeColorMap1"
+                                post-fetch2="fixEnlargeColorMap2"
+                                post-fetch3="fixEnlargeColorMap3"
+                                post-fetch4="fixEnlargeColorMap4"
+                                axis-fixed-min="indicators[1].axisMin"
+                                axis-fixed-max= "indicators[1].axisMax"
+                                axis-percent="indicators[1].axisPercent"
+                                step= "indicators[1].step"
+                                label-visible="enlarge.labelVisible"
+                                label-text-align="enlarge.labelTextAlign"
+                                id="67"
+                                axis-percent="indicators[1].axisPercent"
+                        ></zk-approach-enlarge>
+                    </div>
+
+                    <!-- fig 3 -->
+                    <div data-ng-if="indicatorIndex=='older-workers-employment-rates'">
+                        <zk-approach-enlarge
+                                query="indicators[2].id" cda="dashboard.cda" type="indicators[2].type"
+                                containerTitle="indicators[2].title"
+                                color-role="indicators[2].colorRole"
+                                post-fetch1="fixEnlargeColorMap1"
+                                post-fetch2="fixEnlargeColorMap2"
+                                post-fetch3="fixEnlargeColorMap3"
+                                post-fetch4="fixEnlargeColorMap4"
+                                axis-fixed-min="indicators[2].axisMin"
+                                axis-fixed-max= "indicators[2].axisMax"
+                                axis-percent="indicators[2].axisPercent"
+                                step= "indicators[2].step"
+                                label-visible="enlarge.labelVisible"
+                                label-text-align="enlarge.labelTextAlign"
+                                id="66"
+                        ></zk-approach-enlarge>
+                    </div>
+
+                    <!-- fig 4 -->
+                    <div data-ng-if="indicatorIndex=='impact-of-work-on-health'">
+                        <zk-approach-enlarge
+                                query="indicators[3].id" cda="dashboard.cda" type="indicators[3].type"
+                                containerTitle="indicators[3].title"
+                                color-role="indicators[3].colorRole"
+                                post-fetch1="fixEnlargeColorMap1"
+                                post-fetch2="fixEnlargeColorMap2"
+                                post-fetch3="fixEnlargeColorMap3"
+                                post-fetch4="fixEnlargeColorMap4"
+                                axis-fixed-min= "indicators[3].axisMin"
+                                axis-fixed-max= "indicators[3].axisMax"
+                                axis-percent="indicators[3].axisPercent"
+                                step= "indicators[3].step"
+                                id="33"
+                        ></zk-approach-enlarge>
+                    </div>
+
+                    <!-- fig 5 -->
+                    <div data-ng-if="indicatorIndex=='age-discrimination'">
+                        <zk-approach-enlarge
+                                query="indicators[4].id" cda="dashboard.cda" type="indicators[4].type"
+                                containerTitle="indicators[4].title"
+                                color-role="indicators[4].colorRole"
+                                post-fetch1="fixEnlargeColorMap1"
+                                post-fetch2="fixEnlargeColorMap2"
+                                post-fetch3="fixEnlargeColorMap3"
+                                post-fetch4="fixEnlargeColorMap4"
+                                axis-fixed-min= "indicators[4].axisMin"
+                                axis-fixed-max= "indicators[4].axisMax"
+                                axis-percent="indicators[4].axisPercent"
+                                step= "indicators[4].step"
+                                id="42"
+                        ></zk-approach-enlarge>
+                    </div>
+
+                    <!-- fig 6 -->
+                    <div data-ng-if="indicatorIndex=='participation-in-training'">
+                        <zk-approach-enlarge
+                                query="indicators[5].id" cda="dashboard.cda" type="indicators[5].type"
+                                containerTitle="indicators[5].title"
+                                color-role="indicators[5].colorRole"
+                                post-fetch1="fixEnlargeColorMap1"
+                                post-fetch2="fixEnlargeColorMap2"
+                                post-fetch3="fixEnlargeColorMap3"
+                                post-fetch4="fixEnlargeColorMap4"
+                                axis-fixed-min= "indicators[5].axisMin"
+                                axis-fixed-max= "indicators[5].axisMax"
+                                axis-percent="indicators[5].axisPercent"
+                                step= "indicators[5].step"
+                                id="23"
+                        ></zk-approach-enlarge>
+                    </div>
+                </section>
+            </div>
+        </zylk-dashboard>
+    </div>
+</div>

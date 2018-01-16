@@ -1,0 +1,12 @@
+create index Fact_table1_CountryId_idx on Fact_table1(CountryId);
+create index Fact_table1_Country_idx on Fact_table1(Country);
+create index Fact_table1_leader_idx on Fact_table1(leader);
+create index Fact_table1_approachId_idx on Fact_table1(approachId);
+create index Fact_table1_approach_idx on Fact_table1(approach);
+create index Fact_table1_Year_idx on Fact_table1(Year);
+create index Fact_table1_factorId_idx on Fact_table1(factorId);
+create index Fact_table1_factor_idx on Fact_table1(factor);
+create index Fact_table1_PSPId_idx on Fact_table1(PSPId);
+create index Fact_table1_PSP_idx on Fact_table1(PSP);
+create index Fact_table1_indicatorId_idx on Fact_table1(indicatorId);
+create index Fact_table1_Indicator_idx on Fact_table1(Indicator);

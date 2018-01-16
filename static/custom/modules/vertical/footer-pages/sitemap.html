@@ -1,0 +1,31 @@
+<div class="col-md-12">
+    <div class="container legalNotice">
+        <ul>
+            <li ng-repeat="level0 in structure">
+                <a role="button" ng-if="!level0.levels" ui-sref='{{ level0.sref }}' data-ng-bind-html="level0.name"></a>
+                <span ng-if="!!level0.levels" data-ng-bind-html="level0.name"></span>
+                <ul ng-if="level0.levels">
+                    <li ng-repeat="level1 in level0.levels">
+                        <a ng-if="level1.target" data-ng-bind-html="level1.name"></a>
+                        <a ng-if="level1.sref" ui-sref='{{ level1.sref }}' data-ng-bind-html="level1.name"></a>
+                    </li>
+                </ul>
+
+            <li>
+                <a ui-sref="site-map()" data-ng-bind="footer.siteMap"></a>
+            </li>
+            <li>
+               <a target="_blank" href="https://osha.europa.eu/en/contact-us" data-ng-bind="footer.contact"></a>
+            </li>
+            <li>
+               <a ui-sref='accessibility()' data-ng-bind="footer.access"></a>
+            </li>
+            <li>
+               <a ui-sref="privacy-policy()" data-ng-bind="footer.privacity"></a>
+            </li>
+            <li>
+               <a ui-sref='legal-notice()' data-ng-bind="footer.legal"></a>
+            </li>
+        </ul>
+    </div>
+</div>

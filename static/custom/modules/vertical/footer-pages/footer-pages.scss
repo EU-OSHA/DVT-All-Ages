@@ -1,0 +1,21 @@
+.legalNotice {
+  margin-bottom:2em;
+}
+.tableAccesibility {
+  table,td,th{
+    border:1px solid #000;
+    border-collapse: collapse;
+    padding:1em;
+  }
+}
+.external {
+  background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/external_link.png')transparent right 20% no-repeat;
+  margin-right: 0.5em;
+  padding-right: 1.3em;
+  word-wrap: break-word;
+}
+.box {
+  padding:1em;
+  border:1px solid black;
+  margin:.5em 0 1em 0;
+}
