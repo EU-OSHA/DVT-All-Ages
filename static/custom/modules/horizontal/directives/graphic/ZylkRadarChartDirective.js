@@ -33,11 +33,15 @@ define(function (require) {
              + '<h3 ng-if="!!isMaximized && !!longTitle" class="title" data-ng-bind-html="longTitle"></h3>'
              + '</div>'
              + '<div class="col-xs-3 col-sm-2 col-md-1 col-lg-2 text-right no-padding">'
-             + '<div data-ng-if="!isMaximized && isHistorical" class="col-xs-8 col-sm-8 col-md-8 col-lg-9 pull-left nopadding contextual-menu cursor-pointer">'
-             + '<i class="fa fa-history fa-2x" alt="Show historical evolution" data-ng-click="open(items[1].action)" ng-controller="IssueController" title="Show historical evolution" aria-hidden="true"></i>'
-             + '</div>'
              + '<div data-ng-if="!isMaximized" class="col-xs-3 col-sm-3 col-md-3 col-lg-2 pull-right nopadding contextual-menu cursor-pointer maximizeImage">'
-             + '<img alt="Maximize graphic" data-ng-click="open(items[0].action)" title="Maximize graphic" src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/more.png"/>'
+                +'<div class="dropdown" ng-if="!isEnlarge==true">'
+                    + '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
+                    + '<i class="fa fa-download" title="Export"></i>'
+                    + '</button>'
+                    + '<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">'
+                    + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" role="button" data-ng-bind="item.text"></a></li>'
+                    + '</ul>'
+                    + '</div>'
              + '</div>'
              + '</div>'
              +'<div class="col-xs-12">'
@@ -53,19 +57,9 @@ define(function (require) {
                 + '<h3 ng-if="!!isMaximized && !!longTitle" class="title" data-ng-bind-html="longTitle"></h3>'
                 + '</div>'
                 + '<div class="col-xs-3 col-sm-2 col-md-1 col-lg-2 text-right no-padding">'
-                + '<div data-ng-if="!isMaximized && isHistorical" class="col-xs-8 col-sm-8 col-md-8 col-lg-9 pull-left nopadding contextual-menu cursor-pointer">'
-                + '<i class="fa fa-history fa-2x" alt="Show historical evolution" data-ng-click="open(items[1].action)" ng-controller="IssueController" title="Show historical evolution" aria-hidden="true"></i>'
-                + '</div>'
                 + '<div data-ng-if="!isMaximized" class="col-xs-3 col-sm-3 col-md-3 col-lg-2 pull-right nopadding contextual-menu cursor-pointer maximizeImage">';
 
            // if(!configService.isMobile()) {
-                template += '<img alt="Maximize graphic" data-ng-click="open(items[0].action)" title="Maximize graphic" src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/more.png"/>';
-          //  }
-            
-            template+='</div>'
-                + '<div data-ng-if="isMaximized" class="contextual-menu">';
-
-            if(!navigator.userAgent.match('iPad')) {
                 template += '<div class="dropdown" ng-if="!isEnlarge==true">'
                     + '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
                     + '<i class="fa fa-download" title="Export"></i>'
@@ -74,6 +68,16 @@ define(function (require) {
                     + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" role="button" data-ng-bind="item.text"></a></li>'
                     + '</ul>'
                     + '</div>';
+          //  }
+            
+            template+='</div>'
+                + '<div data-ng-if="isMaximized && isZoom" class="contextual-menu">';
+
+            if(!navigator.userAgent.match('iPad')) {
+                template += '<div class="dropdown" ng-if="!isEnlarge==true">'
+                + '<a data-ng-click="open(\'exportImageLink\')" role="button"><i class="fa fa-picture-o" aria-hidden="true"></i> Export as Image</a>'
+                + '</div>';
+                
             }
             template+='</div>'
                 + '</div>'
@@ -117,6 +121,7 @@ define(function (require) {
                 scope.longTitle = attributes.longTitle;
 		        scope.isHistorical = attributes.historical;
 		        scope.isEnlarge=attributes.isEnlarged;
+                scope.isZoom = !!attributes.isZoom;
 
                 var dashboard = controllers[0];
                 var country1 = scope.country1;
@@ -633,35 +638,28 @@ define(function (require) {
                     if (!scope.contextuals) {
                         scope.contextuals = [];
                     }
-                    if (!attributes.isMaximized && true) {
-                        scope.contextuals.push(['Maximize', 'maximize']);
-                    }
-                    /*
-                    if(!!attributes.isMaximized && attributes.isMaximized == 'true') {
-                        [['Export as image', 'exportImage'], ['Export as CSV', 'exportData']].forEach(function (item) {
+
+                    if (scope.contextuals.length == 0){
+                        if (!attributes.isMaximized && true) {
+                            scope.contextuals.push(['Maximize', 'maximize']);
+                        }    
+                    }                    
+
+                    var ua = window.navigator.userAgent;
+                    var msie = ua.indexOf("MSIE ");
+
+                    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+                        [['Export as image', 'exportImage']].forEach(function (item) {
                             scope.contextuals.push(item);
                         });
-                    }
-                    capado hasta solución
-                    */
-                    if(!!attributes.isMaximized && attributes.isMaximized == 'true') {
-
-                        var ua = window.navigator.userAgent;
-                        var msie = ua.indexOf("MSIE ");
-
-                        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
-                            [['Export as image', 'exportImage']].forEach(function (item) {
-                                scope.contextuals.push(item);
-                            });
-                        } else if (!configService.isMobile())  {
-                            [['Export as image', 'exportImage']].forEach(function (item) {
-                                scope.contextuals.push(item);
-                            });
-                        } else {
-                            [['Export as image', 'exportImage']].forEach(function (item) {
-                                scope.contextuals.push(item);
-                            });
-                        }
+                    } else if (!configService.isMobile())  {
+                        [['Export as image', 'exportImage']].forEach(function (item) {
+                            scope.contextuals.push(item);
+                        });
+                    } else {
+                        [['Export as image', 'exportImage']].forEach(function (item) {
+                            scope.contextuals.push(item);
+                        });
                     }
                 }
 
@@ -733,10 +731,10 @@ define(function (require) {
                                 //dvtModal("olderWorkers", 'HistoricalController', JSON.stringify(definition));
                                 break;
                             case "maximize":
-                                maximize.doMaximize(dvtModal, definition, "maximizeRadar", "MaximizeController");
+                                maximize.doMaximize(dvtModal, definition, "maximizeRadar", "MaximizeController", false);
                                 break;
                             case "exportImage":
-                                exportService.exportImageAction(scope);
+                                maximize.doMaximize(dvtModal, definition, "maximizeRadar", "MaximizeController", true);
                                 break;
                             case "exportData":
                                 exportService.exportDataAction(scope, dashboard);

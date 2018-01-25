@@ -46,8 +46,15 @@ define(function () {
                 };
                 return dvtModal;
             },
-            doMaximize: function(dvtModal, definition, action, controller) {
-                    dvtModal(action, controller, JSON.stringify(definition));
+            doMaximize: function(dvtModal, definition, action, controller, pIsZoom) {
+
+                if (pIsZoom) {
+                    definition.isZoom = pIsZoom;    
+                } else {
+                    definition.isZoom = '';
+                }          
+
+                dvtModal(action, controller, JSON.stringify(definition));
             }
         }
     };

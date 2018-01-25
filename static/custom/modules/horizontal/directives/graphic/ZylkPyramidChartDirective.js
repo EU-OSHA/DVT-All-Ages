@@ -31,7 +31,14 @@ define(function (require) {
             + '<div data-ng-if="!isMaximized">'
             + '<div  class="contextual-menu cursor-pointer maximizeImage" data-ng-class="showContextuals?\'\':\'hidden\'">';
        // if(!configService.isMobile()) {
-            _template += '<img alt="Maximize graphic" data-ng-click="open(items[0].action)" title="Maximize graphic" src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/more.png"/>';
+            _template+='<div class="dropdown">'
+            +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
+            + '<i class="fa fa-download" title="Export"></i>'
+            + '</button>'
+            + '<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">'
+            + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" role="button" data-ng-bind="item.text"></a></li>'
+            + '</ul>'
+            + '</div>';
        // }
 
         _template+= '</div>'
@@ -56,7 +63,7 @@ define(function (require) {
             + '</div>'
             + '<div class="col-md-1 pull-right nopadding wrapper-contextual-menu">'
             + '<div class="pull-right contextual-menu">';
-        if(!navigator.userAgent.match('iPad')) {
+        //if(!navigator.userAgent.match('iPad')) {
             _template+='<div class="dropdown">'
             +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
             + '<i class="fa fa-download" title="Export"></i>'
@@ -65,7 +72,7 @@ define(function (require) {
             + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" role="button" data-ng-bind="item.text"></a></li>'
             + '</ul>'
             + '</div>';
-        }
+        //}
         _template+='</div>'
             + '</div>'
             + '</div>'
@@ -114,6 +121,7 @@ define(function (require) {
                 scope.id = 'zylk_pyramid_' + nextId();
                 var dashboard = controllers[0];
                 scope.divClass = "pyramid";
+                scope.isZoom = !!attributes.isZoom;
 
                 var definition = {
                     type: "cccBarChart",
@@ -385,7 +393,7 @@ define(function (require) {
                     if (!attributes.isMaximized && true){
                         scope.contextuals.push(['Maximize', 'maximize']);
                     }
-                    if(!!attributes.isMaximized && attributes.isMaximized == 'true') {
+                    //if(!!attributes.isMaximized && attributes.isMaximized == 'true') {
                         var ua = window.navigator.userAgent;
                         var msie = ua.indexOf("MSIE ");
 
@@ -403,7 +411,7 @@ define(function (require) {
                                 scope.contextuals.push(item);
                             });
                         }
-                    }
+                    //}
                 }
                 scope.showContextuals = (scope.contextuals && scope.contextuals.length > 0) || false;
                 if (scope.showContextuals){

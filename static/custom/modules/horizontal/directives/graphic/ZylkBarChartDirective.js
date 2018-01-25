@@ -189,25 +189,32 @@ define(function (require) {
             + '<div data-ng-if="haveEnlarge" class="pull-right contextual-menu enlarge-button cursor-pointer">'
             + '<button data-ng-click="open(items[0].action)" title="Compare with other groups">Compare groups</button>'
             + '</div>'
-            + '<div data-ng-if="!isMaximized && !haveEnlarge" class="pull-right contextual-menu cursor-pointer maximizeImage">'
+            + '<div class="pull-right contextual-menu cursor-pointer maximizeImage" data-ng-if="!haveEnlarge">'
        // if(!configService.isMobile()) {
-            _template+='<img alt="Maximize graphic" data-ng-click="open(items[0].action)" title="Maximize graphic"  src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/more.png"/>';
-      //  }
-        _template+= '</div>'
-            + '<div data-ng-if="!isMaximized && haveEnlarge" class="pull-right contextual-menu cursor-pointer maximizeImage">';
-      //  if(!configService.isMobile()) {
-            _template+='<img alt="Maximize graphic" data-ng-click="open(items[1].action)" title="Maximize graphic" src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/more.png"/>'
-     //   }
-        _template+='</div>'
-            + '<div data-ng-if="isMaximized && isEnlarged==undefined" class="pull-right contextual-menu">';
-        if(!navigator.userAgent.match('iPad')) {
-            _template += '<div class="dropdown" ng-if="!isEnlarge==true">'
+            _template += '<div>'
                 + '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
-                + '<i class="fa fa-download" title="Export"></i>'
+                + '<i class="three-points-vertical" title="Export"></i>'
                 + '</button>'
                 + '<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">'
-                + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" role="button" data-ng-bind="item.text"></a></li>'
+                + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" data-ng-if="item.text!=\'Compare\'" role="button" data-ng-bind="item.text"></a></li>'
                 + '</ul>'
+                + '</div>';
+      //  }
+        _template+= '</div>';
+        _template+= '<div class="pull-right contextual-menu cursor-pointer maximizeImage" data-ng-if="!isMaximized && haveEnlarge">'
+            +'<div>'
+                + '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
+                + '<i class="three-points-vertical" title="Export"></i>'
+                + '</button>'
+                + '<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">'
+                + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" data-ng-if="item.text!=\'Compare\'" role="button" data-ng-bind="item.text"></a></li>'
+                + '</ul>'
+                + '</div>'
+                + '</div>';
+        _template+= '<div data-ng-if="isMaximized && isEnlarged==undefined && isZoom" class="pull-right contextual-menu">';
+        if(!navigator.userAgent.match('iPad')) {
+            _template += '<div class="dropdown" ng-if="!isEnlarge==true">'
+                + '<a data-ng-click="open(\'exportImageLink\')" role="button"><i class="fa fa-picture-o" aria-hidden="true"></i> Export as Image</a>'
                 + '</div>';
         }
         _template +='</div>'
@@ -274,6 +281,7 @@ define(function (require) {
                 }
                 scope.legendDesc = legendDescription;
                 scope.isMaximized = !!attributes.isMaximized;
+				scope.isZoom = !!attributes.isZoom;
                 scope.longTitle = attributes.longTitle;
                 scope.isEnlarge=attributes.isEnlarged;
                 if(attributes.legendClickMode=="toggleVisible"){
@@ -612,10 +620,10 @@ define(function (require) {
                     if (!scope.contextuals) {
                         scope.contextuals = [];
                     }
-                    if (!attributes.isMaximized && true){
+                    //if (!attributes.isMaximized && true){
                         scope.contextuals.push(['Maximize', 'maximize']);
-                    }
-                    if(!!attributes.isMaximized && attributes.isMaximized == 'true') {
+                    //}
+                    //if(!!attributes.isMaximized && attributes.isMaximized == 'true') {
                         var ua = window.navigator.userAgent;
                         var msie = ua.indexOf("MSIE ");
 
@@ -633,7 +641,7 @@ define(function (require) {
                                 scope.contextuals.push(item);
                             });
                         }
-                    }
+                    //}
                 }
                 scope.showContextuals = (scope.contextuals && scope.contextuals.length > 0) || false;
                 if (scope.showContextuals){
@@ -704,9 +712,12 @@ define(function (require) {
                             //dvtModal("HLYvsLE", 'HistoricalController', JSON.stringify(definition));
                             break;
                         case "maximize":
-                            maximize.doMaximize(dvtModal,definition, "maximize", "MaximizeController");
+                            maximize.doMaximize(dvtModal,definition, "maximize", "MaximizeController", false);
                             break;
                         case "exportImage":
+							maximize.doMaximize(dvtModal,definition, "maximize", "MaximizeController", true);
+                            break;
+                        case "exportImageLink":									   
                             exportService.exportImageAction(scope);
                             break;
                         case "exportData":
