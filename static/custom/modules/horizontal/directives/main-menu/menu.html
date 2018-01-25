@@ -8,6 +8,28 @@
             <img id="EUico" src="/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/europeLogo.png" alt="Europe logo">
         </div>
 
+        <!-- nav tools top -->
+        <nav class="menu-tools-top col-xs-4 col-sm-8 col-md-8">
+            <div class="submenu-icon">
+                <a href="javascript:" title="{{i18n_menu.Submenu}}">
+                    <i class="three-points"></i><span class="sr-only" data-ng-bind="i18n_menu.SocialMenu"></span>
+                </a>
+            </div>
+            <ul class="social-network list-inline navbar-right" id="osha-menu-social">
+                <li class="item-print">
+                    <a class="print" href="javascript:"  title="{{i18n_menu.PrintPage}}" onclick="window.print()">
+                        <i class="fa fa-lg fa-print" aria-hidden="true"></i><span class="sr-only" data-ng-bind="i18n_menu.Print"></span>
+                    </a>
+                </li>
+                <li class="zoom-text">
+                    <span class="a_small"><a onclick="zoomSmall()" title="Smaller text">a</a></span>
+                    <span class="a_medium"><a onclick="zoomMedium()" title="Optimized defaults">a</a></span>
+                    <span class="a_big"><a onclick="zoomBig()" title="Bigger text">a</a></span>
+                </li>
+            </ul>
+        </nav>
+        <!-- /. nav tools top -->
+
         <div class="mainMenu">
             <nav id="main-menu" class="navbar navbar-default">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -101,31 +123,29 @@
                     <span class="labelShare" data-ng-bind="titleS.shareThis"></span>
 
                     <a
-                       class="a2a_button_twitter"
+                       class="fa fa-lg fa-twitter"
                        socialshare
                        socialshare-provider="twitter"
                        socialshare-text="{{title}}"
                        socialshare-url="{{pathURLDVT}}"></a>
 
                     <a
-                       class="a2a_button_facebook"
+                       class="fa fa-lg fa-facebook"
                        socialshare
                        socialshare-provider="facebook"
                        socialshare-url="{{pathURLDVT}}"></a>
 
                     <a
-                       class="a2a_button_linkedin"
+                       class="fa fa-lg fa-linkedin"
                        socialshare
                        socialshare-provider="linkedin"
                        socialshare-url="{{pathURLDVT}}"></a>
 
                     <a
-                       class="a2a_button_google_plus"
+                       class="fa fa-lg fa-google-plus"
                        socialshare
                        socialshare-provider="google"
                        socialshare-url="{{pathURLDVT}}"></a>
-
-                    <a class="a2a_button_print" onclick="window.print()"></a>
                 </div>
 
 
