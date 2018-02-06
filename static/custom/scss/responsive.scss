@@ -373,7 +373,7 @@
     width: auto !important;
   }
   #main-menu {
-    margin-top: 1.6rem;
+    margin-top: 0rem;
     float: left;
     width: 100%;
   }
@@ -415,7 +415,7 @@
     margin-top: 20px;
   }
   #main-menu {
-      margin-top: 1.6rem;
+      margin-top:0rem;
       width: 100%;
       float:left;
       .container-fluid{
@@ -689,7 +689,7 @@
     margin: 2%;
   }
   .navbar-header{
-    margin-top: 1em;
+    margin-top: 0em;
   }
   .navbar-nav{
     margin: 7.5px 0;
@@ -802,6 +802,9 @@
     width: 100% !important;
     margin:0;
   }
+  #containerMenu .menu-tools-top {
+    padding-right: 0px;
+  }
   /**** POLICY APPROACHES GROUPS STICKY ******/
   #indicators-content li.toggleGroup.horizontal.boxGroup,
   #indicators-content.affix li.toggleGroup.horizontal.boxGroup{
@@ -810,7 +813,7 @@
   }
 
   #formCountryInsigth.affix {
-      top: 95px;
+      top: 105px;
   }
   .modal-body {
     .wrapper-contextual-menu{
@@ -877,7 +880,7 @@
    #containerMenu {
      min-height: 75px;
       .navbar-header {
-        margin-top: 1em;
+        margin-top: 0em;
         .navbar-toggle {
           margin-right: 23px;
           margin-top: -12px;

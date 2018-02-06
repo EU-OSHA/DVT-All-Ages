@@ -2,6 +2,7 @@
   position: initial;
   /*width: auto;*/
   float: left;
+  margin: 0rem 0 1rem;
     a {
     text-decoration: none !important;
     }
@@ -19,10 +20,10 @@ zylk-menu {
 
 #main-menu {
     border-radius: 0;
-    margin-top: 3em;
+    margin-top: 14px;
     background: $colorWhite;
     width:auto;
-    float: right;
+    float: none;
 }
 .navbar-default {
     background-color:$colorTrans;
@@ -97,12 +98,97 @@ ul.navbar-nav {
 }
 
 .mainMenu{
-    background:$colorWhite;
+  background:$colorWhite;
+  float: right;
+  clear: right;
 }
 #containerMenu {
-    background:$colorWhite none repeat scroll 0 0;
-    width: 100%;
-    z-index: 9000 !important;
+  background:$colorWhite none repeat scroll 0 0;
+  width: 100%;
+  z-index: 9000 !important;
+  .menu-tools-top{
+    padding: 0px 15px 0;
+    width: auto;
+    float: right;
+    padding-right: 326px;
+    .submenu-icon{
+      display: none;
+    }
+    .social-network {
+      margin:0;
+      padding-right: 5px;
+      border-right: 1px solid #ccc;
+      li{
+        padding-right: 7px;
+        a{
+          color: $menu-item;
+          &:hover{
+            color: $color03;
+          }
+          .flickr-icon{
+            background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/footer-flickr.png) no-repeat;
+            background-size: 20px 20px;
+            width: 20px;
+            height: 21px;
+            display: inline-block;
+            opacity: 0.35;
+            position: relative;
+            top: 6px;
+          }
+          &:hover .flickr-icon{
+            background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/footer-flickr.png') no-repeat;
+            background-size: 20px 20px;
+            opacity:1;
+          }
+          .blogger-icon{
+            background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/osha-dvt-ilo/static/custom/img/blog.svg) no-repeat;
+            background-size: 20px 20px;
+            width: 20px;
+            height: 21px;
+            display: inline-block;
+            opacity: 0.35;
+            position: relative;
+            top: 6px;
+          }
+          &:hover .blogger-icon{
+            background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/osha-dvt-ilo/static/custom/img/blog-hover.svg') no-repeat;
+            background-size: 20px 20px;
+            opacity:1;
+          }
+        }
+      }
+      li.zoom-text{
+        span {
+          display: inline-block;
+          vertical-align: sub;
+          line-height: 22px;
+          a{
+            display: block;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            &:hover{
+              text-decoration: none;
+            }
+          }
+          &.a_small a{
+            font-size:1em;
+          }
+          &.a_medium a{
+            font-size: 1.5em;
+          }
+          &.a_big a{
+            font-size:2em;
+          }
+        }
+      }
+    }
+  }
+  &.affix{
+    .menu-tools-top{
+      margin-top: 12px;
+    }
+  }
 }
 #EUico{
     margin: 3em 0 0 1.5em;
@@ -174,7 +260,7 @@ p.title-banner {
     float: left;
     margin-right: 1em;
     color:$menu-item;
-    margin-top: 0.4em;
+    margin-top: 0em;
     font-size: 0.8em;
 }
 /*Image share*/
@@ -186,6 +272,14 @@ p.title-banner {
     width: 24px;
     margin: 0 0.2em;
     cursor:pointer;
+  &:before{
+    color: #529fa2;
+    text-decoration: none;
+  }
+  &:hover{
+    text-decoration: none !important;
+    color: #666;
+  }
 }
 .a2a_button_twitter {
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%2355ACEE%22%20d%3D%22M0%200h32v32H0z%22%2F%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M28%208.557c-.884.39-1.833.656-2.828.775%201.017-.608%201.798-1.573%202.166-2.725-.953.567-2.006.976-3.13%201.194-.896-.956-2.176-1.554-3.593-1.554-2.72%200-4.924%202.206-4.924%204.925%200%20.387.045.763.13%201.125-4.094-.208-7.724-2.168-10.15-5.147-.423.726-.667%201.573-.667%202.476%200%201.71.87%203.214%202.19%204.1-.806-.027-1.564-.25-2.23-.616v.06c0%202.39%201.7%204.378%203.952%204.83-.414.113-.85.172-1.297.172-.317%200-.625-.03-.927-.086.63%201.956%202.447%203.38%204.6%203.42-1.685%201.318-3.808%202.107-6.114%202.107-.398%200-.79-.023-1.175-.068%202.18%201.396%204.768%202.213%207.55%202.213%209.056%200%2014.01-7.506%2014.01-14.012%200-.213-.005-.426-.015-.637.96-.694%201.795-1.56%202.455-2.55z%22%2F%3E%3C%2Fsvg%3E");
@@ -232,9 +326,11 @@ a.a2a_button_print:before {
   text-align: right;
   z-index: 9997!important;
   margin: 1em 1em -2em 0;
-  position: absolute;
   right: 0;
-
+  &.affix{
+    top: 14px;
+    margin: 0em 1em -2em 0;
+  }
   .google_translate_span{
         font-size: 11px;
     }

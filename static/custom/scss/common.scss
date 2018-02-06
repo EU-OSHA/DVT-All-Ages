@@ -126,7 +126,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 36px;
     margin-top: 10px;
   }
-
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -135,28 +134,92 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-
 .ovh {
   overflow:hidden;
 }
+.contextual-menu.maximizeImage {
+  &.cursor-pointer:hover{
+    opacity: 1;
+  }
+  > div.dropdown {
+    background:transparent !important;
+    padding: 4px 5px;
+    border-radius: 4px;
+    width: 30px;
+    float: right;
+    margin-right: 15px;
 
-div.contextual-menu > div.dropdown {
-  background:$color05;
-  padding: 4px 5px;
-  border-radius: 4px;
-  width: 30px;
-  float: right;
-  margin-right: 15px;
-
-  button {
-    background: transparent;
-    border: none;
-    padding: 1px;
-    color: $colorA;
-    font-weight: 100;
+    button {
+      background-color: transparent !important;
+      border: none !important;
+      padding: 0px;
+      margin: 0px;
+      color: $colorA;
+      font-weight: 100;
+      -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+      box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+      &:active, &.focus, &.active.focus{
+        -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+        outline: 0px auto -webkit-focus-ring-color;
+        outline-offset: 0px;
+      }
+      &:hover{
+        i{
+          opacity:0.95;
+        }
+      }
+      .three-points-vertical{
+        background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/osha-dvt-ilo/static/custom/img/three-point-vertical.svg) no-repeat;
+        background-size: 27px 27px;
+        width: 27px;
+        height: 27px;
+        display: inline-block;
+        opacity: 1;
+        position: relative;
+        top: -3px;
+      }
+    }
   }
 }
-
+.wrapper-contextual-menu{
+  .contextual-menu{
+    &.cursor-pointer:hover{
+      opacity: 1;
+    }
+    button {
+      background-color: transparent !important;
+      border: none !important;
+      padding: 0px;
+      margin: 0px;
+      color: $colorA;
+      font-weight: 100;
+      -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+      box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+      &:active, &.focus, &.active.focus{
+        -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125) !important;
+        outline: 0px auto -webkit-focus-ring-color;
+        outline-offset: 0px;
+      }
+      &:hover{
+        i{
+          opacity:0.95;
+        }
+      }
+      .three-points-vertical{
+        background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/osha-dvt-ilo/static/custom/img/three-point-vertical.svg) no-repeat;
+        background-size: 27px 27px;
+        width: 27px;
+        height: 27px;
+        display: inline-block;
+        opacity: 1;
+        position: relative;
+        top: -3px;
+      }
+    }
+  }
+}
 .modal-backdrop {
   z-index:9998 !important;
 }
@@ -523,7 +586,12 @@ div.blockUIDefaultImg:before {
 
 .legend-info{
   background: $colorWhite;
-  padding-left: 1em;
+  clear: both;
+  padding: 0 0 20px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  top: 0px !important;
+  position: relative;
 }
 /*Width disclaimer*/
 #widthDisclaimer {

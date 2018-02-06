@@ -73,12 +73,13 @@ div.grupos.col-xs-12.nopadding {
   .zylk-bar-chart{
     overflow:visible;
   }
-  .contextual-menu{
+  .contextual-menu.enlarge-button{
     button{
-    background:$color05;
-    color:$colorWhite;
-    border: 0;
+    background:$color05 !important;
+    color:$colorWhite !important;
+    border: 0 !important;
     font-size: 14px;
+    padding: 2px !important;
     width: 150px;
     position: absolute;
     font-family: Oswald-light;
