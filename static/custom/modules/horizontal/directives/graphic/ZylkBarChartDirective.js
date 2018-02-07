@@ -189,7 +189,7 @@ define(function (require) {
             + '<div data-ng-if="haveEnlarge" class="pull-right contextual-menu enlarge-button cursor-pointer">'
             + '<button data-ng-click="open(items[0].action)" title="Compare with other groups">Compare groups</button>'
             + '</div>'
-            + '<div class="pull-right contextual-menu cursor-pointer maximizeImage" data-ng-if="!haveEnlarge">'
+            + '<div class="pull-right contextual-menu cursor-pointer maximizeImage out" data-ng-if="!isMaximized && !haveEnlarge">'
        // if(!configService.isMobile()) {
             _template += '<div>'
                 + '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
@@ -201,7 +201,7 @@ define(function (require) {
                 + '</div>';
       //  }
         _template+= '</div>';
-        _template+= '<div class="pull-right contextual-menu cursor-pointer maximizeImage" data-ng-if="!isMaximized && haveEnlarge">'
+        _template+= '<div class="pull-right contextual-menu cursor-pointer maximizeImage in" data-ng-if="!isMaximized && haveEnlarge">'
             +'<div>'
                 + '<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
                 + '<i class="three-points-vertical" title="Export"></i>'

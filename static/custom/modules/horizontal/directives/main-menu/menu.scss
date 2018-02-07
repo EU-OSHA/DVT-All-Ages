@@ -186,7 +186,7 @@ ul.navbar-nav {
   }
   &.affix{
     .menu-tools-top{
-      margin-top: 12px;
+      margin-top: 16px;
     }
   }
 }
@@ -327,9 +327,11 @@ a.a2a_button_print:before {
   z-index: 9997!important;
   margin: 1em 1em -2em 0;
   right: 0;
+  position:relative;
   &.affix{
     top: 14px;
     margin: 0em 1em -2em 0;
+    position:fixed;
   }
   .google_translate_span{
         font-size: 11px;

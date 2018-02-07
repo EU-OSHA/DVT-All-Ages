@@ -64,14 +64,9 @@ define(function (require) {
             + '<div class="col-md-1 pull-right nopadding wrapper-contextual-menu">'
             + '<div class="pull-right contextual-menu">';
         //if(!navigator.userAgent.match('iPad')) {
-            _template+='<div class="dropdown">'
-            +'<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'
-            + '<i class="three-points-vertical" title="Export"></i>'
-            + '</button>'
-            + '<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">'
-            + '<li data-ng-repeat="item in items"><a data-ng-click="open(item.action)" role="button" data-ng-bind="item.text"></a></li>'
-            + '</ul>'
-            + '</div>';
+            _template += '<div class="dropdown" ng-if="!isEnlarge==true && isMaximized==true">'
+                + '<a data-ng-click="open(\'exportImageLink\')" role="button"><i class="fa fa-picture-o" aria-hidden="true"></i> Export as Image</a>'
+                + '</div>';
         //}
         _template+='</div>'
             + '</div>'
@@ -462,9 +457,12 @@ define(function (require) {
                             scope.clickAction();
                             break;
                         case "maximize":
-                            maximize.doMaximize(dvtModal,definition, "maximizePyramid", "MaximizeController");
+                            maximize.doMaximize(dvtModal,definition, "maximizePyramid", "MaximizeController", false);
                             break;
                         case "exportImage":
+                            maximize.doMaximize(dvtModal,definition, "maximizePyramid", "MaximizeController", true);
+                            break;
+                        case "exportImageLink":
                             exportService.exportImageAction(scope);
                             break;
                         case "exportData":
