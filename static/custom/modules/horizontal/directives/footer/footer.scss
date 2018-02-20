@@ -82,10 +82,10 @@
   display: inline-block;
   padding-left: 20px;
   margin-top: 0em;
-  line-height: 40px;
+  line-height: 4rem;
 
   font-family: $font-text;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: #57575a;
 
   margin-right: 40px;
@@ -100,10 +100,10 @@
 #footer-second-line {
   /* border:3px solid purple; */
   display: inline-block;
-  line-height: 40px;
+  line-height: 4rem;
 
   a {
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 300;
   }
 }
@@ -112,7 +112,7 @@
 #block-menu-block-5 {
   /* border:3px solid lime; */
   display: inline-block;
-  line-height: 40px;
+  line-height: 4rem;
   margin-right:1em;
 
   li {

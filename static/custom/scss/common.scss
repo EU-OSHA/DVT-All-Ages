@@ -100,6 +100,7 @@ $backgroundGlossary2:#eceff1;
 }
 body {
   font-family: $font-body;
+  font-size: 1.4rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -117,14 +118,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 #not-home-cover {
   background: url('/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/not-home-banner.png') $colorB no-repeat center top;
-  height: 61px;
-  clear:both;
+  height: 6.1rem;
+  clear: both;
+  background-size: cover;
   h1 {
     color: $colorA;
     font-size: 2em;
     font-weight: 500;
-    line-height: 36px;
-    margin-top: 10px;
+    line-height: 3.6rem;
+    margin-top: 1rem;
   }
 }
 
@@ -229,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* tooltip size */
 .tipsy-inner{
-  font-size:12px;
+  font-size:1.2rem;
 }
 
 /* tooltip percentage hidden for stacked bars */
@@ -248,15 +250,15 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Open Sans",sans-serif;
     font-weight:bold;
     color:$font-black !important;
-    font-size: 16px !important;;
-    line-height: 1.2em !important;
+    font-size: 1.6rem !important;;
+    line-height: 1.6rem !important;
     padding: 0.2em 0 !important;
   }
   .row {
     margin:0 !important;
   }
   .contextual-menu .fa-2x{
-    font-size:23px !important;
+    font-size:2.3rem !important;
     color:$colorB;
 
   }

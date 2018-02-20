@@ -8,6 +8,16 @@
  * A description of the directive
  *
  */
+function zoomSmall(){
+    angular.element('html').css('font-size','8px');
+}
+function zoomMedium(){
+    angular.element('html').css('font-size','10px');
+}
+function zoomBig(){
+    angular.element('html').css('font-size','12px');
+}
+
 define(function (require) {
     'use strict';
 
@@ -108,6 +118,7 @@ define(function (require) {
                         var lPath = $location.path().split("/");
                         $log.debug("isCurrentSection and menu variable  |  " + id.replace(/\s+/g, '-') + "  |  " + breadCrumbStructure['sections'][lPath[1]]);
                         $scope.pathURLDVT=$location.absUrl();
+                        $scope.pathURLDVTGoogle = "https://plus.google.com/share?url=" + $scope.pathURLDVT;
                         var isCurrent = (id.replace(/\s+/g, '-') === breadCrumbStructure['sections'][lPath[1]] );
                         if (isCurrent){
                             $log.info("isCurrentSection | section: '" + lPath[1] + "' under menu option: '" + id) + "'";
@@ -131,6 +142,7 @@ define(function (require) {
 
                     $scope.titleS=titleStructure;
                     $scope.pathURLDVT=$location.absUrl();
+                    $scope.pathURLDVTGoogle = "https://plus.google.com/share?url=" + $scope.pathURLDVT.replace("#","?_escaped_fragment_=");
 
                     $rootScope.$on('$viewContentLoaded', function(event, viewConfig) {
                             $log.debug('------------------------------------------------------');

@@ -40,7 +40,7 @@
     font-family: "Arial";
     color: #AAA;
     display: block;
-    font-size: 10px;
+    font-size: 1rem;
     font-style: normal;
     text-decoration: none !important;
     word-break: break-all;
@@ -74,16 +74,16 @@
  p.title-banner{
     width: 100% !important;
     text-align: left !important;
-    font-size:36px !important;
+    font-size:3.6rem !important;
     font-weight: 300 !important;
     border-bottom: 1px solid #888;
   }
   h1, h1.page-header.text-center{
     width: 100% !important;
     text-align: left !important;
-    font-size:32px !important;
+    font-size:3.2rem !important;
     padding-top:0;
-    padding-bottom: 9px;
+    padding-bottom: 0.9rem;
   }
   .challengesBar {
     text-align: left;
@@ -92,11 +92,11 @@
     span.selected{
       color: #888 !important;
       padding: 0 0.5em !important;
-      font-size: 28px !important;
+      font-size: 2.8rem !important;
     }
   }
   .container.centered h2 {
-      font-size: 26px !important;
+      font-size: 2.6rem !important;
       color: #888 !important;
       font-weight: 500 !important;
       margin: 0;
@@ -401,7 +401,7 @@
         .policy-items {
           background-color: #fff;
           margin-left: 0;
-          margin-bottom: 10px;
+          margin-bottom: 1rem;
           width: 100%;
           .policy-country {
               float: none !important;
@@ -415,12 +415,12 @@
           display:none;
         }
         .policy-description {
-          max-height: 650px !important;
+          max-height: 6.5rem !important;
           height: auto !important;
           overflow: auto !important;
         }
         .policy-description.expanded {
-          max-height: 650px !important;
+          max-height: 6.5rem !important;
           height: auto !important;
           overflow: auto !important;
         }
@@ -438,7 +438,7 @@
         columns: 4;
       }
       .title {
-        font-size: 16px !important;
+        font-size: 1.6rem !important;
       }
     }
 }
@@ -489,7 +489,7 @@
 
   .main-country-card {
   width: 100% !important;
-  height: 250px !important;
+  height: 2.5rem !important;
     .country-card-bg {
       overflow: auto;
       min-height: auto;
@@ -500,7 +500,7 @@
       page-break-inside: avoid;
       .title{
         border-bottom: 1px solid #f6a400;
-        margin:0 0 15px 0 !important;
+        margin:0 0 1.5rem 0 !important;
         width: 100% !important;
       }
       .mapSvg {
@@ -571,7 +571,7 @@
       line-height: 34px;
       border-radius: 0;
       border:0 !important;
-      font-size:18px;
+      font-size:1.8rem;
       font-family: "Open Sans",sans-serif;
     }
     .select2-container .select2-choice .select2-arrow{

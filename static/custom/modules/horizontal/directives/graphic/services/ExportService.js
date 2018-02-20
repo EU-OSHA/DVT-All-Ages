@@ -216,6 +216,9 @@ define(function(require){
             //window._paq.push(['trackEvent', $state.current.name, 'maximize', 'nameMaximize', 'valueMaximize', {dimensionMaximize1: 'DimensionMaximizeValue'}]);
 
             var title=(scope.title);
+            if (title == null) {
+                title = 'Data';
+            }
             title=title.replace(/;/g," ").replace(/,/g, " ").replace(/ +/g, "_");
             var exportDefinition = {
                 type: "ExportPopupComponent",

@@ -736,6 +736,9 @@ define(function (require) {
                             case "exportImage":
                                 maximize.doMaximize(dvtModal, definition, "maximizeRadar", "MaximizeController", true);
                                 break;
+                            case "exportImageLink":
+                                exportService.exportImageAction(scope);
+                                break;
                             case "exportData":
                                 exportService.exportDataAction(scope, dashboard);
                                 break;
