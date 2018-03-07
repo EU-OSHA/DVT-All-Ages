@@ -462,6 +462,9 @@
     width: 100%;
 
   }
+  .scpPart1 .cspBig {
+    margin-top: 1em !important;
+  }
   .boxEurope {
     .title{
       border-bottom: 1px solid #f6a400;
@@ -488,8 +491,8 @@
   }
 
   .main-country-card {
-  width: 100% !important;
-  height: 2.5rem !important;
+    width: 100% !important;
+    height: auto !important;
     .country-card-bg {
       overflow: auto;
       min-height: auto;
