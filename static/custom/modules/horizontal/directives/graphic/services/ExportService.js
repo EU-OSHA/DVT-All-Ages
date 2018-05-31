@@ -262,6 +262,9 @@ define(function(require){
                 data=data.substring(0, data.length - 1)+"\n";
             }
 
+            data += "\n\n";
+            data += "NOTE: the figures are in English and uses commas for thousands and dots for decimals.\nIf you have your computer in other language, please go to advanced options in Excel, and change the system separators to view the data properly."
+
             var downloadCSV = function() {
                 var BOM = "\uFEFF";
                 var csv = BOM + columns+"\n"+data;
