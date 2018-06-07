@@ -256,6 +256,10 @@ define(function(require){
                     if(!isNaN(value) && (value<-1 || (value>-1 && value<0))) {
                         data+=Math.abs(value)+";";
                     } else {
+                        if ($.isNumeric(value) && (value%1) > 0)
+                        {
+                            value = Math.ceil(value*100)/100;
+                        }
                         data+=value+";";
                     }
                 }
