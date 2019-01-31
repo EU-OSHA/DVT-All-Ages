@@ -136,6 +136,21 @@
   }
 }
 @media screen and (max-width: 1024px) {
+  #cookiesConsent {
+    min-height: 8rem;
+    .text {
+      float:none;
+      width:100%;
+    }
+    .buttons {
+      float:none;
+      width:100%;
+      text-align: center;
+      button{
+        float: none;
+      }
+    }
+  }
   .mainMenu{
     float: right;
     width:100%;
@@ -857,6 +872,18 @@
 
 
 @media only screen and (max-width : 667px) {
+  
+  #cookiesConsent {
+    .text {
+    }
+    .buttons {
+      button{
+        float: none;
+        width:100%;
+        margin: 0.5rem 0;
+      }
+    }
+  }
   .maximizeImage {
     visibility: hidden;
     display:none;
@@ -1078,7 +1105,8 @@
   }
 }
 
-@media only screen and (max-width : 420px) {
+@media only screen and (max-width : 420px) { 
+
   .maximizeImage {
     visibility: hidden;
     display:none;

@@ -21,7 +21,7 @@ define(function (require) {
     return {
         generateController: function (module, ctrlName) {
             return angular.module(module)
-                .controller(ctrlName, function ($scope, $modalInstance, $log, $state, $stateParams, parameters, dvtUtils) {
+                .controller(ctrlName, function ($scope, $rootScope, $modalInstance, $log, $state, $stateParams, parameters, dvtUtils) {
                     /* GET FUNCTIONAL LEGEND */
 
                     /*ESTABLISH NEEDED DASH PARAMS FOR RENDER COMPONENTS */
@@ -43,7 +43,11 @@ define(function (require) {
                             "color4": dvtUtils.getGroupColor("4")
                         }
                     };
-                    window._paq.push(['trackEvent', $state.current.name, 'maximize', 'nameMaximize', 'valueMaximize', {dimensionMaximize1: 'DimensionMaximizeValue'}]);
+
+                    if ($rootScope.hasAgreedCookies)
+                    {
+                        window._paq.push(['trackEvent', $state.current.name, 'maximize', 'nameMaximize', 'valueMaximize', {dimensionMaximize1: 'DimensionMaximizeValue'}]);    
+                    }                    
                     //$analytics.eventTrack('Maximize', {  category: $state.current.name, label: 'maximize'});
 
                     $scope.parameters = parameters;

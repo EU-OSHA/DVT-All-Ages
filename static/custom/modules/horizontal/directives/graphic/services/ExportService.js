@@ -23,8 +23,11 @@ define(function(require){
 
     var exportImage = function (scope) {
 
-
-            window._paq.push(['trackEvent', $state.current.name,'Export','Image']);
+            if (scope.$root.hasAgreedCookies)
+            {
+                window._paq.push(['trackEvent', $state.current.name,'Export','Image']);    
+            }
+            
             var node = $('#' + scope.id).parents('.dvt-chart')[0];
             /*
             var nodeSvg = $(node).find('svg')[0];

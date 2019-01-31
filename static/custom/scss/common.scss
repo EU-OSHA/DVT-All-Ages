@@ -544,15 +544,18 @@ div.blockUIDefaultImg:before {
 #cookiesConsent {
   background: $backgroundCookies;
   width: 100%;
-  padding: 1em 2.5em 0;
+  padding: 1em 2.5em;
   overflow: auto;
   z-index:9999;
+  min-height: 8rem;
   .text {
     float:left;
-    width:70%
+    width:60%;
+    padding-top: 1rem;
   }
   .buttons {
-
+    float:right;
+    width:40%;
   }
   button {
     color:$colorWhite;
