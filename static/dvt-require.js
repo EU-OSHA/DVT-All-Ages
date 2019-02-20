@@ -29,7 +29,6 @@
      * if you want to debug just put ?isDebug=true&debugLevel=5 in browser params
      */
     var isDebug = typeof document == "undefined" || document.location.href.indexOf("debug=true") > 0 || environment.packed === false;
-    console.log('debug: ' + isDebug);
     var suffix = (isDebug) ? "" : ".min";
 
 
