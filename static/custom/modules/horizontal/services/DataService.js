@@ -188,6 +188,12 @@ define(function () {
                 return promise(url);
             },
 
+            getLinkInfographics: function (country) {
+                var url = configService.getCountriesDataPath() + "&dataAccessId=getLinkInfographics" + "&paramparam_country=" + country;
+                $log.debug('getLinkInfographics url: ' + url);
+                return promise(url);
+            },
+
             /**
              * @ngdoc method
              * @name dvt.configModule.DataService#getCSPSingleCriteriaIndicators

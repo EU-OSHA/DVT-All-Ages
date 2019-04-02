@@ -153,4 +153,13 @@
             </Parameters>
             <Query>SELECT Country.Report FROM Country WHERE Id=${param_country}</Query>
         </DataAccess>
+
+        <DataAccess access="public" connection="connection" id="getLinkInfographics" type="sql">
+            <Cache duration="3600" enabled="true" />
+            <Columns/>
+            <Parameters>
+                <Parameter default="RO" name="param_country" type="String" />
+            </Parameters>
+            <Query>SELECT Country.Description FROM Country WHERE Id=${param_country}</Query>
+        </DataAccess>
     </CDADescriptor>

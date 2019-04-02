@@ -35,6 +35,7 @@ define(function (require) {
 
                     var sectionId = nextId();
                     $scope.country = $stateParams.pCountry1;
+                    $scope.countryName = "Spain";
                     $scope.width = $attrs.width || 200;
                     $scope.height = $attrs.height || 250;
                     $scope.zoomW = $attrs.zoomW || 500;
@@ -58,6 +59,22 @@ define(function (require) {
                         })
                         .catch(function (err) {
                             $log.warn("Link Report data request --> link fail!");
+                        });
+
+                    dataService.getLinkInfographics(country)
+                        .then(function (dataset) {
+                            dataset.data.resultset.forEach(function(linkInfographics) {
+                                $log.debug('linkInfographics value: ' + linkInfographics[0]);
+                                var elemento = document.getElementById('linkInfographics');
+                                var link = linkInfographics[0];
+                                link = link.replace(" ", "");
+                                link = "/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/additional-resources/pdf/" + link + ".pdf";
+                                elemento.setAttribute("href", link);
+
+                            });
+                        })
+                        .catch(function (err) {
+                            $log.warn("Link infographics data request --> link fail!");
                         });
 
             }]

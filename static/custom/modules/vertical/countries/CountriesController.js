@@ -36,7 +36,6 @@ define(function (require) {
                 }, 2000);
             });
 
-
             /*
              * FIXME duplicated in
              * - CountriesService
@@ -399,6 +398,11 @@ define(function (require) {
                     }
                 });
                 $scope.countries = countries;
+
+                var countryName = $scope.countries[$scope.pCountry1].desc;
+                countryName = countryName.replace(" ", "");
+                $scope.countryName = countryName;
+
                 $log.debug($scope.countries);
                 
             })
