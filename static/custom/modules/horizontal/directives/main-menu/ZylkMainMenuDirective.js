@@ -235,6 +235,14 @@ define(function (require) {
                         console.warn("unfoundState.options: " + unfoundState.options );
                     });
 
+                    $scope.firstPage = true;
+
+                    $rootScope.$on('$stateChangeStart', function()
+                    {
+                        // When the state changes, hide the warning message about the outdated data
+                        $scope.firstPage = false;
+                    });
+
 
                     // la clase intdvt es nuestra y sustituye a la de bootstrap.
                     // la clase in de bootstrap siempre la quitamos, no nos interesa

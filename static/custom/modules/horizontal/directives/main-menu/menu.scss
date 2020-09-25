@@ -197,6 +197,19 @@ ul.navbar-nav {
     margin: 3em 0 0 1.5em;
 }
 
+.advice-content {
+  min-height: 5rem;
+  border: 0;
+  text-align: left;
+  background: #97c5c7;
+  color: #212020;
+  padding: 2rem 7rem;
+  display: block;
+  width: 80rem;
+  margin: 1rem auto;
+  background: url(/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/img/info-ico.png) no-repeat 23px 22px #dbeced;
+}
+
 .page-header {
     padding-bottom: 0.7em;
     border-bottom: 0;
