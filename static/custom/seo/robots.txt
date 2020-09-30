@@ -1,2 +1,0 @@
-Sitemap: https://visualisation.osha.europa.eu/pentaho/plugin/pentaho-cdf-dd/api/resources/system/all-ages/static/custom/seo/sitemap.xml
-User-agent: *
